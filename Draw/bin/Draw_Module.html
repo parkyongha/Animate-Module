@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>Draw_Module</title>
+<!-- write your code here -->
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="Draw_Module.js?1740387771008"></script>
+<script type='text/javascript' src='libs/MorphUtil.1.0.0.js'></script>
+<script type='text/javascript' src='libs/bitmapdata-1.1.1.min.js'></script>
+<script>
+// Global Scripts
+	{
+	var TempWidth = null;
+	var TempHeight = null;
+	var MainRoot = null;
+}
+//헥사 코드 값을 rgb 값으로 변환
+function hexToRgb(hex) {
+	var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+	hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+		return r + r + g + g + b + b;
+	});
+	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	return result ? {
+		r: parseInt(result[1], 16),
+		g: parseInt(result[2], 16),
+		b: parseInt(result[3], 16)
+	} : null;
+}
+// Image : 다시 그릴 이미지
+// refImage : 참고할 이미지 
+// refImage의 보이는 픽셀만 Image를 다시 그림
+// downScaling : 이미지 다운스케일링할 값 (작을 수록 빠름)
+function ReDrawEnablePixelsUsingComposite(Image, refImage, endFunc, downScaling = 1) {
+	const bound = refImage.nominalBounds;
+	// 캐시 스케일을 낮춰서 작업
+	refImage.cache(0, 0, bound.width, bound.height, downScaling);
+	Image.cache(0, 0, bound.width, bound.height, downScaling);
+	// 두 canvas를 생성하여 처리
+	const cvs = document.createElement("canvas");
+	cvs.width = bound.width;
+	cvs.height = bound.height;
+	const ctx = cvs.getContext("2d");
+	// refImage를 먼저 그림
+	ctx.drawImage(refImage.cacheCanvas, 0, 0);
+	// 새로운 도형이 원래 도형과 겹치는 부분에만 그려집니다.
+	ctx.globalCompositeOperation = 'source-atop';
+	ctx.drawImage(Image.cacheCanvas, 0, 0);
+	// Bitmap으로 변환 및 스케일 조정
+	const bitmap = new createjs.Bitmap(cvs);
+	bitmap.scale = 1 / downScaling;
+	// 기존에 있던 자식들을 지우고 새로운 이미지를 추가합니다.
+	Image.removeAllChildren();
+	Image.addChild(bitmap);
+	Image.cache(0, 0, bound.width, bound.height);
+	endFunc();
+}</script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("FBD3D8ADDC0B6B47818C31F2C7857D3B");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.Draw_Module();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(204, 204, 204, 1.00); width:2000px; height:1200px">
+		<canvas id="canvas" width="2000" height="1200" style="position: absolute; display: block; background-color:rgba(204, 204, 204, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:2000px; height:1200px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+</body>
+</html>

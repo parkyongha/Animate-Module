@@ -1,0 +1,65 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/bg" itemID="6618b09d-0000046b" lastModified="1740387132">
+  <timeline>
+    <DOMTimeline name="bg" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="레이어_2" color="#9933CC" locked="true" autoNamed="false" visible="false" transparent="true" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/Ref.png"/>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" locked="true" current="true" isSelected="true" autoNamed="false" visible="false" alphaPercent="80" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65535,"b":0,"c":0,"d":65535,"tx":0,"ty":0}'>
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/cover.png">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1000.1" y="600.1"/>
+                  </transformationPoint>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Image" color="#FF0000" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65569,"b":-338,"c":0,"d":65645,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Image_1" name="Image_1">
+                  <matrix>
+                    <Matrix tx="710.5" ty="146.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Image_0" name="Image_0" centerPoint3DX="441" centerPoint3DY="661.9">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="78.7" ty="247.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Image_2" name="Image_2">
+                  <matrix>
+                    <Matrix tx="1347.05" ty="219.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

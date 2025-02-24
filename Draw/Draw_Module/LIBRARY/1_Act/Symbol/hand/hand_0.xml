@@ -1,0 +1,115 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/hand/hand_0" itemID="66023f0e-00001bb1" lastModified="1730341642" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="hand_0" currentFrame="53" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="script" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="58" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hand" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/hand/handTween_0" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="120.5" ty="118"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/hand/handTween_0" symbolType="graphic" centerPoint3DX="120.5" centerPoint3DY="118" loop="loop">
+                  <matrix>
+                    <Matrix tx="120.5" ty="118"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/hand/handTween_0" symbolType="graphic" centerPoint3DX="120.5" centerPoint3DY="118" loop="loop">
+                  <matrix>
+                    <Matrix tx="120.5" ty="118"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="40" tweenType="motion" motionTweenSnap="true" keyMode="22017" easeMethodName="quadOut">
+              <tweens>
+                <Ease target="all" method="quadOut"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/hand/handTween_0" symbolType="graphic" centerPoint3DX="120.5" centerPoint3DY="118" loop="loop">
+                  <matrix>
+                    <Matrix tx="120.5" ty="118"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/hand/handTween_1" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="528.85" ty="118"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/hand/handTween_1" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="528.85" ty="118"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

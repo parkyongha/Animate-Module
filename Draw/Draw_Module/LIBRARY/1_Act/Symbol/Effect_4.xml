@@ -1,0 +1,539 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Effect_4" itemID="661ccf33-00001c40" lastModified="1715161348" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Effect_4" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="Layer_2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="20" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_1_copy" color="#00FFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.308695362714338" y="0.368197923151791"/>
+                  <Point x="0.579273594644142" y="0.746279410776451"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0">
+                  <matrix>
+                    <Matrix a="0.540435791015625" d="0.540435791015625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.308695362714338" y="0.368197923151791"/>
+                  <Point x="0.579273594644142" y="0.746279410776451"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0">
+                  <matrix>
+                    <Matrix a="0.540435791015625" d="0.540435791015625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.260732495834685" y="0.530354530888442"/>
+                  <Point x="0.579129797971545" y="0.899611185569445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0" centerPoint3DX="7.15" centerPoint3DY="-38.4">
+                  <matrix>
+                    <Matrix a="0.885101318359375" d="0.885101318359375" tx="7.25" ty="-38.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0" centerPoint3DX="11.15" centerPoint3DY="-51.2">
+                  <matrix>
+                    <Matrix tx="11.25" ty="-51.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" easeMethodName="none">
+              <tweens>
+                <Ease target="all" method="none"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0" centerPoint3DX="17.15" centerPoint3DY="-49.6">
+                  <matrix>
+                    <Matrix a="0.920028686523438" d="0.920028686523438" tx="17.25" ty="-49.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0" centerPoint3DX="23.45" centerPoint3DY="-29.8">
+                  <matrix>
+                    <Matrix a="0.649871826171875" d="0.649871826171875" tx="23.5" ty="-29.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_0" centerPoint3DX="25.6" centerPoint3DY="-9.9">
+                  <matrix>
+                    <Matrix a="0.3797607421875" d="0.3797607421875" tx="25.75" ty="-10.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_1_copy" color="#00FFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_1">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.308695362714338" y="0.368197923151791"/>
+                  <Point x="0.579273594644142" y="0.746279410776451"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_1">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="4" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.260732495834685" y="0.530354530888442"/>
+                  <Point x="0.579129797971545" y="0.899611185569445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_1" centerPoint3DX="-17.15" centerPoint3DY="-62.15">
+                  <matrix>
+                    <Matrix a="0.847640991210938" d="0.847640991210938" tx="-17.05" ty="-62.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.6015625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_1" centerPoint3DX="-26.5" centerPoint3DY="-82.9">
+                  <matrix>
+                    <Matrix a="0.796844482421875" d="0.796844482421875" tx="-26.4" ty="-83.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_1" centerPoint3DX="-31.05" centerPoint3DY="-80.95">
+                  <matrix>
+                    <Matrix a="0.796844482421875" d="0.796844482421875" tx="-30.95" ty="-81.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_1" centerPoint3DX="-50.4" centerPoint3DY="-42.15">
+                  <matrix>
+                    <Matrix a="0.6063232421875" d="0.6063232421875" tx="-50.3" ty="-42.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.4609375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_1" centerPoint3DX="-63.2" centerPoint3DY="9.75">
+                  <matrix>
+                    <Matrix a="0.35235595703125" d="0.35235595703125" tx="-63.1" ty="9.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_1_copy" color="#00FFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.308695362714338" y="0.368197923151791"/>
+                  <Point x="0.579273594644142" y="0.746279410776451"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2">
+                  <matrix>
+                    <Matrix a="0.629196166992188" d="0.629196166992188"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.260732495834685" y="0.530354530888442"/>
+                  <Point x="0.579129797971545" y="0.899611185569445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2" centerPoint3DX="-1.85" centerPoint3DY="-13.05">
+                  <matrix>
+                    <Matrix a="0.90728759765625" d="0.90728759765625" tx="-1.8" ty="-13.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2" centerPoint3DX="-7.25" centerPoint3DY="-19.4">
+                  <matrix>
+                    <Matrix tx="-7.15" ty="-19.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2" centerPoint3DX="-11.8" centerPoint3DY="-23.3">
+                  <matrix>
+                    <Matrix tx="-11.7" ty="-23.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2" centerPoint3DX="-15.7" centerPoint3DY="-19.4">
+                  <matrix>
+                    <Matrix tx="-15.6" ty="-19.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2" selected="true" centerPoint3DX="-22.85" centerPoint3DY="-5.3">
+                  <matrix>
+                    <Matrix a="0.811447143554688" d="0.811447143554688" tx="-22.75" ty="-5.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.6015625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_2" selected="true" centerPoint3DX="-29.35" centerPoint3DY="15.9">
+                  <matrix>
+                    <Matrix a="0.528594970703125" d="0.528594970703125" tx="-29.25" ty="15.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_1" color="#00FFFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3211203779754" y="0.355301494355662"/>
+                  <Point x="0.60924290086246" y="0.718540000896557"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3">
+                  <matrix>
+                    <Matrix a="0.334640502929688" d="0.334640502929688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="3" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.246518393586016" y="0.529183689403183"/>
+                  <Point x="0.554309887697254" y="0.912867490832349"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3" centerPoint3DX="8.35" centerPoint3DY="-69.35">
+                  <matrix>
+                    <Matrix a="0.57110595703125" d="0.57110595703125" tx="8.45" ty="-69.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3" centerPoint3DX="18.1" centerPoint3DY="-108.4">
+                  <matrix>
+                    <Matrix a="0.704147338867188" d="0.704147338867188" tx="18.2" ty="-108.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3" centerPoint3DX="19.25" centerPoint3DY="-110.4">
+                  <matrix>
+                    <Matrix a="0.704132080078125" d="0.704132080078125" tx="19.3" ty="-110.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.457409754621683" y="0.0317028264665265"/>
+                  <Point x="0.733367214217267" y="0.495592065087784"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3" centerPoint3DX="21.35" centerPoint3DY="-108.4">
+                  <matrix>
+                    <Matrix a="0.704147338867188" d="0.704147338867188" tx="21.45" ty="-108.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.264057518058793" y="0.456674934442854"/>
+                  <Point x="0.517140532951495" y="0.956945900739724"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3" centerPoint3DX="26.95" centerPoint3DY="-53.45">
+                  <matrix>
+                    <Matrix a="0.50994873046875" d="0.50994873046875" tx="27" ty="-53.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.58984375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/EffectColor" name="Color_3" centerPoint3DX="30.05" centerPoint3DY="24.65">
+                  <matrix>
+                    <Matrix a="0.234237670898438" d="0.234237670898438" tx="30.2" ty="24.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

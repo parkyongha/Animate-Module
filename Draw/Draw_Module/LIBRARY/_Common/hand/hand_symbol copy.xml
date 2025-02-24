@@ -1,0 +1,69 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="_Common/hand/hand_symbol copy" itemID="647704d2-00000677" symbolType="graphic" lastModified="1716802916">
+  <timeline>
+    <DOMTimeline name="hand_symbol copy" currentFrame="1" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65535,"b":0,"c":0,"d":65535,"tx":0,"ty":0}'>
+              <elements>
+                <DOMBitmapInstance libraryItemName="_Common/common/finger_foldr/finger1">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="-24" ty="-24"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="120.5" y="118"/>
+                  </transformationPoint>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="_Common/common/finger_foldr/finger2">
+                  <matrix>
+                    <Matrix tx="-24" ty="-24"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="_Common/common/finger_foldr/finger3">
+                  <matrix>
+                    <Matrix tx="29" ty="-20"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="_Common/common/finger_foldr/finger4">
+                  <matrix>
+                    <Matrix tx="29" ty="-20"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="_Common/common/finger_foldr/finger5">
+                  <matrix>
+                    <Matrix tx="29" ty="-20"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="_Common/common/finger_foldr/finger6">
+                  <matrix>
+                    <Matrix tx="29" ty="-20"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

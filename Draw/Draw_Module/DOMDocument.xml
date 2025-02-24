@@ -1,0 +1,198 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="2000" height="1200" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" bitmapSnap="false" objectsSnapTo="false" timelineLabelWidth="250" viewAngle3D="124.307690650777" vanishingPoint3DX="1000" vanishingPoint3DY="600" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="FBD3D8ADDC0B6B47818C31F2C7857D3B">
+     <folders>
+          <DOMFolderItem name="_Common" itemID="66052a74-00003f2c"/>
+          <DOMFolderItem name="_Common/common" itemID="6620bd73-00007521"/>
+          <DOMFolderItem name="_Common/common/finger_foldr" itemID="6620bd73-00007522"/>
+          <DOMFolderItem name="_Common/hand" itemID="663dea7a-0000043a"/>
+          <DOMFolderItem name="_Common/Image" itemID="66023e8d-00001b9b"/>
+          <DOMFolderItem name="_Common/Image/finger_foldr" itemID="64899565-00000b82"/>
+          <DOMFolderItem name="1_Act" itemID="66052a6f-00003f2a" isExpanded="true"/>
+          <DOMFolderItem name="1_Act/Image" itemID="65fb8dc8-000036cc" isExpanded="true"/>
+          <DOMFolderItem name="1_Act/Image/_palette" itemID="6618aa93-000002b6"/>
+          <DOMFolderItem name="1_Act/Image/brush" itemID="67bc2f84-000025c0" isExpanded="true"/>
+          <DOMFolderItem name="1_Act/Symbol" itemID="65fb8dc2-000036c8"/>
+          <DOMFolderItem name="1_Act/Symbol/Canvas" itemID="67bc201d-00001aaf"/>
+          <DOMFolderItem name="1_Act/Symbol/Canvas/_palette" itemID="6618c144-000004af"/>
+          <DOMFolderItem name="1_Act/Symbol/hand" itemID="660240a8-00001cb9"/>
+     </folders>
+     <media>
+          <DOMBitmapItem name="1_Act/Image/brush/brush" itemID="664568c2-000008a4" linkageExportForAS="true" linkageClassName="brush" sourceLastImported="1715824981" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/brush/brush.png" bitmapDataHRef="M 31 1740386180.dat" frameRight="640" frameBottom="640"/>
+          <DOMBitmapItem name="1_Act/Image/canvas_bg.png" itemID="66b34022-00005872" sourceLastImported="1723023394" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/canvas_bg.png" bitmapDataHRef="M 30 1740382237.dat" frameRight="3320" frameBottom="2160"/>
+          <DOMBitmapItem name="1_Act/Image/canvas_btn_complete" itemID="6618d18e-00000c2d" sourceLastImported="1712902542" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/canvas_btn_complete.png" bitmapDataHRef="M 25 1740382237.dat" frameRight="3260" frameBottom="3260"/>
+          <DOMBitmapItem name="1_Act/Image/cover.png" itemID="67207592-00000e89" sourceLastImported="1730179553" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/cover.png" bitmapDataHRef="M 26 1740382237.dat" frameRight="40000" frameBottom="24000"/>
+          <DOMBitmapItem name="1_Act/Image/Effect_Color_0" itemID="66261c34-00001180" sourceLastImported="1713773620" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Effect_Color_0.png" bitmapDataHRef="M 2 1740382237.dat" frameRight="1020" frameBottom="1020"/>
+          <DOMBitmapItem name="1_Act/Image/Effect_Color_2" itemID="66261cde-00001183" sourceLastImported="1713773790" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Effect_Color_2.png" bitmapDataHRef="M 3 1740382237.dat" frameRight="1020" frameBottom="1020"/>
+          <DOMBitmapItem name="1_Act/Image/Effect_Color_3" itemID="66261ce3-00001184" sourceLastImported="1713773795" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Effect_Color_3.png" bitmapDataHRef="M 5 1740382237.dat" frameRight="1020" frameBottom="1020"/>
+          <DOMBitmapItem name="1_Act/Image/Effect_Color_4" itemID="66261ce7-00001185" sourceLastImported="1713773799" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Effect_Color_4.png" bitmapDataHRef="M 4 1740382237.dat" frameRight="1020" frameBottom="1020"/>
+          <DOMBitmapItem name="1_Act/Image/Effect_Color_5" itemID="66261ceb-00001186" sourceLastImported="1713773803" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Effect_Color_5.png" bitmapDataHRef="M 6 1740382237.dat" frameRight="1020" frameBottom="1020"/>
+          <DOMBitmapItem name="_Common/common/finger_foldr/finger1" itemID="6620bd73-0000754a" sourceLastImported="1685501055" originalCompressionType="lossless" quality="90" href="_Common/common/finger_foldr/finger1" bitmapDataHRef="M 7 1740382237.dat" frameRight="4820" frameBottom="4720"/>
+          <DOMBitmapItem name="_Common/Image/finger_foldr/finger2" itemID="6476b482-00000760" sourceLastImported="1685501058" allowSmoothing="true" originalCompressionType="lossless" quality="90" href="_Common/Image/finger_foldr/finger2" bitmapDataHRef="M 13 1740382237.dat" frameRight="4820" frameBottom="4720"/>
+          <DOMBitmapItem name="_Common/common/finger_foldr/finger2" itemID="6620bd73-0000754b" sourceLastImported="1685501058" allowSmoothing="true" originalCompressionType="lossless" quality="90" href="_Common/common/finger_foldr/finger2" bitmapDataHRef="M 8 1740382237.dat" frameRight="4820" frameBottom="4720"/>
+          <DOMBitmapItem name="_Common/common/finger_foldr/finger3" itemID="6620bd73-0000754c" sourceLastImported="1685501061" allowSmoothing="true" originalCompressionType="lossless" quality="90" href="_Common/common/finger_foldr/finger3" bitmapDataHRef="M 9 1740382237.dat" frameRight="4820" frameBottom="4720"/>
+          <DOMBitmapItem name="_Common/common/finger_foldr/finger4" itemID="6620bd73-0000754d" sourceLastImported="1685501065" allowSmoothing="true" originalCompressionType="lossless" quality="90" href="_Common/common/finger_foldr/finger4" bitmapDataHRef="M 10 1740382237.dat" frameRight="4820" frameBottom="4720"/>
+          <DOMBitmapItem name="_Common/common/finger_foldr/finger5" itemID="6620bd73-0000754e" sourceLastImported="1685501071" allowSmoothing="true" originalCompressionType="lossless" quality="90" href="_Common/common/finger_foldr/finger5" bitmapDataHRef="M 11 1740382237.dat" frameRight="4820" frameBottom="4720"/>
+          <DOMBitmapItem name="_Common/common/finger_foldr/finger6" itemID="6620bd73-0000754f" sourceLastImported="1685501136" allowSmoothing="true" originalCompressionType="lossless" quality="90" href="_Common/common/finger_foldr/finger6" bitmapDataHRef="M 12 1740382237.dat" frameRight="4820" frameBottom="4720"/>
+          <DOMBitmapItem name="1_Act/Image/Image_0.png" itemID="67232bc6-000032ae" sourceLastImported="1730358196" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Image_0.png" bitmapDataHRef="M 28 1740382237.dat" frameRight="10940" frameBottom="9220"/>
+          <DOMBitmapItem name="1_Act/Image/Image_1.png" itemID="67232bc7-000032b3" sourceLastImported="1730358196" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Image_1.png" bitmapDataHRef="M 27 1740382237.dat" frameRight="10460" frameBottom="11880"/>
+          <DOMBitmapItem name="1_Act/Image/Image_2.png" itemID="67232bc5-000032a9" sourceLastImported="1730358196" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Image_2.png" bitmapDataHRef="M 29 1740382237.dat" frameRight="9640" frameBottom="10320"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/palette_color_bg_0.png" itemID="66455e23-000002c4" sourceLastImported="1715821784" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/palette_color_bg_0.png" bitmapDataHRef="M 14 1740382237.dat" frameRight="3520" frameBottom="3520"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/palette_color_bg_2.png" itemID="66455e26-000002ce" sourceLastImported="1715821824" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/palette_color_bg_2.png" bitmapDataHRef="M 15 1740382237.dat" frameRight="3540" frameBottom="3520"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/palette_color_bg_3.png" itemID="66455e27-000002d3" sourceLastImported="1715821830" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/palette_color_bg_3.png" bitmapDataHRef="M 17 1740382237.dat" frameRight="3520" frameBottom="3520"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/palette_color_bg_4.png" itemID="66455e17-0000029c" sourceLastImported="1715821837" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/palette_color_bg_4.png" bitmapDataHRef="M 16 1740382237.dat" frameRight="3540" frameBottom="3520"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/palette_color_bg_5.png" itemID="66455e19-000002a1" sourceLastImported="1715821845" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/palette_color_bg_5.png" bitmapDataHRef="M 18 1740382237.dat" frameRight="3520" frameBottom="3520"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/pallete.png" itemID="672190c9-00000e7e" sourceLastImported="1730179858" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/pallete.png" bitmapDataHRef="M 24 1740382237.dat" frameRight="13980" frameBottom="4740"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/pallette_color_base_0.png" itemID="66455e1b-000002a6" sourceLastImported="1715822086" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/pallette_color_base_0.png" bitmapDataHRef="M 19 1740382237.dat" frameRight="3980" frameBottom="3980"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/pallette_color_base_2.png" itemID="66455e1e-000002b0" sourceLastImported="1715822070" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/pallette_color_base_2.png" bitmapDataHRef="M 20 1740382237.dat" frameRight="3980" frameBottom="3980"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/pallette_color_base_3.png" itemID="66455e1f-000002b5" sourceLastImported="1715822061" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/pallette_color_base_3.png" bitmapDataHRef="M 22 1740382237.dat" frameRight="3980" frameBottom="3980"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/pallette_color_base_4.png" itemID="66455e21-000002ba" sourceLastImported="1715822053" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/pallette_color_base_4.png" bitmapDataHRef="M 21 1740382237.dat" frameRight="3980" frameBottom="3980"/>
+          <DOMBitmapItem name="1_Act/Image/_palette/pallette_color_base_5.png" itemID="66455e22-000002bf" sourceLastImported="1715822042" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_palette/pallette_color_base_5.png" bitmapDataHRef="M 23 1740382237.dat" frameRight="3980" frameBottom="3980"/>
+          <DOMBitmapItem name="1_Act/Image/Ref.png" itemID="6721925c-00000e83" sourceLastImported="1730253375" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Ref.png" bitmapDataHRef="M 1 1740382237.dat" frameRight="40000" frameBottom="24000"/>
+     </media>
+     <symbols>
+          <Include href="_Common/hand/hand_symbol copy.xml" itemIcon="1" loadImmediate="false" itemID="647704d2-00000677" lastModified="1716802916"/>
+          <Include href="1_Act/Symbol/Canvas/_palette/color.xml" loadImmediate="false" itemID="661c9f10-00000828" lastModified="1730254120"/>
+          <Include href="1_Act/Symbol/Canvas/_palette/color_Image.xml" loadImmediate="false" itemID="661c9f27-0000082a" lastModified="1730254194"/>
+          <Include href="1_Act/Symbol/Canvas/_palette/ColorCoverImage.xml" loadImmediate="false" itemID="661ca028-00000908" lastModified="1730253500"/>
+          <Include href="1_Act/Symbol/Canvas/_palette/palette.xml" loadImmediate="false" itemID="6618ae99-0000034b" lastModified="1730254143"/>
+          <Include href="1_Act/Symbol/Canvas/bg.xml" loadImmediate="false" itemID="6618b09d-0000046b" lastModified="1740387132"/>
+          <Include href="1_Act/Symbol/Canvas/btn_ccomplete.xml" itemIcon="0" loadImmediate="false" itemID="64956994-000052bb" lastModified="1712904674"/>
+          <Include href="1_Act/Symbol/Canvas/btn_comp.xml" loadImmediate="false" itemID="64797294-000013c7" lastModified="1713162847"/>
+          <Include href="1_Act/Symbol/Canvas/canvas.xml" loadImmediate="false" itemID="66052a0d-00003f1f" lastModified="1740387769"/>
+          <Include href="1_Act/Symbol/Effect.xml" loadImmediate="false" itemID="66149e89-0000123a" lastModified="1715160379"/>
+          <Include href="1_Act/Symbol/Effect_2.xml" loadImmediate="false" itemID="661ccbcb-00001c17" lastModified="1715160308"/>
+          <Include href="1_Act/Symbol/Effect_3.xml" loadImmediate="false" itemID="661ccede-00001c2f" lastModified="1715160400"/>
+          <Include href="1_Act/Symbol/Effect_4.xml" loadImmediate="false" itemID="661ccf33-00001c40" lastModified="1715161348"/>
+          <Include href="1_Act/Symbol/EffectColor.xml" loadImmediate="false" itemID="6614a736-00001561" lastModified="1730254249"/>
+          <Include href="1_Act/Symbol/hand/first_hand.xml" loadImmediate="false" itemID="664b0673-0000714b" lastModified="1716253573"/>
+          <Include href="1_Act/Symbol/hand/hand_0.xml" loadImmediate="false" itemID="66023f0e-00001bb1" lastModified="1730341642"/>
+          <Include href="1_Act/Symbol/hand/hand_touch.xml" loadImmediate="false" itemID="66545615-0000293d" lastModified="1716803297"/>
+          <Include href="1_Act/Symbol/hand/handTween_0.xml" itemIcon="1" loadImmediate="false" itemID="660240b5-00001cbd" lastModified="1715851295"/>
+          <Include href="1_Act/Symbol/hand/handTween_1.xml" itemIcon="1" loadImmediate="false" itemID="660240b9-00001cbe" lastModified="1715851311"/>
+          <Include href="1_Act/Symbol/Image_0.xml" loadImmediate="false" itemID="66542713-0000533b" lastModified="1730358251"/>
+          <Include href="1_Act/Symbol/image_0_graphic.xml" loadImmediate="false" itemID="665430f5-000058e9" lastModified="1730358262"/>
+          <Include href="1_Act/Symbol/Image_1.xml" loadImmediate="false" itemID="66542738-00005340" lastModified="1723021051"/>
+          <Include href="1_Act/Symbol/image_1_graphic.xml" loadImmediate="false" itemID="66543104-000058f0" lastModified="1730358216"/>
+          <Include href="1_Act/Symbol/Image_2.xml" loadImmediate="false" itemID="6654273d-00005345" lastModified="1725499061"/>
+          <Include href="1_Act/Symbol/image_2_graphic.xml" loadImmediate="false" itemID="66543111-000058f7" lastModified="1730358214"/>
+          <Include href="1_Act/Symbol/result.xml" loadImmediate="false" itemID="662f376e-00000e62" lastModified="1714370414"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1" layerDepthEnabled="true">
+               <layers>
+                    <DOMLayer name="Camera" color="#0099FF" autoNamed="false" layerType="camera">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="__Camera__" name="___camera___instance" isVisible="false">
+                                             <matrix>
+                                                  <Matrix tx="1000" ty="600"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Script" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[createjs.Touch.enable(stage);
+stage.mouseMoveOutside = true;
+]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Draw" color="#9933CC" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65926,"b":0,"c":0,"d":65328,"tx":0,"ty":0}'>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/canvas" name="canvas" centerPoint3DX="1011.95" centerPoint3DY="643.2">
+                                             <matrix>
+                                                  <Matrix a="0.999984741210938" d="0.999984741210938"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <scripts>
+          <GlobalScripts language="Javascript">
+               <Script type="local" src="./js/MorphUtil.1.0.0.js"/>
+               <Script type="local" src="./js/bitmapdata-1.1.1.min.js"/>
+               <Script><![CDATA[{
+	var TempWidth = null;
+	var TempHeight = null;
+	var MainRoot = null;
+}
+
+//헥사 코드 값을 rgb 값으로 변환
+function hexToRgb(hex) {
+	var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+	hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+		return r + r + g + g + b + b;
+	});
+
+	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	return result ? {
+		r: parseInt(result[1], 16),
+		g: parseInt(result[2], 16),
+		b: parseInt(result[3], 16)
+	} : null;
+}
+
+// Image : 다시 그릴 이미지
+// refImage : 참고할 이미지 
+// refImage의 보이는 픽셀만 Image를 다시 그림
+// downScaling : 이미지 다운스케일링할 값 (작을 수록 빠름)
+function ReDrawEnablePixelsUsingComposite(Image, refImage, endFunc, downScaling = 1) {
+	const bound = refImage.nominalBounds;
+
+	// 캐시 스케일을 낮춰서 작업
+	refImage.cache(0, 0, bound.width, bound.height, downScaling);
+	Image.cache(0, 0, bound.width, bound.height, downScaling);
+
+	// 두 canvas를 생성하여 처리
+	const cvs = document.createElement("canvas");
+	cvs.width = bound.width;
+	cvs.height = bound.height;
+	const ctx = cvs.getContext("2d");
+
+	// refImage를 먼저 그림
+	ctx.drawImage(refImage.cacheCanvas, 0, 0);
+	
+	// 새로운 도형이 원래 도형과 겹치는 부분에만 그려집니다.
+	ctx.globalCompositeOperation = 'source-atop';
+	ctx.drawImage(Image.cacheCanvas, 0, 0);
+
+	// Bitmap으로 변환 및 스케일 조정
+	const bitmap = new createjs.Bitmap(cvs);
+	bitmap.scale = 1 / downScaling;
+
+	// 기존에 있던 자식들을 지우고 새로운 이미지를 추가합니다.
+	Image.removeAllChildren();
+	Image.addChild(bitmap);
+	Image.cache(0, 0, bound.width, bound.height);
+
+	endFunc();
+}
+]]>
+          </Script>
+     </GlobalScripts>
+</scripts>
+<persistentData>
+     <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+</persistentData>
+<PrinterSettings/>
+<publishHistory/>
+</DOMDocument>

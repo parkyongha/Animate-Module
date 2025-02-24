@@ -1,0 +1,191 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/_palette/color" itemID="661c9f10-00000828" lastModified="1730254120" lastUniqueIdentifier="6">
+  <timeline>
+    <DOMTimeline name="color" currentFrame="46" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="Layer_2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="37" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_3" color="#FF800A" locked="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="Cover">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="Cover">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" rigPropagationMatrix='{"a":68812,"b":0,"c":0,"d":68812,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="Cover">
+                  <matrix>
+                    <Matrix a="1.04998779296875" d="1.04998779296875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="Cover">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" rigPropagationMatrix='{"a":68812,"b":0,"c":0,"d":68812,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="Cover">
+                  <matrix>
+                    <Matrix a="1.04998779296875" d="1.04998779296875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="Cover">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="Cover">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color_Image" name="btn">
+                  <matrix>
+                    <Matrix ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color_Image" name="btn" centerPoint3DY="8.5">
+                  <matrix>
+                    <Matrix ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" rigPropagationMatrix='{"a":68812,"b":0,"c":0,"d":68812,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color_Image" name="btn" centerPoint3DY="8.5">
+                  <matrix>
+                    <Matrix a="1.04998779296875" d="1.04998779296875" ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color_Image" name="btn" selected="true" centerPoint3DY="8.5">
+                  <matrix>
+                    <Matrix ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" rigPropagationMatrix='{"a":68812,"b":0,"c":0,"d":68812,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color_Image" name="btn" centerPoint3DY="8.5">
+                  <matrix>
+                    <Matrix a="1.04998779296875" d="1.04998779296875" ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color_Image" name="btn" selected="true" centerPoint3DY="8.5">
+                  <matrix>
+                    <Matrix ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color_Image" name="btn" selected="true" centerPoint3DY="8.5">
+                  <matrix>
+                    <Matrix ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

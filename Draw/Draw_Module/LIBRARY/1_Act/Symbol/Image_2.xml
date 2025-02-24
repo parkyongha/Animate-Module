@@ -1,0 +1,37 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Image_2" itemID="6654273d-00005345" lastModified="1725499061">
+  <timeline>
+    <DOMTimeline name="Image_2" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="BitmapLayer" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/result" name="BitmapLayer">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="레이어_1" color="#00FFFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65535,"b":0,"c":0,"d":65536,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/image_2_graphic" name="Image" centerPoint3DX="361.5" centerPoint3DY="404">
+                  <matrix>
+                    <Matrix a="0.999984741210938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

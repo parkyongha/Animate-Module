@@ -1,0 +1,98 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/_palette/palette" itemID="6618ae99-0000034b" lastModified="1730254143" lastUniqueIdentifier="6">
+  <timeline>
+    <DOMTimeline name="palette" currentFrame="2" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="script" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();  ]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="30" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="31" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[this.stop();]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ref" color="#9933CC" locked="true" autoNamed="false" transparent="true" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="32" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/Ref.png">
+                  <matrix>
+                    <Matrix tx="-376.2" ty="-964"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="32" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color" name="color_0" selected="true">
+                  <matrix>
+                    <Matrix tx="430.05" ty="126.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color" name="color_1">
+                  <matrix>
+                    <Matrix tx="619.55" ty="127.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color" name="color_2">
+                  <matrix>
+                    <Matrix tx="808.25" ty="126.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#00FFFF" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="32" keyMode="9728" rigPropagationMatrix='{"a":62258,"b":0,"c":0,"d":62258,"tx":0,"ty":0}'>
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/_palette/pallete.png">
+                  <matrix>
+                    <Matrix tx="274.95" ty="6"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="0.54473876953125" d="1.0009765625" tx="279.65" ty="4.6"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#EEEFF3"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!191 4492|24788 4492!24788 4492|24788 5369!24788 5369|191 5369!191 5369|191 4492"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
