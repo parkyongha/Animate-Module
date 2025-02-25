@@ -1,0 +1,57 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/palette" itemID="660d06d1-000009ac" lastModified="1740475873">
+  <timeline>
+    <DOMTimeline name="palette" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="obj_palette" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65166,"b":0,"c":0,"d":65536,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/stickers_ani" name="sticker_2" centerPoint3DX="172.05" centerPoint3DY="547.95">
+                  <matrix>
+                    <Matrix a="1.25701904296875" d="1.24996948242188" tx="137.35" ty="510.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/stickers_ani" name="sticker_1" centerPoint3DX="426.65" centerPoint3DY="297.65">
+                  <matrix>
+                    <Matrix a="1.25701904296875" d="1.24996948242188" tx="388.2" ty="260.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/stickers_ani" name="sticker_0" centerPoint3DX="178.7" centerPoint3DY="312.05">
+                  <matrix>
+                    <Matrix a="1.25" d="1.24996948242188" tx="137.9" ty="260.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/stickers_ani" name="sticker_3" centerPoint3DX="422.9" centerPoint3DY="547.95">
+                  <matrix>
+                    <Matrix a="1.25701904296875" d="1.24996948242188" tx="388.2" ty="510.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/sticker_tab_bg.png"/>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,73 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/_Sticker_Symbol/stickers_" itemID="6604c31d-00000230" lastModified="1740476085" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="stickers_" currentFrame="3" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="레이어_1" color="#00FFFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65534,"b":0,"c":0,"d":65534,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/sticker_0" name="Ani" selected="true" centerPoint3DX="34" centerPoint3DY="27.5">
+                  <matrix>
+                    <Matrix a="0.999969482421875" d="0.999969482421875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728" rigPropagationMatrix='{"a":65534,"b":0,"c":0,"d":65534,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/sticker_1" selected="true" centerPoint3DX="30.5" centerPoint3DY="29.5">
+                  <matrix>
+                    <Matrix a="0.999969482421875" d="0.999969482421875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728" rigPropagationMatrix='{"a":65534,"b":0,"c":0,"d":65534,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/sticker_2" selected="true" centerPoint3DX="27.5" centerPoint3DY="30">
+                  <matrix>
+                    <Matrix a="0.999969482421875" d="0.999969482421875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728" rigPropagationMatrix='{"a":65534,"b":0,"c":0,"d":65534,"tx":0,"ty":0}'>
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/_Sticker_Symbol/sticker_3" centerPoint3DX="31.5" centerPoint3DY="30">
+                  <matrix>
+                    <Matrix a="0.999969482421875" d="0.999969482421875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="btn" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/sticker_btn" symbolType="button">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

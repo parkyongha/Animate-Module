@@ -1,0 +1,291 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="2000" height="1200" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" rulerVisible="true" bitmapSnap="false" timelineLabelWidth="224" viewAngle3D="124.307690650777" vanishingPoint3DX="1000" vanishingPoint3DY="600" previewMode="anti alias" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="009311227A46CA4AA9E28196AA60BD12">
+     <folders>
+          <DOMFolderItem name="_Common" itemID="660527cd-00003e21" isExpanded="true"/>
+          <DOMFolderItem name="_Common/Sound" itemID="6678dfeb-0000086c"/>
+          <DOMFolderItem name="1_Act" itemID="66052a6f-00003f2a" isExpanded="true"/>
+          <DOMFolderItem name="1_Act/Image" itemID="65fb8dc8-000036cc"/>
+          <DOMFolderItem name="1_Act/Image/_Sticker" itemID="6613af0b-00004483"/>
+          <DOMFolderItem name="1_Act/Link_Symbol" itemID="65f2a402-000025ac"/>
+          <DOMFolderItem name="1_Act/Symbol" itemID="66752e2b-00002ba8"/>
+          <DOMFolderItem name="1_Act/Symbol/_Sticker_Symbol" itemID="66029a94-0000253b"/>
+     </folders>
+     <media>
+          <DOMSoundItem name="_Common/Sound/Button Blip.wav" itemID="64910c38-00000674" linkageExportForAS="true" linkageClassName="sfx_btn_tab" sourceLastImported="1713347776" href="_Common/Sound/Button Blip.wav" soundDataHRef="M 43 1719197676.dat" format="44kHz 16bit Stereo" sampleCount="59108" dataLength="236432"/>
+          <DOMBitmapItem name="1_Act/Image/_Sticker/sticker_0.png" itemID="67bd8e48-00000898" sourceLastImported="1740475976" externalFileSize="1864" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_Sticker/sticker_0.png" bitmapDataHRef="M 48 1740475458.dat" frameRight="2980" frameBottom="2840"/>
+          <DOMBitmapItem name="1_Act/Image/_Sticker/sticker_1.png" itemID="67bd8e42-00000893" sourceLastImported="1740475970" externalFileSize="1813" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_Sticker/sticker_1.png" bitmapDataHRef="M 47 1740475430.dat" frameRight="2980" frameBottom="2580"/>
+          <DOMBitmapItem name="1_Act/Image/_Sticker/sticker_2.png" itemID="67bd8e45-00000896" sourceLastImported="1740475973" externalFileSize="2010" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_Sticker/sticker_2.png" bitmapDataHRef="M 50 1740475659.dat" frameRight="2980" frameBottom="2900"/>
+          <DOMBitmapItem name="1_Act/Image/_Sticker/sticker_3.png" itemID="67bd8e46-00000897" sourceLastImported="1740475974" externalFileSize="1130" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/_Sticker/sticker_3.png" bitmapDataHRef="M 51 1740475710.dat" frameRight="2980" frameBottom="2980"/>
+          <DOMBitmapItem name="1_Act/Image/sticker_canvas.png" itemID="67bd8715-0000062a" sourceLastImported="1740473536" externalFileSize="2996" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/sticker_canvas.png" bitmapDataHRef="M 46 1740473520.dat" frameRight="14240" frameBottom="12560"/>
+          <DOMBitmapItem name="1_Act/Image/sticker_tab_bg.png" itemID="66598bd8-00009545" sourceLastImported="1717144536" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/sticker_tab_bg.png" bitmapDataHRef="M 45 1719197676.dat" frameRight="13500" frameBottom="15420"/>
+          <DOMBitmapItem name="1_Act/Image/undo_btn" itemID="661ceeeb-00002b6e" sourceLastImported="1713172203" allowSmoothing="true" originalCompressionType="lossless" quality="50" href="1_Act/Image/undo_btn.ai 에셋" bitmapDataHRef="M 50 1719197676.dat" frameRight="3660" frameBottom="3760"/>
+     </media>
+     <symbols>
+          <Include href="1_Act/Link_Symbol/sticker_All.xml" itemIcon="1" loadImmediate="false" itemID="606c7638-00014674" lastModified="1740476079"/>
+          <Include href="1_Act/Link_Symbol/sticker_obj_0.xml" itemID="6065034d-00000c53" lastModified="1740476029"/>
+          <Include href="1_Act/Link_Symbol/sticker_obj_1.xml" itemID="606503b9-00000eec" lastModified="1740476030"/>
+          <Include href="1_Act/Link_Symbol/sticker_obj_2.xml" itemID="65f2af22-000027aa" lastModified="1740476031"/>
+          <Include href="1_Act/Link_Symbol/sticker_obj_3.xml" itemID="65f2af36-000027ae" lastModified="1740476043"/>
+          <Include href="1_Act/Symbol/_Sticker_Symbol/sticker_0.xml" loadImmediate="false" itemID="663d8bed-0000284c" lastModified="1740475462"/>
+          <Include href="1_Act/Symbol/_Sticker_Symbol/sticker_1.xml" loadImmediate="false" itemID="663d8d13-00002977" lastModified="1740475435"/>
+          <Include href="1_Act/Symbol/_Sticker_Symbol/sticker_2.xml" loadImmediate="false" itemID="663d8d2a-00002980" lastModified="1740475659"/>
+          <Include href="1_Act/Symbol/_Sticker_Symbol/sticker_3.xml" loadImmediate="false" itemID="663d8d31-00002989" lastModified="1740475710"/>
+          <Include href="1_Act/Symbol/_Sticker_Symbol/stickers_.xml" loadImmediate="false" itemID="6604c31d-00000230" lastModified="1740476085"/>
+          <Include href="1_Act/Symbol/_Sticker_Symbol/stickers_ani.xml" loadImmediate="false" itemID="66029c81-00002577" lastModified="1740474307"/>
+          <Include href="1_Act/Symbol/_Sticker_Symbol/stickers_btn.xml" itemIcon="0" loadImmediate="false" itemID="663d8c82-00002857" lastModified="1715310397"/>
+          <Include href="1_Act/Symbol/btn_back.xml" itemIcon="0" loadImmediate="false" itemID="60204782-00000b9a" lastModified="1740474852"/>
+          <Include href="1_Act/Symbol/palette.xml" loadImmediate="false" itemID="660d06d1-000009ac" lastModified="1740475873"/>
+          <Include href="1_Act/Symbol/sticker_btn.xml" itemIcon="0" loadImmediate="false" itemID="6614de4c-00000c5d" lastModified="1715309716"/>
+          <Include href="1_Act/Symbol/sticker_canvas.xml" loadImmediate="false" itemID="660282c5-000014ad" lastModified="1740473520"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="장면 1" layerDepthEnabled="true">
+               <layers>
+                    <DOMLayer name="script" color="#FF0000" locked="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" name="Main" labelType="comment" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[var root = this;
+
+var canvas = root.canvas;
+var canvasBound = canvas.nominalBounds;
+
+var canvasScaleX = canvas.scaleX;
+var canvasScaleY = canvas.scaleY;
+
+var palette = root.palette;
+
+var stickers = palette.GetChildsByName("sticker_");
+
+root.stickerStack = [];
+
+root.stickersCountArr = [];
+
+var isDraging = false;
+
+var maxDragX = canvasBound.width;
+var maxDragY = canvasBound.height;
+
+{
+	root.btn_back.visible = true;
+
+	stickers.forEach((stickerObj, Idx) => {
+		// 기본으로 1번째 이미지에 있는데 1번째 이미지의 피벗 위치를 저장해둠
+		var originReg = {
+			x: stickerObj.Image.getChildAt(1).regX,
+			y: stickerObj.Image.getChildAt(1).regY
+		};
+
+		// 이미지를 각 Index에 맞도록 변경
+		stickerObj.Image.gotoAndStop(Idx);
+
+		// 바뀐 이미지의 피벗 위치를 받아옴
+		var regX = stickerObj.Image.getChildAt(1).regX;
+		var regY = stickerObj.Image.getChildAt(1).regY;
+
+		// pivot을 이용하여 정렬
+		stickerObj.x += originReg.x - regX;
+		stickerObj.y += originReg.y - regY;
+
+		root.stickersCountArr.push(0);
+	});
+
+	Init();
+}
+
+// ================ 튜토리얼 끝나고 Init
+function Init() {
+
+	// 스티커들에 이벤트 추가
+	stickers.forEach((stickerObj, Idx) => {
+		stickerObj.cIdx = Idx;
+
+		stickerObj.on("mousedown", function (e) {
+
+			// 스티커 갯수 제한은 여기서
+			if (root.stickersCountArr[Idx] >= 20) {
+				return;
+			}
+
+			CreateSticker(stickerObj);
+		});
+	});
+
+	root.btn_back.addEventListener("click", function (e) {
+		if (root.stickerStack.length == 0)
+			return;
+
+		// 스택에서 지우기
+		var sticker = root.stickerStack.pop();
+		sticker.parent.removeChild(sticker);
+
+		root.stickersCountArr[sticker.Idx]--;
+	});
+}
+
+// 스티커 생성하는 함수
+function CreateSticker(obj) {
+	// link된 심볼 생성
+	var cloneSticker = new lib["stickerOBJ_" + obj.cIdx]();
+	canvas.addChild(cloneSticker);
+
+	root.stickersCountArr[obj.cIdx]++;
+
+	// 애니메이션있는지 확인
+	cloneSticker.Idx = obj.cIdx;
+
+	// x : 0, y : 0, scaleX : 1 / panelScaleX, scaleY : 1 / panelScaleY
+	cloneSticker.setTransform(0, 0, 1 / canvasScaleX, 1 / canvasScaleY);
+
+	// 포지션 설정
+	SetBoundPostion(cloneSticker, Math.random() * maxDragX, Math.random() * maxDragY);
+
+	// 스티커 스택에 넣기
+	root.stickerStack.push(cloneSticker);
+
+	// 드래그 앤 드랍 가능하도록 설정
+	SetDragDrop(cloneSticker);
+}
+
+// 생성한 스티커 드래그 가능하게 만들기
+function SetDragDrop(obj) {
+	obj.mouseDownHandler = function (e) {
+		if (isDraging) {
+			return;
+		}
+
+		isDraging = true;
+
+		// 마우스 이벤트 기준으로 좌표와 드래그하려는 obj와 거리 계산
+		obj.offsetX = (e.stageX / stage.scaleX) / canvasScaleX - obj.x;
+		obj.offsetY = (e.stageY / stage.scaleY) / canvasScaleY - obj.y;
+
+		// stage에 mousemove와 mouseup 이벤트 추가
+		stage.addEventListener("stagemousemove", obj.stageMouseMoveHandler);
+		stage.addEventListener("stagemouseup", obj.stageMouseUpHandler);
+
+		// 선택한 스티커가 제일 위로 올라오도록 설정
+		canvas.setChildIndex(obj, canvas.numChildren - 1);
+	};
+
+	obj.stageMouseMoveHandler = function (e) {
+		// 마우스 이벤트 기준으로 좌표 계산
+		var tx = (e.stageX / stage.scaleX) / canvasScaleX - obj.offsetX;
+		var ty = (e.stageY / stage.scaleY) / canvasScaleY - obj.offsetY;
+
+		// 계산한 좌표를 다시 계산
+		SetBoundPostion(obj, tx, ty);
+	};
+
+	obj.stageMouseUpHandler = function (e) {
+
+		isDraging = false;
+
+		// 이벤트 제거
+		stage.removeAllEventListeners("stagemousemove");
+		stage.removeAllEventListeners("stagemouseup");
+	}
+
+	// obj에 mousedown 이벤트 추가
+	obj.addEventListener("mousedown", obj.mouseDownHandler);
+}
+
+// 스티커 포지션 설정 (canvas 밖으로 나가지 못하게)
+function SetBoundPostion(obj, tx, ty) {
+	var bound = obj.nominalBounds;
+
+	// obj가 중앙 기준으로 정렬 되어 있어서 min은 obj width의 반으로 설정해둠
+	var minX = bound.width / 2;
+	var minY = bound.height / 2;
+
+	// max 값도 마찬가지로 width의 반을 빼줌
+	var maxX = maxDragX - bound.width / 2;
+	var maxY = maxDragY - bound.height / 2;
+
+	var tx = Math.clamp(tx, minX, maxX);
+	var ty = Math.clamp(ty, minY, maxY);
+
+	// obj 좌표 재설정
+	obj.x = tx;
+	obj.y = ty;
+
+}]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="palette" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="1_Act/Symbol/palette" name="palette" selected="true">
+                                             <matrix>
+                                                  <Matrix tx="1453.85" ty="92.05"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="canvas" color="#FF0000" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":42657,"b":0,"c":0,"d":36787,"tx":0,"ty":0}'>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="1_Act/Symbol/sticker_canvas" name="canvas">
+                                             <matrix>
+                                                  <Matrix tx="430.55" ty="305.65"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="btn_delete" color="#009999" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":34923,"b":0,"c":0,"d":44563,"tx":0,"ty":0}'>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="1_Act/Symbol/btn_back" name="btn_back" symbolType="button" centerPoint3DX="1748.3" centerPoint3DY="1077.55">
+                                             <matrix>
+                                                  <Matrix tx="1683.65" ty="1002.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <scripts>
+          <GlobalScripts language="Javascript">
+               <Script><![CDATA[{
+	var TempWidth = null;
+	var TempHeight = null;
+	var MainRoot = null;
+}
+
+(function () {
+	Math.clamp = function (a, b, c) {
+		return Math.max(b, Math.min(c, a));
+	}
+})();]]>
+          </Script>
+          <Script type="local" src="./js/bitmapdata-1.1.1.min.js"/>
+          <Script type="local" src="./js/MorphUtil.1.0.0.js"/>
+     </GlobalScripts>
+</scripts>
+<persistentData>
+     <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+</persistentData>
+<PrinterSettings/>
+<publishHistory/>
+</DOMDocument>

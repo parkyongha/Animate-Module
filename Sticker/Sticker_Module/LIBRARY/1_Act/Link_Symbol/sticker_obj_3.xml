@@ -1,0 +1,21 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Link_Symbol/sticker_obj_3" itemID="65f2af36-000027ae" linkageExportForAS="true" linkageClassName="stickerOBJ_3" lastModified="1740476043">
+  <timeline>
+    <DOMTimeline name="sticker_obj_3" layerDepthEnabled="true">
+      <layers>
+        <DOMLayer name="레이어_2" color="#9933CC" current="true" isSelected="true" highlighted="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="1_Act/Link_Symbol/sticker_All" symbolType="graphic" firstFrame="3" centerPoint3DX="32.5" centerPoint3DY="41" loop="single frame">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

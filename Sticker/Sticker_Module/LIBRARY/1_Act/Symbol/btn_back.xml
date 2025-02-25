@@ -1,0 +1,48 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/btn_back" itemID="60204782-00000b9a" symbolType="button" lastModified="1740474852">
+  <timeline>
+    <DOMTimeline name="btn_back" currentFrame="3">
+      <layers>
+        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/undo_btn">
+                  <matrix>
+                    <Matrix d="0.99993896484375" tx="-91.5" ty="-68.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="91.5" y="70.95"/>
+                  </transformationPoint>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728" rigPropagationMatrix='{"a":58986,"b":0,"c":0,"d":58985,"tx":0,"ty":0}'>
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/undo_btn">
+                  <matrix>
+                    <Matrix a="0.900054931640625" d="0.899978637695312" tx="-82.3" ty="-61.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="91.45" y="70.9"/>
+                  </transformationPoint>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/undo_btn">
+                  <matrix>
+                    <Matrix d="0.99993896484375" tx="-91.5" ty="-68.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="91.5" y="70.95"/>
+                  </transformationPoint>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
