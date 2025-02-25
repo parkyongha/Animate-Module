@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"Draw_Module_atlas_1", frames: [[655,920,32,32],[535,1298,163,163],[549,920,51,51],[549,973,51,51],[602,920,51,51],[602,973,51,51],[902,920,51,51],[0,596,547,461],[0,0,523,594],[525,0,482,516],[179,1298,176,176],[701,1121,177,176],[357,1298,176,176],[0,1298,177,176],[880,1121,176,176],[0,1059,699,237],[549,518,199,199],[549,719,199,199],[701,920,199,199],[750,518,199,199],[750,719,199,199]]}
+		{name:"Draw_Module_atlas_1", frames: [[1996,201,32,32],[534,518,163,163],[1415,402,51,51],[1468,402,51,51],[1521,402,51,51],[1574,402,51,51],[1627,402,51,51],[0,0,507,503],[993,0,420,453],[509,0,482,516],[0,505,176,176],[1817,201,177,176],[178,505,176,176],[1817,379,177,176],[356,518,176,176],[993,455,699,237],[1415,0,199,199],[1616,0,199,199],[1817,0,199,199],[1415,201,199,199],[1616,201,199,199]]}
 ];
 
 
@@ -246,7 +246,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.image_1_graphic, new cjs.Rectangle(0,0,523,594), null);
+}).prototype = getMCSymbolPrototype(lib.image_1_graphic, new cjs.Rectangle(0,0,420,453), null);
 
 
 (lib.image_0_graphic = function(mode,startPosition,loop,reversed) {
@@ -267,7 +267,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.image_0_graphic, new cjs.Rectangle(0,0,547,461), null);
+}).prototype = getMCSymbolPrototype(lib.image_0_graphic, new cjs.Rectangle(0,0,507,503), null);
 
 
 (lib.EffectColor = function(mode,startPosition,loop,reversed) {
@@ -486,7 +486,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Image_1_1, new cjs.Rectangle(0,0,523,594), null);
+}).prototype = getMCSymbolPrototype(lib.Image_1_1, new cjs.Rectangle(0,0,420,453), null);
 
 
 (lib.Image_0_1 = function(mode,startPosition,loop,reversed) {
@@ -514,7 +514,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Image_0_1, new cjs.Rectangle(0,0,547,461), null);
+}).prototype = getMCSymbolPrototype(lib.Image_0_1, new cjs.Rectangle(0,0,507,503), null);
 
 
 (lib.Effect_4 = function(mode,startPosition,loop,reversed) {
@@ -726,13 +726,13 @@ if (reversed == null) { reversed = false; }
 
 	this.Image_1 = new lib.Image_1_1();
 	this.Image_1.name = "Image_1";
-	this.Image_1.setTransform(710.5,146.5);
+	this.Image_1.setTransform(779.1,237.1);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.Image_1},{t:this.Image_0},{t:this.Image_2}]}).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.bg, new cjs.Rectangle(78.7,146.5,1750.3999999999999,594), null);
+}).prototype = getMCSymbolPrototype(lib.bg, new cjs.Rectangle(78.7,219.5,1750.3999999999999,530.7), null);
 
 
 (lib.color = function(mode,startPosition,loop,reversed) {
@@ -851,13 +851,13 @@ if (reversed == null) { reversed = false; }
 		root.IsClear = false;
 		
 		// ===================== 심볼 관리
-		var mc_palette = root.mc_palette;
+		var palette = root.palette;
 		
-		var mcBG = root.mc_bg;
-		mcBG.stop();
+		var drawImages = root.drawImages;
+		drawImages.stop();
 		
 		// ===================== 캔버스
-		var bgSize = mcBG.nominalBounds;
+		var bgSize = drawImages.nominalBounds;
 		var lastPoint;
 		var canvasBitmapData = null;
 		var strokes = [];
@@ -868,11 +868,11 @@ if (reversed == null) { reversed = false; }
 		var canvasOffsetX = 0;
 		var canvasRect;
 		var btnComplete = root.btn_complete;
-		
+		 
 		var canvasBoard;
 		var clearColor = 0x00000000;
 		
-		var drawImages = mcBG.GetChildsByName("Image_");
+		var Images = Images.GetChildsByName("Image_");
 		
 		// ===================== 브러쉬 & 그리기
 		var paletteColors = [
@@ -899,17 +899,16 @@ if (reversed == null) { reversed = false; }
 		var isDrawing = false;
 		
 		// ===================== palette
-		var paletteDefaultY = mc_palette.y;
-		var paletteHeight = mc_palette.nominalBounds.height;
+		var paletteDefaultY = palette.y;
+		var paletteHeight = palette.nominalBounds.height;
 		
 		root.paletteEnabled = true;
 		
-		var paletteColorObjs = mc_palette.GetChildsByName("color_");
+		var paletteColorObjs = palette.GetChildsByName("color_");
 		
 		// =====================  사운드
 		var sfx_DrawSound = null;
 		var sfx_Draw_TimeoutID = null;
-		var IsDrawStart = false;
 		
 		var drawSoundPaused = false;
 		
@@ -935,72 +934,70 @@ if (reversed == null) { reversed = false; }
 		}
 		
 		root.InitCanvas = function () {
+		    console.log("Init");
 		
-		    console.log("Init")
-		
-		    drawImages.forEach((drawImage, Idx) => {
-		        var bound = drawImage.getBounds();
-		
-		        drawImage.canvasDepth = 0;
-		        drawImage.BitmapData = new createjs.BitmapData(null, bound.width, bound.height, clearColor);
-		        drawImage.Board = new createjs.Bitmap(drawImage.BitmapData.canvas);
-		
-		        drawImage.BitmapLayer.addChild(drawImage.Board);
-		        drawImage.BitmapLayer.mouseChildren = false;
-		        drawImage.BitmapLayer.mouseEnabled = false;
-		
-		        drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
-		        drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
-		
-		        // getBitmapData를 사용하기 위해 cache
-		        drawImage.Image.cache(0, 0, bound.width, bound.height);
-		        drawImage.Image.imageData = createjs.BitmapData.getBitmapData(drawImage.Image);
-		        drawImage.Image.uncache();
-		
-		        drawImage.BitmapLayer.compositeOperation = 'source-atop';
-		
-		        if (Idx == 0 || Idx == 3) {
-		            mcBG.setChildIndex(drawImage, mcBG.numChildren - 2);
-		        }
-		
-		        drawImage.on("mousedown", function (e) {
-		            console.log(drawImage.name);
-		
-		            mcCanvas = drawImage;
-		
-		            if (Idx != 0 && Idx != 3) {
-		                mcBG.setChildIndex(drawImage, 2);
-		            }
-		
-		            canvasOffsetX = mcCanvas.x;
-		            canvasOffsetY = mcCanvas.y;
-		            OnDrawStart(e);
-		
-		            root.btn_complete.visible = true;
-		        })
+		    Images.forEach((drawImage) => {
+		        initializeBitmapLayer(drawImage);
+		        drawImage.on("mousedown", (e) => drawImageHandleMouseDown(drawImage, e));
 		    });
 		
-		    drawImages.forEach((drawImage) => {
-		        var bound = drawImage.getBounds();
-		
-		        drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
-		        drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
-		    });
+		    cacheAndClearBitmapLayers();
 		
 		    // 기본은 첫번째
-		    mcCanvas = mcBG.Image_0;
-		
+		    mcCanvas = drawImages.Image_0;
 		    canvasOffsetX = mcCanvas.x;
 		    canvasOffsetY = mcCanvas.y;
 		
 		    UpdateBitmapLayerCache();
-		
 		    clearCanvas();
 		    brushColorBitmaps = [];
 		
 		    Initpalette();
-		
 		    InitEvents();
+		};
+		
+		/**
+		 * drawImage에 대한 Bitmap 관련 기능 초기화
+		 * @param {MovieClip} drawImage 
+		 */
+		function initializeBitmapLayer(drawImage) {
+		    const bound = drawImage.getBounds();
+		    drawImage.canvasDepth = 0;
+		    drawImage.BitmapData = new createjs.BitmapData(null, bound.width, bound.height, clearColor);
+		    drawImage.Board = new createjs.Bitmap(drawImage.BitmapData.canvas);
+		
+		    drawImage.BitmapLayer.addChild(drawImage.Board);
+		    drawImage.BitmapLayer.mouseChildren = false;
+		    drawImage.BitmapLayer.mouseEnabled = false;
+		    drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
+		    drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
+		
+		    drawImage.Image.cache(0, 0, bound.width, bound.height);
+		    drawImage.Image.imageData = createjs.BitmapData.getBitmapData(drawImage.Image);
+		    drawImage.Image.uncache();
+		
+		    drawImage.BitmapLayer.compositeOperation = 'source-atop';
+		}
+		
+		function drawImageHandleMouseDown(drawImage, event) {
+		    console.log(drawImage.name);
+		    mcCanvas = drawImage;
+		
+		    canvasOffsetX = mcCanvas.x;
+		    canvasOffsetY = mcCanvas.y;
+		
+		    OnDrawStart(event);
+		
+		    root.btn_complete.visible = true;
+		}
+		
+		function cacheAndClearBitmapLayers() {
+		    Images.forEach((drawImage) => {
+		        const bound = drawImage.getBounds();
+		        
+		        drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
+		        drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
+		    });
 		}
 		
 		function Initpalette() {
@@ -1013,7 +1010,7 @@ if (reversed == null) { reversed = false; }
 		
 		    brushColorBitmaps = GetBrushColorBitmaps(_source, paletteColors);
 		    brushConfig.brush = brushColorBitmaps[0];
-		    mc_palette.color_0.Cover.visible = true;
+		    palette.color_0.Cover.visible = true;
 		
 		    // 색 선택
 		    paletteColorObjs.forEach((obj, Idx) => {
@@ -1038,7 +1035,7 @@ if (reversed == null) { reversed = false; }
 		    // 한번만 실행됨
 		    root.btn_complete.on("click", function (e) {
 		
-		        mc_palette.visible = false;
+		        palette.visible = false;
 		        // PlaySFX("common_success");
 		
 		        mcCanvas.removeAllEventListeners("mousedown", OnDrawStart);
@@ -1047,7 +1044,7 @@ if (reversed == null) { reversed = false; }
 		            var results = [];
 		
 		            // 그린 이미지들 저장
-		            drawImages.forEach((drawImage) => {
+		            Images.forEach((drawImage) => {
 		                var bound = drawImage.nominalBounds;
 		
 		                // ReDrawEnablePixels(drawImage.BitmapLayer, drawImage.Image, function () {
@@ -1072,17 +1069,14 @@ if (reversed == null) { reversed = false; }
 		
 		    lastPoint = GetPosition(e);
 		
-		    if (root.paletteEnabled && lastPoint.y > mc_palette.y - canvasOffsetY - 50) {
-		        mc_palette.RemoveTweens();
-		        mc_palette.wait(100).to({
-		            y: paletteHeight + mc_palette.y
-		        }, 300, createjs.Ease.backIn);
-		
+		    // 그리기 영역이 팔레트랑 겹칠 때 팔레트 숨김
+		    if (root.paletteEnabled && lastPoint.y > palette.y - canvasOffsetY - 50) {
 		        root.paletteEnabled = false;
-		    }
 		
-		    if (IsDrawStart == false) {
-		        IsDrawStart = true;
+		        palette.RemoveTweens();
+		        palette.Wait(100).to({
+		            y: paletteHeight + palette.y
+		        }, 300, createjs.Ease.backIn);
 		    }
 		
 		    // 그리기 효과음
@@ -1094,8 +1088,8 @@ if (reversed == null) { reversed = false; }
 		    pointerID = e.pointerID;
 		    mcCanvas.Board.name = "Board";
 		
-		    mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
 		    mcCanvas.BitmapLayer.uncache();
+		    mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
 		
 		    currentStroke = {
 		        x: [],
@@ -1105,8 +1099,8 @@ if (reversed == null) { reversed = false; }
 		    drawBrush(lastPoint.x, lastPoint.y);
 		    AddStroke(lastPoint.x, lastPoint.y);
 		
-		    stage.addEventListener("stagemouseup", OnDrawEnd);
 		    stage.addEventListener("stagemousemove", OnDrawBrush);
+		    stage.addEventListener("stagemouseup", OnDrawEnd);
 		
 		    ParticlePos = e;
 		    IsParticleActive = true;
@@ -1121,14 +1115,14 @@ if (reversed == null) { reversed = false; }
 		
 		    var currentPoint = GetPosition(e);
 		
-		    if (root.paletteEnabled && currentPoint.y > mc_palette.y - canvasOffsetY - 50) {
-		
-		        mc_palette.RemoveTweens();
-		        mc_palette.wait(100).to({
-		            y: paletteHeight + mc_palette.y
-		        }, 300, createjs.Ease.backIn);
-		
+		    // 그리기 영역이 팔레트랑 겹칠 때 팔레트 숨김
+		    if (root.paletteEnabled && currentPoint.y > palette.y - canvasOffsetY - 50) {
 		        root.paletteEnabled = false;
+		
+		        palette.RemoveTweens();
+		        palette.Wait(100).to({
+		            y: paletteHeight + palette.y
+		        }, 300, createjs.Ease.backIn);
 		    }
 		
 		    DrawLine(lastPoint, currentPoint);
@@ -1140,7 +1134,6 @@ if (reversed == null) { reversed = false; }
 		    DrawSoundTimeout(100);
 		}
 		
-		// 배열에서 min, max를 사용하는 방법
 		function calculateMinMax(stroke, canvasWidth, canvasHeight) {
 		    var minX = Math.min(...stroke.x);
 		    var minY = Math.min(...stroke.y);
@@ -1158,8 +1151,8 @@ if (reversed == null) { reversed = false; }
 		function calculateCanvasRect(minMax, brushHSizeW, brushHSizeH) {
 		    const cx = Math.max(0, minMax.minX - brushHSizeW);
 		    const cy = Math.max(0, minMax.minY - brushHSizeH);
-		    const cw = Math.min(canvasSize().width, minMax.maxX + brushHSizeW);
-		    const ch = Math.min(canvasSize().height, minMax.maxY + brushHSizeH);
+		    const cw = Math.min(mcCanvas.nominalBounds.width, minMax.maxX + brushHSizeW);
+		    const ch = Math.min(mcCanvas.nominalBounds.height, minMax.maxY + brushHSizeH);
 		
 		    return new createjs.Rectangle(cx, cy, cw - cx, ch - cy);
 		}
@@ -1182,20 +1175,19 @@ if (reversed == null) { reversed = false; }
 		    });
 		
 		    if (root.paletteEnabled == false) {
-		        mc_palette.RemoveTweens();
-		        mc_palette.Tween({
+		        root.paletteEnabled = true;
+		
+		        palette.RemoveTweens();
+		        palette.Tween({
 		            y: paletteDefaultY
 		        }, 300, createjs.Ease.backOut);
-		
-		        root.paletteEnabled = true;
 		    }
 		
-		    const canvasWidth = canvasSize().width;
-		    const canvasHeight = canvasSize().height;
+		    const canvasBound = mcCanvas.nominalBounds;
 		    const brushHSizeW = brushConfig.brushHSizeW;
 		    const brushHSizeH = brushConfig.brushHSizeH;
 		
-		    const minMax = calculateMinMax(currentStroke, canvasWidth, canvasHeight);
+		    const minMax = calculateMinMax(currentStroke, canvasBound.width, canvasBound.height);
 		    const cRect = calculateCanvasRect(minMax, brushHSizeW, brushHSizeH);
 		
 		    currentStroke.x = currentStroke.y = null;
@@ -1223,8 +1215,8 @@ if (reversed == null) { reversed = false; }
 		    currentStroke = null;
 		    pointerID = -1;
 		
-		    stage.removeAllEventListeners("stagemouseup");
 		    stage.removeAllEventListeners("stagemousemove");
+		    stage.removeAllEventListeners("stagemouseup");
 		
 		    ParticlePos = null;
 		    ClearParticleEffect();
@@ -1239,13 +1231,9 @@ if (reversed == null) { reversed = false; }
 		    cvs.height = height;
 		
 		    // context 가져와서 source 그려서 복사
-		    cvs.context = cvs.getContext("2d").drawImage(source, x, y);
+		    cvs.getContext("2d").drawImage(source, x, y);
 		
 		    return cvs;
-		}
-		
-		function CheckCompleteButton() {
-		    btnComplete.visible = IsDrawStart; //!strokes ? false : strokes.length > 0;
 		}
 		
 		// _source type: bitmapData
@@ -1267,11 +1255,6 @@ if (reversed == null) { reversed = false; }
 		    }
 		
 		    return brushArr;
-		}
-		
-		// mcCanvas 가 계속 바뀌기 때문에 함수로 정의
-		function canvasSize() {
-		    return mcCanvas.nominalBounds;
 		}
 		
 		function AddStroke(tx, ty) {
@@ -1298,10 +1281,7 @@ if (reversed == null) { reversed = false; }
 		
 		    var matrix = new createjs.Matrix2D();
 		    matrix.translate(tx - brushConfig.brushHSizeW, ty - brushConfig.brushHSizeH);
-		    //mcCanvas.compositeOperation = 'destination-in';
 		    mcCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
-		
-		    // 블렌드 모드를 기본 값으로 복원
 		}
 		
 		function GetPositionX(e) {
@@ -1324,11 +1304,11 @@ if (reversed == null) { reversed = false; }
 		}
 		
 		function clearCanvas() {
-		    mcCanvas.BitmapData.clearRect(0, 0, canvasSize().width, canvasSize().height);
+		    mcCanvas.BitmapData.clearRect(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
 		}
 		
 		function UpdateBitmapLayerCache() {
-		    mcCanvas.BitmapLayer.cache(0, 0, canvasSize().width, canvasSize().height);
+		    mcCanvas.BitmapLayer.cache(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
 		}
 		
 		function CheckPointerID(e) {
@@ -1347,7 +1327,9 @@ if (reversed == null) { reversed = false; }
 		function DrawSoundTimeout(time) {
 		    if (sfx_DrawSound != null) {
 		        sfx_DrawSound.volume = 1;
+		
 		        ClearDrawSoundTimeout();
+		
 		        sfx_Draw_TimeoutID = root.Wait(time).call(() => {
 		            sfx_DrawSound.volume = 0;
 		            sfx_Draw_TimeoutID = null;
@@ -1440,11 +1422,11 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.Effect_0},{t:this.Effect_1},{t:this.Effect_2},{t:this.Effect_3}]}).wait(1));
 
 	// mc_pallet
-	this.mc_palette = new lib.palette();
-	this.mc_palette.name = "mc_palette";
-	this.mc_palette.setTransform(376.2,964);
+	this.palette = new lib.palette();
+	this.palette.name = "palette";
+	this.palette.setTransform(376.2,964);
 
-	this.timeline.addTween(cjs.Tween.get(this.mc_palette).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.palette).wait(1));
 
 	// btn_complete
 	this.btn_complete = new lib.btn_comp();
@@ -1454,11 +1436,11 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this.btn_complete).wait(1));
 
 	// bg
-	this.mc_bg = new lib.bg();
-	this.mc_bg.name = "mc_bg";
-	this.mc_bg.setTransform(1000,600,1,1,0,0,0,1000,600);
+	this.drawImages = new lib.bg();
+	this.drawImages.name = "drawImages";
+	this.drawImages.setTransform(1000,600,1,1,0,0,0,1000,600);
 
-	this.timeline.addTween(cjs.Tween.get(this.mc_bg).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.drawImages).wait(1));
 
 	this._renderFirstFrame();
 
@@ -1513,7 +1495,7 @@ lib.properties = {
 	color: "#CCCCCC",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Draw_Module_atlas_1.png?1740387770951", id:"Draw_Module_atlas_1"}
+		{src:"images/Draw_Module_atlas_1.png?1740462239461", id:"Draw_Module_atlas_1"}
 	],
 	preloads: []
 };

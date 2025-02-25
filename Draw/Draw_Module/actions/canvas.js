@@ -3,13 +3,13 @@ var root = this;
 root.IsClear = false;
 
 // ===================== 심볼 관리
-var mc_palette = root.mc_palette;
+var palette = root.palette;
 
-var mcBG = root.mc_bg;
-mcBG.stop();
+var drawImages = root.drawImages;
+drawImages.stop();
 
 // ===================== 캔버스
-var bgSize = mcBG.nominalBounds;
+var bgSize = drawImages.nominalBounds;
 var lastPoint;
 var canvasBitmapData = null;
 var strokes = [];
@@ -20,11 +20,11 @@ var canvasOffsetY = 0;
 var canvasOffsetX = 0;
 var canvasRect;
 var btnComplete = root.btn_complete;
-
+ 
 var canvasBoard;
 var clearColor = 0x00000000;
 
-var drawImages = mcBG.GetChildsByName("Image_");
+var Images = Images.GetChildsByName("Image_");
 
 // ===================== 브러쉬 & 그리기
 var paletteColors = [
@@ -51,17 +51,16 @@ var imageLayers;
 var isDrawing = false;
 
 // ===================== palette
-var paletteDefaultY = mc_palette.y;
-var paletteHeight = mc_palette.nominalBounds.height;
+var paletteDefaultY = palette.y;
+var paletteHeight = palette.nominalBounds.height;
 
 root.paletteEnabled = true;
 
-var paletteColorObjs = mc_palette.GetChildsByName("color_");
+var paletteColorObjs = palette.GetChildsByName("color_");
 
 // =====================  사운드
 var sfx_DrawSound = null;
 var sfx_Draw_TimeoutID = null;
-var IsDrawStart = false;
 
 var drawSoundPaused = false;
 
@@ -89,16 +88,15 @@ var canvasMidPos = null;
 root.InitCanvas = function () {
     console.log("Init");
 
-    drawImages.forEach((drawImage, idx) => {
+    Images.forEach((drawImage) => {
         initializeBitmapLayer(drawImage);
-        setChildIndexForBackground(drawImage, idx);
         drawImage.on("mousedown", (e) => drawImageHandleMouseDown(drawImage, e));
     });
 
     cacheAndClearBitmapLayers();
 
     // 기본은 첫번째
-    mcCanvas = mcBG.Image_0;
+    mcCanvas = drawImages.Image_0;
     canvasOffsetX = mcCanvas.x;
     canvasOffsetY = mcCanvas.y;
 
@@ -146,7 +144,7 @@ function drawImageHandleMouseDown(drawImage, event) {
 }
 
 function cacheAndClearBitmapLayers() {
-    drawImages.forEach((drawImage) => {
+    Images.forEach((drawImage) => {
         const bound = drawImage.getBounds();
         
         drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
@@ -164,7 +162,7 @@ function Initpalette() {
 
     brushColorBitmaps = GetBrushColorBitmaps(_source, paletteColors);
     brushConfig.brush = brushColorBitmaps[0];
-    mc_palette.color_0.Cover.visible = true;
+    palette.color_0.Cover.visible = true;
 
     // 색 선택
     paletteColorObjs.forEach((obj, Idx) => {
@@ -189,7 +187,7 @@ function InitEvents() {
     // 한번만 실행됨
     root.btn_complete.on("click", function (e) {
 
-        mc_palette.visible = false;
+        palette.visible = false;
         // PlaySFX("common_success");
 
         mcCanvas.removeAllEventListeners("mousedown", OnDrawStart);
@@ -198,7 +196,7 @@ function InitEvents() {
             var results = [];
 
             // 그린 이미지들 저장
-            drawImages.forEach((drawImage) => {
+            Images.forEach((drawImage) => {
                 var bound = drawImage.nominalBounds;
 
                 // ReDrawEnablePixels(drawImage.BitmapLayer, drawImage.Image, function () {
@@ -223,17 +221,14 @@ function OnDrawStart(e) {
 
     lastPoint = GetPosition(e);
 
-    if (root.paletteEnabled && lastPoint.y > mc_palette.y - canvasOffsetY - 50) {
-        mc_palette.RemoveTweens();
-        mc_palette.wait(100).to({
-            y: paletteHeight + mc_palette.y
-        }, 300, createjs.Ease.backIn);
-
+    // 그리기 영역이 팔레트랑 겹칠 때 팔레트 숨김
+    if (root.paletteEnabled && lastPoint.y > palette.y - canvasOffsetY - 50) {
         root.paletteEnabled = false;
-    }
 
-    if (IsDrawStart == false) {
-        IsDrawStart = true;
+        palette.RemoveTweens();
+        palette.Wait(100).to({
+            y: paletteHeight + palette.y
+        }, 300, createjs.Ease.backIn);
     }
 
     // 그리기 효과음
@@ -245,8 +240,8 @@ function OnDrawStart(e) {
     pointerID = e.pointerID;
     mcCanvas.Board.name = "Board";
 
-    mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
     mcCanvas.BitmapLayer.uncache();
+    mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
 
     currentStroke = {
         x: [],
@@ -256,8 +251,8 @@ function OnDrawStart(e) {
     drawBrush(lastPoint.x, lastPoint.y);
     AddStroke(lastPoint.x, lastPoint.y);
 
-    stage.addEventListener("stagemouseup", OnDrawEnd);
     stage.addEventListener("stagemousemove", OnDrawBrush);
+    stage.addEventListener("stagemouseup", OnDrawEnd);
 
     ParticlePos = e;
     IsParticleActive = true;
@@ -272,14 +267,14 @@ function OnDrawBrush(e) {
 
     var currentPoint = GetPosition(e);
 
-    if (root.paletteEnabled && currentPoint.y > mc_palette.y - canvasOffsetY - 50) {
-
-        mc_palette.RemoveTweens();
-        mc_palette.wait(100).to({
-            y: paletteHeight + mc_palette.y
-        }, 300, createjs.Ease.backIn);
-
+    // 그리기 영역이 팔레트랑 겹칠 때 팔레트 숨김
+    if (root.paletteEnabled && currentPoint.y > palette.y - canvasOffsetY - 50) {
         root.paletteEnabled = false;
+
+        palette.RemoveTweens();
+        palette.Wait(100).to({
+            y: paletteHeight + palette.y
+        }, 300, createjs.Ease.backIn);
     }
 
     DrawLine(lastPoint, currentPoint);
@@ -308,8 +303,8 @@ function calculateMinMax(stroke, canvasWidth, canvasHeight) {
 function calculateCanvasRect(minMax, brushHSizeW, brushHSizeH) {
     const cx = Math.max(0, minMax.minX - brushHSizeW);
     const cy = Math.max(0, minMax.minY - brushHSizeH);
-    const cw = Math.min(canvasSize().width, minMax.maxX + brushHSizeW);
-    const ch = Math.min(canvasSize().height, minMax.maxY + brushHSizeH);
+    const cw = Math.min(mcCanvas.nominalBounds.width, minMax.maxX + brushHSizeW);
+    const ch = Math.min(mcCanvas.nominalBounds.height, minMax.maxY + brushHSizeH);
 
     return new createjs.Rectangle(cx, cy, cw - cx, ch - cy);
 }
@@ -332,20 +327,19 @@ function OnDrawEnd(e) {
     });
 
     if (root.paletteEnabled == false) {
-        mc_palette.RemoveTweens();
-        mc_palette.Tween({
+        root.paletteEnabled = true;
+
+        palette.RemoveTweens();
+        palette.Tween({
             y: paletteDefaultY
         }, 300, createjs.Ease.backOut);
-
-        root.paletteEnabled = true;
     }
 
-    const canvasWidth = canvasSize().width;
-    const canvasHeight = canvasSize().height;
+    const canvasBound = mcCanvas.nominalBounds;
     const brushHSizeW = brushConfig.brushHSizeW;
     const brushHSizeH = brushConfig.brushHSizeH;
 
-    const minMax = calculateMinMax(currentStroke, canvasWidth, canvasHeight);
+    const minMax = calculateMinMax(currentStroke, canvasBound.width, canvasBound.height);
     const cRect = calculateCanvasRect(minMax, brushHSizeW, brushHSizeH);
 
     currentStroke.x = currentStroke.y = null;
@@ -373,8 +367,8 @@ function OnDrawEnd(e) {
     currentStroke = null;
     pointerID = -1;
 
-    stage.removeAllEventListeners("stagemouseup");
     stage.removeAllEventListeners("stagemousemove");
+    stage.removeAllEventListeners("stagemouseup");
 
     ParticlePos = null;
     ClearParticleEffect();
@@ -389,13 +383,9 @@ function CreateCanvas(source, x, y, width, height) {
     cvs.height = height;
 
     // context 가져와서 source 그려서 복사
-    cvs.context = cvs.getContext("2d").drawImage(source, x, y);
+    cvs.getContext("2d").drawImage(source, x, y);
 
     return cvs;
-}
-
-function CheckCompleteButton() {
-    btnComplete.visible = IsDrawStart; //!strokes ? false : strokes.length > 0;
 }
 
 // _source type: bitmapData
@@ -417,11 +407,6 @@ function GetBrushColorBitmaps(_source, paletteColors) {
     }
 
     return brushArr;
-}
-
-// mcCanvas 가 계속 바뀌기 때문에 함수로 정의
-function canvasSize() {
-    return mcCanvas.nominalBounds;
 }
 
 function AddStroke(tx, ty) {
@@ -471,11 +456,11 @@ function GetRandomMinMax(min, max) {
 }
 
 function clearCanvas() {
-    mcCanvas.BitmapData.clearRect(0, 0, canvasSize().width, canvasSize().height);
+    mcCanvas.BitmapData.clearRect(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
 }
 
 function UpdateBitmapLayerCache() {
-    mcCanvas.BitmapLayer.cache(0, 0, canvasSize().width, canvasSize().height);
+    mcCanvas.BitmapLayer.cache(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
 }
 
 function CheckPointerID(e) {

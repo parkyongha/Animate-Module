@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/image_1_graphic" itemID="66543104-000058f0" lastModified="1730358216">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/image_1_graphic" itemID="66543104-000058f0" lastModified="1740449238">
   <timeline>
     <DOMTimeline name="image_1_graphic" layerDepthEnabled="true">
       <layers>
@@ -6,7 +6,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="1_Act/Image/Image_1.png"/>
+                <DOMBitmapInstance libraryItemName="1_Act/Image/Image_1.png"/>
               </elements>
             </DOMFrame>
           </frames>

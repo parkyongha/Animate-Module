@@ -1,6 +1,6 @@
 <DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/_palette/palette" itemID="6618ae99-0000034b" lastModified="1730254143" lastUniqueIdentifier="6">
   <timeline>
-    <DOMTimeline name="palette" currentFrame="2" layerDepthEnabled="true">
+    <DOMTimeline name="palette" layerDepthEnabled="true">
       <layers>
         <DOMLayer name="script" color="#FF800A" autoNamed="false">
           <frames>
@@ -38,7 +38,7 @@
           <frames>
             <DOMFrame index="0" duration="32" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color" name="color_0" selected="true">
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/_palette/color" name="color_0">
                   <matrix>
                     <Matrix tx="430.05" ty="126.5"/>
                   </matrix>

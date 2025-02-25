@@ -2,7 +2,7 @@
   <timeline>
     <DOMTimeline name="Image_2" layerDepthEnabled="true">
       <layers>
-        <DOMLayer name="BitmapLayer" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="BitmapLayer" color="#9933CC" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -15,7 +15,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="레이어_1" color="#00FFFF">
+        <DOMLayer name="레이어_1" color="#00FFFF" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" keyMode="9728" rigPropagationMatrix='{"a":65535,"b":0,"c":0,"d":65536,"tx":0,"ty":0}'>
               <elements>
