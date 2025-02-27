@@ -1,0 +1,84 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="1280" height="800" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" rulerVisible="true" bitmapSnap="false" objectsSnapTo="false" viewAngle3D="100.925968316201" vanishingPoint3DX="640" vanishingPoint3DY="400" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="60E10D79E35D2143B913EC6054E4F5BC">
+     <folders>
+          <DOMFolderItem name="1_Act" itemID="66052a6f-00003f2a"/>
+          <DOMFolderItem name="1_Act/Image" itemID="65fb8dc8-000036cc"/>
+          <DOMFolderItem name="1_Act/Symbol" itemID="67bfd44b-000008c7"/>
+          <DOMFolderItem name="Image" itemID="67bfbd95-000001e8" isExpanded="true"/>
+          <DOMFolderItem name="Image/brush" itemID="67bfbd95-000001e9"/>
+          <DOMFolderItem name="Symbol" itemID="67bfbdb2-000001f8" isExpanded="true"/>
+     </folders>
+     <media>
+          <DOMBitmapItem name="Image/brush/brush" itemID="664568c2-000008a4" linkageExportForAS="true" linkageClassName="brush" sourceLastImported="1715824981" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Image/brush/brush.png" bitmapDataHRef="M 2 1740619157.dat" frameRight="640" frameBottom="640"/>
+          <DOMBitmapItem name="1_Act/Image/Image_0.png" itemID="67bd2765-0000291e" sourceLastImported="1740449303" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="1_Act/Image/Image_0.png" bitmapDataHRef="M 3 1740624971.dat" frameRight="10140" frameBottom="10060"/>
+          <DOMBitmapItem name="Image/word_a.png" itemID="67bfbe85-000001fc" sourceLastImported="1740619190" externalFileSize="4164" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Image/word_a.png" bitmapDataHRef="M 2 1740549280.dat" frameRight="6260" frameBottom="8320"/>
+          <DOMBitmapItem name="Image/word_G.png" itemID="67c00d7a-000012c8" sourceLastImported="1740637410" externalFileSize="5960" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Image/word_G.png" bitmapDataHRef="M 6 1740637402.dat" frameRight="6700" frameBottom="9280"/>
+     </media>
+     <symbols>
+          <Include href="1_Act/Symbol/Image_0.xml" loadImmediate="false" itemID="66542713-0000533b" lastModified="1740623718"/>
+          <Include href="1_Act/Symbol/image_0_graphic.xml" loadImmediate="false" itemID="665430f5-000058e9" lastModified="1740449295"/>
+          <Include href="1_Act/Symbol/result.xml" loadImmediate="false" itemID="662f376e-00000e62" lastModified="1714370414"/>
+          <Include href="Canvas.xml" loadImmediate="false" itemID="67bfd473-000008e2" lastModified="1740650124"/>
+          <Include href="Symbol/Test.xml" loadImmediate="false" itemID="67beaa7e-0000198b" lastModified="1740548988"/>
+          <Include href="Symbol/word_a.xml" loadImmediate="false" itemID="67bed48b-000019ff" lastModified="1740650124"/>
+          <Include href="Symbol/word_a_Image.xml" loadImmediate="false" itemID="67bfbe97-000001fe" lastModified="1740619415"/>
+          <Include href="Symbol/word_G.xml" loadImmediate="false" itemID="67bed63c-00001a05" lastModified="1740637527"/>
+          <Include href="word_G_Image.xml" loadImmediate="false" itemID="67bff2e2-00000c48" lastModified="1740637402"/>
+          <Include href="words.xml" loadImmediate="false" itemID="67bff27c-00000c19" lastModified="1740632700"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1" layerDepthEnabled="true">
+               <layers>
+                    <DOMLayer name="script" color="#00FFFF" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[createjs.Touch.enable(stage);
+stage.mouseMoveOutside = true;]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Canvas" color="#009999" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Canvas" name="canvas" selected="true">
+                                             <transformationPoint>
+                                                  <Point x="640" y="400"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <scripts>
+          <GlobalScripts language="Javascript">
+               <Script type="local" src="./js/bitmapdata-1.1.1.min.js"/>
+               <Script type="local" src="./js/MorphUtil.1.0.0.js"/>
+               <Script><![CDATA[//헥사 코드 값을 rgb 값으로 변환
+function hexToRgb(hex) {
+	var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+	hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+		return r + r + g + g + b + b;
+	});
+
+	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	return result ? {
+		r: parseInt(result[1], 16),
+		g: parseInt(result[2], 16),
+		b: parseInt(result[3], 16)
+	} : null;
+}]]>
+          </Script>
+     </GlobalScripts>
+</scripts>
+<persistentData>
+     <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+</persistentData>
+<PrinterSettings/>
+<publishHistory/>
+</DOMDocument>

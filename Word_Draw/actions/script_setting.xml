@@ -1,0 +1,11 @@
+<scripts>
+  <symbol path="Main" name="Main" layerName="script">
+    <frame id="0" dirty="false">Main-script-0.js</frame>
+  </symbol>
+  <symbol path="Canvas" name="Canvas" layerName="Layer_3">
+    <frame id="0" dirty="false">Canvas-Layer_3-0.js</frame>
+  </symbol>
+  <symbol path="Symbol/word_a" name="word_a" layerName="script">
+    <frame id="59" dirty="false">Symbol_#SS_word_a-script-59.js</frame>
+  </symbol>
+</scripts>
