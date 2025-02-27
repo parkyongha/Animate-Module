@@ -1,0 +1,30 @@
+<scripts>
+  <symbol path="Main" name="Main" layerName="Script">
+    <frame id="0" dirty="false">Main-Script-0.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/Canvas/canvas" name="canvas" layerName="script">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_Canvas_#SS_canvas-script-0.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/Effect" name="Effect" layerName="Layer_2">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_Effect-Layer_2-0.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/EffectColor" name="EffectColor" layerName="Layer_2">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_EffectColor-Layer_2-0.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/EffectColor" name="EffectColor" layerName="Layer_2">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_EffectColor-Layer_2-0.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/Canvas/_palette/palette" name="palette" layerName="script">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_Canvas_#SS__palette_#SS_palette-script-0.js</frame>
+    <frame id="31" dirty="false">1_Act_#SS_Symbol_#SS_Canvas_#SS__palette_#SS_palette-script-31.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/Canvas/_palette/color" name="color" layerName="Layer_2">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_Canvas_#SS__palette_#SS_color-Layer_2-0.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/Canvas/_palette/ColorCoverImage" name="ColorCoverImage" layerName="Layer_2">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_Canvas_#SS__palette_#SS_ColorCoverImage-Layer_2-0.js</frame>
+  </symbol>
+  <symbol path="1_Act/Symbol/Canvas/btn_comp" name="btn_comp" layerName="Layer_2">
+    <frame id="0" dirty="false">1_Act_#SS_Symbol_#SS_Canvas_#SS_btn_comp-Layer_2-0.js</frame>
+  </symbol>
+</scripts>

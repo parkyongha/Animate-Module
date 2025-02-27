@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/_palette/color" itemID="661c9f10-00000828" lastModified="1730254120" lastUniqueIdentifier="6">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/_palette/color" itemID="661c9f10-00000828" lastModified="1740634799" lastUniqueIdentifier="6">
   <timeline>
-    <DOMTimeline name="color" currentFrame="46" layerDepthEnabled="true">
+    <DOMTimeline name="color" layerDepthEnabled="true">
       <layers>
         <DOMLayer name="Layer_2" color="#9933CC">
           <frames>

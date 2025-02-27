@@ -9,7 +9,7 @@
           <DOMFolderItem name="1_Act" itemID="66052a6f-00003f2a"/>
           <DOMFolderItem name="1_Act/Image" itemID="65fb8dc8-000036cc"/>
           <DOMFolderItem name="1_Act/Image/_palette" itemID="6618aa93-000002b6"/>
-          <DOMFolderItem name="1_Act/Image/brush" itemID="67bc2f84-000025c0"/>
+          <DOMFolderItem name="1_Act/Image/brush" itemID="67bc2f84-000025c0" isExpanded="true"/>
           <DOMFolderItem name="1_Act/Symbol" itemID="65fb8dc2-000036c8"/>
           <DOMFolderItem name="1_Act/Symbol/Canvas" itemID="67bc201d-00001aaf"/>
           <DOMFolderItem name="1_Act/Symbol/Canvas/_palette" itemID="6618c144-000004af"/>
@@ -50,31 +50,32 @@
      </media>
      <symbols>
           <Include href="_Common/hand/hand_symbol copy.xml" itemIcon="1" loadImmediate="false" itemID="647704d2-00000677" lastModified="1716802916"/>
-          <Include href="1_Act/Symbol/Canvas/_palette/color.xml" loadImmediate="false" itemID="661c9f10-00000828" lastModified="1730254120"/>
+          <Include href="1_Act/Symbol/Canvas/_palette/color.xml" loadImmediate="false" itemID="661c9f10-00000828" lastModified="1740634799"/>
           <Include href="1_Act/Symbol/Canvas/_palette/color_Image.xml" loadImmediate="false" itemID="661c9f27-0000082a" lastModified="1730254194"/>
-          <Include href="1_Act/Symbol/Canvas/_palette/ColorCoverImage.xml" loadImmediate="false" itemID="661ca028-00000908" lastModified="1730253500"/>
-          <Include href="1_Act/Symbol/Canvas/_palette/palette.xml" loadImmediate="false" itemID="6618ae99-0000034b" lastModified="1730254143"/>
-          <Include href="1_Act/Symbol/Canvas/bg.xml" loadImmediate="false" itemID="6618b09d-0000046b" lastModified="1740449245"/>
+          <Include href="1_Act/Symbol/Canvas/_palette/ColorCoverImage.xml" loadImmediate="false" itemID="661ca028-00000908" lastModified="1740634799"/>
+          <Include href="1_Act/Symbol/Canvas/_palette/palette.xml" loadImmediate="false" itemID="6618ae99-0000034b" lastModified="1740634799"/>
+          <Include href="1_Act/Symbol/Canvas/bg.xml" loadImmediate="false" itemID="6618b09d-0000046b" lastModified="1740633915"/>
           <Include href="1_Act/Symbol/Canvas/btn_ccomplete.xml" itemIcon="0" loadImmediate="false" itemID="64956994-000052bb" lastModified="1712904674"/>
-          <Include href="1_Act/Symbol/Canvas/btn_comp.xml" loadImmediate="false" itemID="64797294-000013c7" lastModified="1713162847"/>
-          <Include href="1_Act/Symbol/Canvas/canvas.xml" loadImmediate="false" itemID="66052a0d-00003f1f" lastModified="1740462305"/>
-          <Include href="1_Act/Symbol/Effect.xml" loadImmediate="false" itemID="66149e89-0000123a" lastModified="1715160379"/>
+          <Include href="1_Act/Symbol/Canvas/btn_comp.xml" loadImmediate="false" itemID="64797294-000013c7" lastModified="1740634799"/>
+          <Include href="1_Act/Symbol/Canvas/canvas.xml" loadImmediate="false" itemID="66052a0d-00003f1f" lastModified="1740634799"/>
+          <Include href="1_Act/Symbol/Effect.xml" loadImmediate="false" itemID="66149e89-0000123a" lastModified="1740634799"/>
           <Include href="1_Act/Symbol/Effect_2.xml" loadImmediate="false" itemID="661ccbcb-00001c17" lastModified="1715160308"/>
           <Include href="1_Act/Symbol/Effect_3.xml" loadImmediate="false" itemID="661ccede-00001c2f" lastModified="1715160400"/>
           <Include href="1_Act/Symbol/Effect_4.xml" loadImmediate="false" itemID="661ccf33-00001c40" lastModified="1715161348"/>
-          <Include href="1_Act/Symbol/EffectColor.xml" loadImmediate="false" itemID="6614a736-00001561" lastModified="1730254249"/>
+          <Include href="1_Act/Symbol/EffectColor.xml" loadImmediate="false" itemID="6614a736-00001561" lastModified="1740634799"/>
           <Include href="1_Act/Symbol/hand/first_hand.xml" loadImmediate="false" itemID="664b0673-0000714b" lastModified="1716253573"/>
           <Include href="1_Act/Symbol/hand/hand_0.xml" loadImmediate="false" itemID="66023f0e-00001bb1" lastModified="1730341642"/>
           <Include href="1_Act/Symbol/hand/hand_touch.xml" loadImmediate="false" itemID="66545615-0000293d" lastModified="1716803297"/>
           <Include href="1_Act/Symbol/hand/handTween_0.xml" itemIcon="1" loadImmediate="false" itemID="660240b5-00001cbd" lastModified="1715851295"/>
           <Include href="1_Act/Symbol/hand/handTween_1.xml" itemIcon="1" loadImmediate="false" itemID="660240b9-00001cbe" lastModified="1715851311"/>
-          <Include href="1_Act/Symbol/Image_0.xml" loadImmediate="false" itemID="66542713-0000533b" lastModified="1730358251"/>
+          <Include href="1_Act/Symbol/Image_0.xml" loadImmediate="false" itemID="66542713-0000533b" lastModified="1740623718"/>
           <Include href="1_Act/Symbol/image_0_graphic.xml" loadImmediate="false" itemID="665430f5-000058e9" lastModified="1740449295"/>
           <Include href="1_Act/Symbol/Image_1.xml" loadImmediate="false" itemID="66542738-00005340" lastModified="1723021051"/>
           <Include href="1_Act/Symbol/image_1_graphic.xml" loadImmediate="false" itemID="66543104-000058f0" lastModified="1740449238"/>
           <Include href="1_Act/Symbol/Image_2.xml" loadImmediate="false" itemID="6654273d-00005345" lastModified="1725499061"/>
           <Include href="1_Act/Symbol/image_2_graphic.xml" loadImmediate="false" itemID="66543111-000058f7" lastModified="1730358214"/>
           <Include href="1_Act/Symbol/result.xml" loadImmediate="false" itemID="662f376e-00000e62" lastModified="1714370414"/>
+          <Include href="bgbgb.xml" loadImmediate="false" itemID="67bfd89f-0000097c" lastModified="1740626079"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1" layerDepthEnabled="true">

@@ -13,11 +13,14 @@ var bgSize = drawImages.nominalBounds;
 var lastPoint;
 var strokes = [];
 var currentStroke = null;
+var isDrawable = true;
 
 var canvasOffsetY = 0;
 var canvasOffsetX = 0;
+var canvasRect;
 var btnComplete = root.btn_complete;
  
+var canvasBoard;
 var clearColor = 0x00000000;
 
 var Images = drawImages.GetChildsByName("Image_");
@@ -41,6 +44,8 @@ var brushConfig = {
 };
 
 var brushColorBitmaps;
+var BitmapLayers;
+var imageLayers;
 
 var isDrawing = false;
 
@@ -81,12 +86,11 @@ var canvasMidPos = null;
 
 root.InitCanvas = function () {
     console.log("Init");
-    
+
     Images.forEach((drawImage) => {
+        initializeBitmapLayer(drawImage);
+        drawImage.on("mousedown", (e) => drawImageHandleMouseDown(drawImage, e));
     });
-    var drawImage= Images[0];
-    initializeBitmapLayer(drawImage);
-    drawImage.on("mousedown", (e) => drawImageHandleMouseDown(drawImage, e));
 
     cacheAndClearBitmapLayers();
 
@@ -109,7 +113,7 @@ root.InitCanvas = function () {
  */
 function initializeBitmapLayer(drawImage) {
     const bound = drawImage.getBounds();
-    drawImage.canvasDepth = 0;
+
     drawImage.BitmapData = new createjs.BitmapData(null, bound.width, bound.height, clearColor);
     drawImage.Board = new createjs.Bitmap(drawImage.BitmapData.canvas);
 
@@ -119,8 +123,11 @@ function initializeBitmapLayer(drawImage) {
     drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
     drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
 
+    drawImage.Image.cache(0, 0, bound.width, bound.height);
 
-    drawImage.BitmapLayer.compositeOperation = 'source-atop';
+    // 그리기 영역만 보여주기 위해 AlphaMaskFilter 적용
+    drawImage.BitmapLayer.filters = [new createjs.AlphaMaskFilter(drawImage.Image.cacheCanvas)];
+    drawImage.BitmapLayer.updateCache();
 }
 
 function drawImageHandleMouseDown(drawImage, event) {
@@ -139,13 +146,14 @@ function cacheAndClearBitmapLayers() {
     Images.forEach((drawImage) => {
         const bound = drawImage.getBounds();
         
-        drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
+        drawImage.BitmapLayer.updateCache();
         drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
     });
 }
 
 function Initpalette() {
 
+    // 기존 bitmap에서 심볼로 변경 예정
     var bmpBrush = new lib["brush"];
 
     bmpBrush.cache(0, 0, 32, 32);
@@ -154,6 +162,8 @@ function Initpalette() {
     brushColorBitmaps = GetBrushColorBitmaps(_source, paletteColors);
     brushConfig.brush = brushColorBitmaps[0];
     palette.color_0.Cover.visible = true;
+
+    console.log("palette : " + palette.y);
 
     // 색 선택
     paletteColorObjs.forEach((obj, Idx) => {
@@ -204,6 +214,9 @@ function InitEvents() {
 
 function OnDrawStart(e) {
 
+    if (!isDrawable)
+        return;
+
     if (pointerID != -1 && !CheckPointerID(e))
         return;
 
@@ -228,7 +241,7 @@ function OnDrawStart(e) {
     pointerID = e.pointerID;
     mcCanvas.Board.name = "Board";
 
-    mcCanvas.BitmapLayer.uncache();
+    mcCanvas.BitmapLayer.updateCache();
     mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
 
     currentStroke = {
@@ -418,18 +431,20 @@ function DrawLine(fromPoint, toPoint) {
 }
 
 function drawBrush(tx, ty) {
-
     var matrix = new createjs.Matrix2D();
     matrix.translate(tx - brushConfig.brushHSizeW, ty - brushConfig.brushHSizeH);
+    
     mcCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
+
+    mcCanvas.BitmapLayer.updateCache();
 }
 
 function GetPositionX(e) {
-    return e.stageX / stage.scaleX - canvasOffsetX;
+    return e.stageX / stage.scaleX - canvasOffsetX - drawImages.x;
 }
 
 function GetPositionY(e) {
-    return e.stageY / stage.scaleY - canvasOffsetY;
+    return e.stageY / stage.scaleY - canvasOffsetY - drawImages.y;
 }
 
 function GetPosition(e) {
@@ -448,7 +463,7 @@ function clearCanvas() {
 }
 
 function UpdateBitmapLayerCache() {
-    mcCanvas.BitmapLayer.cache(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
+    mcCanvas.BitmapLayer.updateCache();
 }
 
 function CheckPointerID(e) {

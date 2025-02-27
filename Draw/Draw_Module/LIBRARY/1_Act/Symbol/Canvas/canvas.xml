@@ -1,8 +1,8 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/canvas" itemID="66052a0d-00003f1f" sourceFlashFilepath="../../Elihigh_Kids_Hangeul/L2/24/3/S010001568.fla" sourceLibraryItemHRef="1_Act/Symbol/Canvas/canvas" sourceLastModified="1740382179" lastModified="1740462305" lastUniqueIdentifier="2" sourceItemID="00000000-ffffffff">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="1_Act/Symbol/Canvas/canvas" itemID="66052a0d-00003f1f" sourceFlashFilepath="../../Elihigh_Kids_Hangeul/L2/24/3/S010001568.fla" sourceLibraryItemHRef="1_Act/Symbol/Canvas/canvas" sourceLastModified="1740382179" lastModified="1740634799" lastUniqueIdentifier="2" sourceItemID="00000000-ffffffff">
   <timeline>
     <DOMTimeline name="canvas" layerDepthEnabled="true">
       <layers>
-        <DOMLayer name="script" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="script" color="#00FFFF" autoNamed="false">
           <frames>
             <DOMFrame index="0" name="Main" labelType="comment" keyMode="9728" rigPropagationMatrix='{"a":196608,"b":0,"c":0,"d":196608,"tx":0,"ty":0}'>
               <Framescript language="JavaScript">
@@ -19,7 +19,6 @@ drawImages.stop();
 // ===================== 캔버스
 var bgSize = drawImages.nominalBounds;
 var lastPoint;
-var canvasBitmapData = null;
 var strokes = [];
 var currentStroke = null;
 var isDrawable = true;
@@ -122,7 +121,7 @@ root.InitCanvas = function () {
  */
 function initializeBitmapLayer(drawImage) {
     const bound = drawImage.getBounds();
-    drawImage.canvasDepth = 0;
+
     drawImage.BitmapData = new createjs.BitmapData(null, bound.width, bound.height, clearColor);
     drawImage.Board = new createjs.Bitmap(drawImage.BitmapData.canvas);
 
@@ -133,10 +132,10 @@ function initializeBitmapLayer(drawImage) {
     drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
 
     drawImage.Image.cache(0, 0, bound.width, bound.height);
-    drawImage.Image.imageData = createjs.BitmapData.getBitmapData(drawImage.Image);
-    drawImage.Image.uncache();
 
-    drawImage.BitmapLayer.compositeOperation = 'source-atop';
+    // 그리기 영역만 보여주기 위해 AlphaMaskFilter 적용
+    drawImage.BitmapLayer.filters = [new createjs.AlphaMaskFilter(drawImage.Image.cacheCanvas)];
+    drawImage.BitmapLayer.updateCache();
 }
 
 function drawImageHandleMouseDown(drawImage, event) {
@@ -155,7 +154,7 @@ function cacheAndClearBitmapLayers() {
     Images.forEach((drawImage) => {
         const bound = drawImage.getBounds();
         
-        drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
+        drawImage.BitmapLayer.updateCache();
         drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
     });
 }
@@ -171,6 +170,8 @@ function Initpalette() {
     brushColorBitmaps = GetBrushColorBitmaps(_source, paletteColors);
     brushConfig.brush = brushColorBitmaps[0];
     palette.color_0.Cover.visible = true;
+
+    console.log("palette : " + palette.y);
 
     // 색 선택
     paletteColorObjs.forEach((obj, Idx) => {
@@ -248,7 +249,7 @@ function OnDrawStart(e) {
     pointerID = e.pointerID;
     mcCanvas.Board.name = "Board";
 
-    mcCanvas.BitmapLayer.uncache();
+    mcCanvas.BitmapLayer.updateCache();
     mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
 
     currentStroke = {
@@ -438,18 +439,20 @@ function DrawLine(fromPoint, toPoint) {
 }
 
 function drawBrush(tx, ty) {
-
     var matrix = new createjs.Matrix2D();
     matrix.translate(tx - brushConfig.brushHSizeW, ty - brushConfig.brushHSizeH);
+    
     mcCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
+
+    mcCanvas.BitmapLayer.updateCache();
 }
 
 function GetPositionX(e) {
-    return e.stageX / stage.scaleX - canvasOffsetX;
+    return e.stageX / stage.scaleX - canvasOffsetX - drawImages.x;
 }
 
 function GetPositionY(e) {
-    return e.stageY / stage.scaleY - canvasOffsetY;
+    return e.stageY / stage.scaleY - canvasOffsetY - drawImages.y;
 }
 
 function GetPosition(e) {
@@ -468,7 +471,7 @@ function clearCanvas() {
 }
 
 function UpdateBitmapLayerCache() {
-    mcCanvas.BitmapLayer.cache(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
+    mcCanvas.BitmapLayer.updateCache();
 }
 
 function CheckPointerID(e) {
@@ -643,28 +646,37 @@ root.InitCanvas();]]></script>
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+        <DOMLayer name="bg" color="#9933CC" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/bg" name="drawImages">
+                <DOMSymbolInstance libraryItemName="1_Act/Symbol/Canvas/bg" name="drawImages" selected="true">
+                  <matrix>
+                    <Matrix tx="102.75" ty="203.1"/>
+                  </matrix>
                   <transformationPoint>
-                    <Point x="1000" y="600"/>
+                    <Point/>
                   </transformationPoint>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="레이어_3" color="#FF800A" autoNamed="false" visible="false" layerType="guide">
+        <DOMLayer name="레이어_3" color="#FF800A" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="1_Act/Image/canvas_bg.png">
+                <DOMSymbolInstance libraryItemName="bgbgb" cacheAsBitmap="true">
                   <matrix>
-                    <Matrix a="12.0481872558594" d="12.0463562011719" tx="-0.15" ty="-0.1"/>
+                    <Matrix tx="-0.15" ty="-0.1"/>
                   </matrix>
-                </DOMBitmapInstance>
+                  <transformationPoint>
+                    <Point x="1000" y="650.5"/>
+                  </transformationPoint>
+                  <color>
+                    <Color redMultiplier="0.78125" greenMultiplier="0.828125"/>
+                  </color>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
           </frames>

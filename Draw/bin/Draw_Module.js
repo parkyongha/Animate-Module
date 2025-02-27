@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"Draw_Module_atlas_1", frames: [[1996,201,32,32],[534,518,163,163],[1415,402,51,51],[1468,402,51,51],[1521,402,51,51],[1574,402,51,51],[1627,402,51,51],[0,0,507,503],[993,0,420,453],[509,0,482,516],[0,505,176,176],[1817,201,177,176],[178,505,176,176],[1817,379,177,176],[356,518,176,176],[993,455,699,237],[1415,0,199,199],[1616,0,199,199],[1817,0,199,199],[1415,201,199,199],[1616,201,199,199]]}
+		{name:"Draw_Module_atlas_1", frames: [[1996,201,32,32],[699,518,166,108],[534,518,163,163],[1415,402,51,51],[1468,402,51,51],[1521,402,51,51],[1574,402,51,51],[1627,402,51,51],[0,0,507,503],[993,0,420,453],[509,0,482,516],[0,505,176,176],[1817,201,177,176],[178,505,176,176],[1817,379,177,176],[356,518,176,176],[993,455,699,237],[1415,0,199,199],[1616,0,199,199],[1817,0,199,199],[1415,201,199,199],[1616,201,199,199]]}
 ];
 
 
@@ -34,142 +34,149 @@ lib.ssMetadata = [
 
 
 
-(lib.canvas_btn_complete = function() {
+(lib.canvas_bg = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Effect_Color_0 = function() {
+(lib.canvas_btn_complete = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Effect_Color_2 = function() {
+(lib.Effect_Color_0 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Effect_Color_3 = function() {
+(lib.Effect_Color_2 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Effect_Color_4 = function() {
+(lib.Effect_Color_3 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Effect_Color_5 = function() {
+(lib.Effect_Color_4 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Image_0 = function() {
+(lib.Effect_Color_5 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Image_1 = function() {
+(lib.Image_0 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Image_2 = function() {
+(lib.Image_1 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.palette_color_bg_0 = function() {
+(lib.Image_2 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.palette_color_bg_2 = function() {
+(lib.palette_color_bg_0 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(11);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.palette_color_bg_3 = function() {
+(lib.palette_color_bg_2 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.palette_color_bg_4 = function() {
+(lib.palette_color_bg_3 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(13);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.palette_color_bg_5 = function() {
+(lib.palette_color_bg_4 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(14);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.pallete = function() {
+(lib.palette_color_bg_5 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.pallette_color_base_0 = function() {
+(lib.pallete = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.pallette_color_base_2 = function() {
+(lib.pallette_color_base_0 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.pallette_color_base_3 = function() {
+(lib.pallette_color_base_2 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(18);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.pallette_color_base_4 = function() {
+(lib.pallette_color_base_3 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(19);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.pallette_color_base_5 = function() {
+(lib.pallette_color_base_4 = function() {
 	this.initialize(ss["Draw_Module_atlas_1"]);
 	this.gotoAndStop(20);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.pallette_color_base_5 = function() {
+	this.initialize(ss["Draw_Module_atlas_1"]);
+	this.gotoAndStop(21);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
@@ -188,6 +195,28 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	prototype.frameBounds = frameBounds;
 	return prototype;
 	}
+
+
+(lib.bgbgb = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// Layer_1
+	this.instance = new lib.canvas_bg();
+	this.instance.setTransform(0,0,12.0482,12.0464);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.bgbgb, new cjs.Rectangle(0,0,2000,1301), null);
 
 
 (lib.result = function(mode,startPosition,loop,reversed) {
@@ -501,6 +530,12 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// BitmapLayer
+	this.BitmapLayer__1 = new lib.result();
+	this.BitmapLayer__1.name = "BitmapLayer__1";
+
+	this.timeline.addTween(cjs.Tween.get(this.BitmapLayer__1).wait(1));
+
+	// BitmapLayer
 	this.BitmapLayer = new lib.result();
 	this.BitmapLayer.name = "BitmapLayer";
 
@@ -716,23 +751,29 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Image
-	this.Image_2 = new lib.Image_2_1();
-	this.Image_2.name = "Image_2";
-	this.Image_2.setTransform(1347.05,219.5);
-
 	this.Image_0 = new lib.Image_0_1();
 	this.Image_0.name = "Image_0";
-	this.Image_0.setTransform(78.8,247.25,1,1,0,0,0,0.1,0.1);
+	this.Image_0.setTransform(35.75,17.7,1,1,0,0,0,0.1,0.1);
 
+	this.timeline.addTween(cjs.Tween.get(this.Image_0).wait(1));
+
+	// Image_2
+	this.Image_2 = new lib.Image_2_1();
+	this.Image_2.name = "Image_2";
+	this.Image_2.setTransform(1268.35,0);
+
+	this.timeline.addTween(cjs.Tween.get(this.Image_2).wait(1));
+
+	// Image_1
 	this.Image_1 = new lib.Image_1_1();
 	this.Image_1.name = "Image_1";
-	this.Image_1.setTransform(779.1,237.1);
+	this.Image_1.setTransform(700.4,17.6);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.Image_1},{t:this.Image_0},{t:this.Image_2}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.Image_1).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.bg, new cjs.Rectangle(78.7,219.5,1750.3999999999999,530.7), null);
+}).prototype = getMCSymbolPrototype(lib.bg, new cjs.Rectangle(35.7,0,1714.7,520.6), null);
 
 
 (lib.color = function(mode,startPosition,loop,reversed) {
@@ -859,7 +900,6 @@ if (reversed == null) { reversed = false; }
 		// ===================== 캔버스
 		var bgSize = drawImages.nominalBounds;
 		var lastPoint;
-		var canvasBitmapData = null;
 		var strokes = [];
 		var currentStroke = null;
 		var isDrawable = true;
@@ -872,7 +912,7 @@ if (reversed == null) { reversed = false; }
 		var canvasBoard;
 		var clearColor = 0x00000000;
 		
-		var Images = Images.GetChildsByName("Image_");
+		var Images = drawImages.GetChildsByName("Image_");
 		
 		// ===================== 브러쉬 & 그리기
 		var paletteColors = [
@@ -962,7 +1002,7 @@ if (reversed == null) { reversed = false; }
 		 */
 		function initializeBitmapLayer(drawImage) {
 		    const bound = drawImage.getBounds();
-		    drawImage.canvasDepth = 0;
+		
 		    drawImage.BitmapData = new createjs.BitmapData(null, bound.width, bound.height, clearColor);
 		    drawImage.Board = new createjs.Bitmap(drawImage.BitmapData.canvas);
 		
@@ -973,10 +1013,10 @@ if (reversed == null) { reversed = false; }
 		    drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
 		
 		    drawImage.Image.cache(0, 0, bound.width, bound.height);
-		    drawImage.Image.imageData = createjs.BitmapData.getBitmapData(drawImage.Image);
-		    drawImage.Image.uncache();
 		
-		    drawImage.BitmapLayer.compositeOperation = 'source-atop';
+		    // 그리기 영역만 보여주기 위해 AlphaMaskFilter 적용
+		    drawImage.BitmapLayer.filters = [new createjs.AlphaMaskFilter(drawImage.Image.cacheCanvas)];
+		    drawImage.BitmapLayer.updateCache();
 		}
 		
 		function drawImageHandleMouseDown(drawImage, event) {
@@ -995,7 +1035,7 @@ if (reversed == null) { reversed = false; }
 		    Images.forEach((drawImage) => {
 		        const bound = drawImage.getBounds();
 		        
-		        drawImage.BitmapLayer.cache(0, 0, bound.width, bound.height);
+		        drawImage.BitmapLayer.updateCache();
 		        drawImage.BitmapData.clearRect(0, 0, bound.width, bound.height);
 		    });
 		}
@@ -1011,6 +1051,8 @@ if (reversed == null) { reversed = false; }
 		    brushColorBitmaps = GetBrushColorBitmaps(_source, paletteColors);
 		    brushConfig.brush = brushColorBitmaps[0];
 		    palette.color_0.Cover.visible = true;
+		
+		    console.log("palette : " + palette.y);
 		
 		    // 색 선택
 		    paletteColorObjs.forEach((obj, Idx) => {
@@ -1088,7 +1130,7 @@ if (reversed == null) { reversed = false; }
 		    pointerID = e.pointerID;
 		    mcCanvas.Board.name = "Board";
 		
-		    mcCanvas.BitmapLayer.uncache();
+		    mcCanvas.BitmapLayer.updateCache();
 		    mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
 		
 		    currentStroke = {
@@ -1278,18 +1320,20 @@ if (reversed == null) { reversed = false; }
 		}
 		
 		function drawBrush(tx, ty) {
-		
 		    var matrix = new createjs.Matrix2D();
 		    matrix.translate(tx - brushConfig.brushHSizeW, ty - brushConfig.brushHSizeH);
+		    
 		    mcCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
+		
+		    mcCanvas.BitmapLayer.updateCache();
 		}
 		
 		function GetPositionX(e) {
-		    return e.stageX / stage.scaleX - canvasOffsetX;
+		    return e.stageX / stage.scaleX - canvasOffsetX - drawImages.x;
 		}
 		
 		function GetPositionY(e) {
-		    return e.stageY / stage.scaleY - canvasOffsetY;
+		    return e.stageY / stage.scaleY - canvasOffsetY - drawImages.y;
 		}
 		
 		function GetPosition(e) {
@@ -1308,7 +1352,7 @@ if (reversed == null) { reversed = false; }
 		}
 		
 		function UpdateBitmapLayerCache() {
-		    mcCanvas.BitmapLayer.cache(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
+		    mcCanvas.BitmapLayer.updateCache();
 		}
 		
 		function CheckPointerID(e) {
@@ -1438,13 +1482,23 @@ if (reversed == null) { reversed = false; }
 	// bg
 	this.drawImages = new lib.bg();
 	this.drawImages.name = "drawImages";
-	this.drawImages.setTransform(1000,600,1,1,0,0,0,1000,600);
+	this.drawImages.setTransform(102.75,203.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.drawImages).wait(1));
 
+	// 레이어_3
+	this.instance = new lib.bgbgb();
+	this.instance.setTransform(999.85,650.4,1,1,0,0,0,1000,650.5);
+	var instanceFilter_1 = new cjs.ColorFilter(0.78125,0.828125,1,1,0,0,0,0);
+	this.instance.filters = [instanceFilter_1];
+	this.instance.cache(-2,-2,2004,1305);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.timeline.addTween(cjs.Tween.get(instanceFilter_1).wait(1));
+
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.canvas, new cjs.Rectangle(78.7,-173.3,1843.8,1410.6), null);
+}).prototype = getMCSymbolPrototype(lib.canvas, new cjs.Rectangle(-0.1,-173.3,2000,1474.2), null);
 
 
 // stage content:
@@ -1481,11 +1535,12 @@ if (reversed == null) { reversed = false; }
 	this.canvas.name = "canvas";
 
 	this.timeline.addTween(cjs.Tween.get(this.canvas).wait(1));
+	this.canvas.addEventListener("tick", AdobeAn.handleFilterCache);
 
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(1078.7,426.7,843.8,810.5999999999999);
+p.nominalBounds = new cjs.Rectangle(999.9,426.7,1000.0000000000001,874.3);
 // library properties:
 lib.properties = {
 	id: 'FBD3D8ADDC0B6B47818C31F2C7857D3B',
@@ -1495,7 +1550,7 @@ lib.properties = {
 	color: "#CCCCCC",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Draw_Module_atlas_1.png?1740462239461", id:"Draw_Module_atlas_1"}
+		{src:"images/Draw_Module_atlas_1.png?1740634800484", id:"Draw_Module_atlas_1"}
 	],
 	preloads: []
 };
