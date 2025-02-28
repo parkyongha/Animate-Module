@@ -14,10 +14,10 @@ let wordCompletionStatus = [];
 let currentPointIndex = 0;
 
 // 사용자가 획을 그을 때 허용 오차(픽셀 단위)
-let tolerance = 40;
+let tolerance = 45;
 
 // 다음으로 넘어가기 위한 범위
-let nextTargetRange = 20;
+let nextTargetRange = 40;
 
 // ===================== 캔버스
 var drawImage = null;
@@ -38,7 +38,7 @@ var pointerID = -1;
 
 var paletteColor = "#088fdd";
 
-const ORIGIN_BRUSH_SCALE = 2.3;
+const ORIGIN_BRUSH_SCALE = 2.5;
 const ENLARGED_BRUSH_SCALE = 3;
 var brushScale = ORIGIN_BRUSH_SCALE;
 
@@ -46,6 +46,8 @@ var isBrushScaleOrigin;
 
 var brushConfig = {
     color: null,
+    originBrushHSizeW: 16,
+    originBrushHSizeH: 16,
     brushHSizeW: 16,
     brushHSizeH: 16,
     isRandom: false,
@@ -58,14 +60,21 @@ var brushColorBitmaps = [];
 var isDrawing = false;
 
 (function init() {
-    setCanvasSetting();
+    // setWordStroke가 먼저 호출되어 작업들을 해줘야 함
     setWordStroke();
+
+    setCanvasSetting();
 }());
 
 function setCanvasSetting() {
-    mcCanvas = root.word_a;
 
-    initializeBitmapLayer(mcCanvas);
+    currentWords.forEach(ch => {
+        console.log(`%ccurrent word : ${ch}`, "color:#fe6ca4");
+
+        initializeBitmapLayer(root[`word_${ch}`]);
+    });
+
+    mcCanvas = root.word_a;
 
     canvasOffsetX = mcCanvas.x;
     canvasOffsetY = mcCanvas.y;
@@ -100,9 +109,6 @@ function initializeBitmapLayer(drawImage) {
 }
 
 function drawImageHandleMouseDown(drawImage, event) {
-    console.log(drawImage.name);
-    mcCanvas = drawImage;
-
     canvasOffsetX = mcCanvas.x;
     canvasOffsetY = mcCanvas.y;
 
@@ -122,8 +128,8 @@ function Initpalette() {
 
     bmpBrush.cache(0, 0, 32, 32, brushScale);
 
-    brushConfig.brushHSizeW *= brushScale;
-    brushConfig.brushHSizeH *= brushScale;
+    brushConfig.brushHSizeW = brushConfig.originBrushHSizeW * brushScale;
+    brushConfig.brushHSizeH = brushConfig.originBrushHSizeH * brushScale;
 
     var _source = createjs.BitmapData.getBitmapData(bmpBrush);
 
@@ -137,6 +143,9 @@ function OnDrawStart(e) {
         return;
 
     brushScale = ORIGIN_BRUSH_SCALE;
+
+    brushConfig.brushHSizeW = brushConfig.originBrushHSizeW * brushScale;
+    brushConfig.brushHSizeH = brushConfig.originBrushHSizeH * brushScale;
 
     lastPoint = wordsStrokePoints[mcCanvas.ch][currentPointIndex];
 
@@ -154,8 +163,8 @@ function OnDrawStart(e) {
     drawBrush(lastPoint.x, lastPoint.y);
     AddStroke(lastPoint.x, lastPoint.y);
 
-    stage.addEventListener("stagemousemove", OnDrawBrush);
-    stage.addEventListener("stagemouseup", OnDrawEnd);
+    //stage.addEventListener("stagemousemove", OnDrawBrush);
+    //stage.addEventListener("stagemouseup", OnDrawEnd);
 
     isDrawing = true;
 }
@@ -163,6 +172,8 @@ function OnDrawStart(e) {
 function OnDrawBrush(e) {
     if (!CheckPointerID(e))
         return;
+
+    console.log("OnDrawBrush");
 
     var currentPoint = wordsStrokePoints[mcCanvas.ch][currentPointIndex + 1];;
 
@@ -201,27 +212,27 @@ function OnDrawEnd(e) {
 
     isDrawing = false;
 
-    if (wordCompletionStatus[mcCanvas.ch]) {
-        
-        const canvasBound = mcCanvas.nominalBounds;
-        const brushHSizeW = brushConfig.brushHSizeW;
-        const brushHSizeH = brushConfig.brushHSizeH;
-        
-        const minMax = calculateMinMax(currentStroke, canvasBound.width, canvasBound.height);
-        const cRect = calculateCanvasRect(minMax, brushHSizeW, brushHSizeH);
-        
-        // 현재 그린 그림을 복사
-        var cvs = CreateCanvas(mcCanvas.BitmapData.canvas, -cRect.x, -cRect.y, cRect.width, cRect.height);
-        
-        // 그린거 추가
-        var strokeBmp = new createjs.Bitmap(cvs);
-        
-        strokeBmp.set({
-            x: cRect.x,
-            y: cRect.y,
-            name: "bitmap_" + mcCanvas.numChildren
-        });
-    }
+    //if (wordCompletionStatus[mcCanvas.ch]) {
+
+    const canvasBound = mcCanvas.nominalBounds;
+    const brushHSizeW = brushConfig.brushHSizeW;
+    const brushHSizeH = brushConfig.brushHSizeH;
+
+    const minMax = calculateMinMax(currentStroke, canvasBound.width, canvasBound.height);
+    const cRect = calculateCanvasRect(minMax, brushHSizeW, brushHSizeH);
+
+    // 현재 그린 그림을 복사
+    var cvs = CreateCanvas(mcCanvas.BitmapData.canvas, -cRect.x, -cRect.y, cRect.width, cRect.height);
+
+    // 그린거 추가
+    var strokeBmp = new createjs.Bitmap(cvs);
+
+    strokeBmp.set({
+        x: cRect.x,
+        y: cRect.y,
+        name: "bitmap_" + mcCanvas.numChildren
+    });
+    //}
 
     mcCanvas.BitmapLayer.addChild(strokeBmp);
 
@@ -232,7 +243,7 @@ function OnDrawEnd(e) {
  * Canvas 상태 초기화
  */
 function resetCanvasState() {
-    console.log("resetCanvasState");
+    // console.log("resetCanvasState");
 
     pointerID = -1;
     currentStroke = null;
@@ -299,18 +310,20 @@ function DrawLine(fromPoint, toPoint) {
 
 function drawBrush(tx, ty) {
     var matrix = new createjs.Matrix2D();
-
     var scaleFactor = brushScale / ORIGIN_BRUSH_SCALE;
-    
-    matrix.scale(scaleFactor, scaleFactor);
-    
+
+    // 스케일 적용
+    // matrix.scale(scaleFactor, scaleFactor);
+
+    // 스케일에 맞춰 위치 보정 (brush의 등록점이 중앙이라면 brushHSizeW, brushHSizeH에 스케일 적용)
     matrix.translate(
         tx - (brushConfig.brushHSizeW),
         ty - (brushConfig.brushHSizeH)
-    );    
+    );
+
     mcCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
-    
     mcCanvas.BitmapLayer.updateCache();
+
 }
 
 function GetPosition(e) {
@@ -360,16 +373,22 @@ function setWordStroke() {
         const word = root[`word_${ch}`];
         word.ch = ch;
 
+        word.hasMultipleStrokes = word.labels.length != 0;
+        word.currentLabelIndex = 0;
+
         wordCompletionStatus[ch] = false;
 
         word.on("mousedown", (event) => {
             let pt = { x: event.localX, y: event.localY };
 
-            currentPointIndex = 0;
+            mcCanvas = word;
+
+            // currentPointIndex = 0;
+            console.log(`%c여기요~`, "color:#510623")
 
             // 시작 위치의 근처일 때
-            if (checkIfNearPoint(ch, pt, currentPointIndex)) {
-                handleNearPoint(ch, event);
+            if (checkIfNearPoint(word.ch, pt, currentPointIndex)) {
+                handleNearPoint(word.ch, event);
             } else {
                 console.log("시작 위치가 잘못됨");
             }
@@ -392,15 +411,28 @@ function handleNearPoint(ch, event) {
 
         if (checkIfNearPoint(ch, pt, currentPointIndex)) {
 
-            if (currentPointIndex >= 10 && brushScale === ORIGIN_BRUSH_SCALE) {
-                console.log("브러쉬 키우긴 함");
-                brushScale = ENLARGED_BRUSH_SCALE;
+            OnDrawBrush(event);
 
-                brushConfig.brushHSizeW *= brushScale / ORIGIN_BRUSH_SCALE;
-                brushConfig.brushHSizeH *= brushScale / ORIGIN_BRUSH_SCALE;
-                //brushConfig.brush.context.scale(brushScale / ORIGIN_BRUSH_SCALE);
+            if (word.hasMultipleStrokes &&  word.currentLabelIndex < word.labels.length) {
+                var lastPathIndex = word.currentLabelIndex < word.labels.length - 1 ?
+                    word.labels[word.currentLabelIndex + 1].position : wordsStrokePoints[ch].length;
+
+                console.log("lastPathIndex : " + lastPathIndex);
+
+                if (currentPointIndex >= lastPathIndex - 2) {
+                    word.currentLabelIndex++;
+                    currentPointIndex = lastPathIndex;
+                    
+                    if (isDrawing) {
+                        OnDrawEnd(event);
+                    }
+
+                    word.removeAllEventListeners("pressmove");
+                    word.removeAllEventListeners("pressup");
+
+                    return;
+                }
             }
-
 
             // 획이 여러 개일 때의 처리 필요
             if (currentPointIndex >= wordsStrokePoints[ch].length - 2) {
@@ -414,12 +446,19 @@ function handleNearPoint(ch, event) {
                 return;
             }
         } else {
+            if (isDrawing) {
+                OnDrawEnd(event);
+            }
+
             resetCanvasState();
         }
     });
 
     word.on("pressup", (event) => {
         console.log("pressup : " + word.name);
+        if (isDrawing) {
+            OnDrawEnd(event);
+        }
 
         word.removeAllEventListeners("pressmove");
     }, null, true);
@@ -458,8 +497,6 @@ function getWordsStrokePathPoints() {
 
     return wordsStrokePoints;
 }
-
-
 
 /** 
  * 사용자의 좌표가 목표 좌표와 가까운지 확인하는 함수
@@ -505,8 +542,8 @@ function checkIfNearPoint(wordChar, userPoint, targetPointIndex) {
             console.log("이전 좌표로 이동");
             return false;
         } else if (curDistance >= tolerance) {
-            console.log("%c허용 오차 범위 밖임", "color:red");
-            console.log(`%c현재 좌표 : ${curDistance},\n%c다음 좌표 : ${nextDistance}`, "color:#8cb4f5", "color:#dc8cf5");
+            //console.log("%c허용 오차 범위 밖임", "color:red");
+            //console.log(`%c현재 좌표 : ${curDistance},\n%c다음 좌표 : ${nextDistance}`, "color:#8cb4f5", "color:#dc8cf5");
             return false;
         }
 

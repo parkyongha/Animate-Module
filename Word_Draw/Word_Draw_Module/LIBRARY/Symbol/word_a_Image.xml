@@ -1,8 +1,60 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Symbol/word_a_Image" itemID="67bfbe97-000001fe" lastModified="1740619415">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Symbol/word_a_Image" itemID="67bfbe97-000001fe" lastModified="1740708017">
   <timeline>
     <DOMTimeline name="word_a_Image" layerDepthEnabled="true">
       <layers>
-        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+        <DOMLayer name="Layer_2" color="#9933CC" locked="true" current="true" isSelected="true" autoNamed="false" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!3907 6515|3883 6214!3883 6214[3672 6406 3364 6531!3364 6531[3051 6652 2723 6652!2723 6652[2266 6652 1891 6472!1891 6472[1512 6293 1251 5980!1251 5980[985 5668 840 5246!840 5246[700 4820 700 4324!700 4324[700 3836 840 3414!840 3414[985
+ 2988 1251 2675!1251 2675[1512 2367 1891 2187!1891 2187[2266 2011 2723 2011!2723 2011[3059 2011 3376 2136!3376 2136[3692 2261 3876 2468!3876 2468|3907 2156!3907 2156|4860 2156!4860 2156|4860 6515!4860 6515|3907 6515"/>
+                    <Edge cubics="!3376 2136(;3587,2219 3753,2330 3876,2468q3376 2136Q3692 2261q3876 2468);"/>
+                    <Edge cubics="!3876 2468(;3876,2468 3907,2156 3907,2156q3876 2468 3907 2156);"/>
+                    <Edge cubics="!3907 2156(;3907,2156 4860,2156 4860,2156q3907 2156 4860 2156);"/>
+                    <Edge cubics="!840 3414(;937,3130 1074,2884 1251,2675q840 3414Q985 2988q1251 2675);"/>
+                    <Edge cubics="!1891 2187(;2141,2070 2418,2011 2723,2011q1891 2187Q2266 2011q2723 2011);"/>
+                    <Edge cubics="!1251 2675(;1425,2470 1638,2307 1891,2187q1251 2675Q1512 2367q1891 2187);"/>
+                    <Edge cubics="!840 5246(;747,4962 700,4655 700,4324q840 5246Q700 4820q700 4324);"/>
+                    <Edge cubics="!2723 6652(;2418,6652 2141,6592 1891,6472q2723 6652Q2266 6652q1891 6472);"/>
+                    <Edge cubics="!1891 6472(;1638,6353 1425,6189 1251,5980q1891 6472Q1512 6293q1251 5980);"/>
+                    <Edge cubics="!1251 5980(;1074,5772 937,5527 840,5246q1251 5980Q985 5668q840 5246);"/>
+                    <Edge cubics="!3883 6214(;3742,6342 3569,6448 3364,6531q3883 6214Q3672 6406q3364 6531);"/>
+                    <Edge cubics="!3907 6515(;3907,6515 3883,6214 3883,6214q3907 6515 3883 6214);"/>
+                    <Edge cubics="!4860 6515(;4860,6515 3907,6515 3907,6515q4860 6515 3907 6515);"/>
+                    <Edge cubics="!4860 2156(;4860,2156 4860,6515 4860,6515q4860 2156 4860 6515);"/>
+                    <Edge cubics="!3364 6531(;3155,6612 2942,6652 2723,6652q3364 6531Q3051 6652q2723 6652);"/>
+                    <Edge cubics="!700 4324(;700,3999 747,3695 840,3414q700 4324Q700 3836q840 3414);"/>
+                    <Edge cubics="!2723 2011(;2947,2011 3165,2053 3376,2136q2723 2011Q3059 2011q3376 2136);"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText selected="true" fontRenderingMode="standard" top="-0.1" left="-325.35" width="258.4" height="460" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="327.35" ty="2.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-269" y="6.95"/>
+                  </transformationPoint>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>a</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineSpacing="-360" lineHeight="460" size="400" bitmapSize="8000" face="goormSans7" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer_1" color="#00FFFF">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>

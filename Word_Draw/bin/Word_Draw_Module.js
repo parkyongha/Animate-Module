@@ -152,7 +152,7 @@ if (reversed == null) { reversed = false; }
 	var props = new Object();
 	props.mode = mode;
 	props.startPosition = startPosition;
-	props.labels = {path_0:0,path_1:38};
+	props.labels = {path_0:0,path_1:58};
 	props.loop = loop;
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
@@ -160,16 +160,22 @@ if (reversed == null) { reversed = false; }
 	// Layer_3
 	this.point = new lib.Test();
 	this.point.name = "point";
-	this.point.setTransform(251.8,111.8,0.2876,0.2876);
+	this.point.setTransform(257.95,124.85,0.2876,0.2876);
 
-	this.timeline.addTween(cjs.Tween.get(this.point).wait(1).to({regX:0.1,regY:0.1,x:238.05,y:101.7},0).wait(1).to({x:223.15,y:93.8},0).wait(1).to({x:207.25,y:87.75},0).wait(1).to({x:190.8,y:83.6},0).wait(1).to({x:174.05,y:81.3},0).wait(1).to({x:157.1,y:80.9},0).wait(1).to({x:140.25,y:82.5},0).wait(1).to({x:123.7,y:86.15},0).wait(1).to({x:107.95,y:92},0).wait(1).to({x:93.55,y:100.9},0).wait(1).to({x:81.25,y:112.6},0).wait(1).to({x:71.55,y:126.45},0).wait(1).to({x:64.75,y:142},0).wait(1).to({x:59.9,y:158.55},0).wait(1).to({x:55.7,y:174.55},0).wait(1).to({x:54,y:191.6},0).wait(1).to({x:52.05,y:209.55},0).wait(1).to({x:49.8,y:226.85},0).wait(1).to({x:48.6,y:243.55},0).wait(1).to({x:49.9,y:260.3},0).wait(1).to({x:54.35,y:276.75},0).wait(1).to({x:61.05,y:292.65},0).wait(1).to({x:68.65,y:308.15},0).wait(1).to({x:77.1,y:322.5},0).wait(1).to({x:89.65,y:333.8},0).wait(1).to({x:105.25,y:340.55},0).wait(1).to({x:122,y:343.55},0).wait(1).to({x:139.55,y:344.4},0).wait(1).to({x:156.65,y:344.65},0).wait(1).to({x:173,y:344.55},0).wait(1).to({x:189.65,y:342.6},0).wait(1).to({x:205.75,y:337.3},0).wait(1).to({x:220.75,y:329.05},0).wait(1).to({x:234.55,y:318.75},0).wait(1).to({x:247.6,y:307.3},0).wait(1).to({x:260,y:295.6},0).wait(1).to({x:272.25,y:283.85},0).wait(1).to({regX:0.4,regY:0.4,x:197.75,y:217.25},0).wait(1).to({regX:0.5,regY:0.5,x:207.9,y:217.8},0).wait(1).to({x:217.85,y:218.25},0).wait(1).to({x:227.7,y:218.7},0).wait(1).to({x:237.65,y:219.05},0).wait(1).to({x:247.7,y:219.2},0).wait(1).to({regX:0.4,regY:0.4,x:257.7,y:219.15},0).wait(1).to({x:267.75,y:218.9},0).wait(1).to({x:276.05,y:220.3},0).wait(1).to({x:276.4,y:230.45},0).wait(1).to({x:276.6,y:240.6},0).wait(1).to({x:276.75,y:250.75},0).wait(1).to({y:260.9},0).wait(1).to({x:276.7,y:271.05},0).wait(1).to({x:276.65,y:279.6},0).wait(1).to({x:276.25,y:289.7},0).wait(1).to({x:275.9,y:299.85},0).wait(1).to({x:275.45,y:309.9},0).wait(1).to({x:275.05,y:319.8},0).wait(1).to({x:275,y:329.65},0).wait(1).to({x:275.65,y:339.7},0).wait(1).to({regX:0,regY:0,x:277.4,y:349.6},0).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.point).to({regX:0.1,regY:0.1,guide:{path:[258,124.9,244.8,98.7,216,86.6,171.8,73.1,143.3,78.2,94,96.1,79.5,121.7,61.3,147.7,55.2,184.3,45.6,242.7,63.6,280.4,73.3,305,94.9,322.6,125.1,346.1,166.4,347.5,210.2,348,236.8,321.3,250.2,302.1,263.7,282.9]}},57).to({x:188.8,y:219.5},1).to({regX:0,regY:0,guide:{path:[188.9,219.5,233.2,219.4,277.7,219.2,278,284,278.5,348.8]}},21).wait(1));
+
+	// BitmapLayer
+	this.BitmapLayer = new lib.result();
+	this.BitmapLayer.name = "BitmapLayer";
+
+	this.timeline.addTween(cjs.Tween.get(this.BitmapLayer).wait(80));
 
 	// Layer_1
 	this.Image = new lib.word_G_Image();
 	this.Image.name = "Image";
 	this.Image.setTransform(144.1,208,1,1,0,0,0,144.1,208);
 
-	this.timeline.addTween(cjs.Tween.get(this.Image).wait(60));
+	this.timeline.addTween(cjs.Tween.get(this.Image).wait(80));
 
 	this._renderFirstFrame();
 
@@ -198,21 +204,21 @@ if (reversed == null) { reversed = false; }
 
 	// NEAR_TEST
 	this.instance = new lib.Test();
-	this.instance.setTransform(190.6,167.65,0.7173,0.7173);
+	this.instance.setTransform(197,170.8,0.5977,0.5977,0,0,0,0.1,0.1);
 	this.instance.alpha = 0.8203;
 	var instanceFilter_1 = new cjs.ColorFilter(1,0.71875,1,1,254,99,-29,0);
 	this.instance.filters = [instanceFilter_1];
 	this.instance.cache(-23,-23,46,46);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.9588,scaleY:0.9588,x:233.15,y:313.15},59).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({regX:0.2,regY:0.2,guide:{path:[197.1,170.8,192.5,166.4,187.9,162.9]}},1).to({guide:{path:[187.9,162.8,187.7,162.7,187.5,162.6,182.7,158.8,177.9,156]}},1).to({guide:{path:[177.8,156.1,172.3,152.9,166.7,150.9]}},1).to({guide:{path:[166.8,150.9,160.8,148.7,154.9,148]}},1).to({guide:{path:[154.9,147.9,148.7,147.1,142.5,147.8]}},1).to({guide:{path:[142.5,147.9,141.6,148,140.7,148.1,135.5,149.5,130.7,151.1]}},1).to({guide:{path:[130.8,151.2,124.9,153.2,119.5,155.7]}},1).to({guide:{path:[119.4,155.6,113.7,158.3,108.7,161.4]}},1).to({guide:{path:[108.7,161.4,107.8,162,107,162.6,102.6,165.4,98.8,168.7]}},1).to({guide:{path:[98.8,168.7,94.1,172.8,90.2,177.5]}},1).to({guide:{path:[90.2,177.4,86.2,182.2,83.1,187.6]}},1).to({guide:{path:[83,187.6,82.6,188.4,82.2,189.1,80.7,194.3,79.5,199.3]}},1).to({guide:{path:[79.5,199.3,78.8,202.2,78.2,205,77.5,208.1,77,211.1]}},1).to({guide:{path:[76.9,211,75.8,217.2,75.2,223]}},1).to({guide:{path:[75.3,223,74.6,229.4,74.5,235.1]}},1).to({guide:{path:[74.5,235.1,74.4,241.6,75.1,247.3]}},1).to({guide:{path:[75.1,247.3,75.9,253.7,77.7,259.2]}},1).to({guide:{path:[77.7,259.2,78.3,261.1,79,262.9,80.4,267,81.9,270.7]}},1).to({guide:{path:[82,270.7,84.3,276.5,86.9,281.6]}},1).to({guide:{path:[86.9,281.6,89.9,287.3,93.2,291.9]}},1).to({guide:{path:[93.2,292,96.9,297.2,101.1,301.1]}},1).to({guide:{path:[101.1,301.1,105.9,305.5,111.2,308.1]}},1).to({guide:{path:[111.1,308.1,114.6,309.7,118.2,310.5,120.5,311.5,122.7,312.3]}},1).to({guide:{path:[122.8,312.2,128.7,314.3,134.5,315.5]}},1).to({guide:{path:[134.4,315.5,140.6,316.8,146.6,317.1]}},1).to({guide:{path:[146.6,317,152.9,317.3,159,316.5]}},1).to({guide:{path:[159,316.5,165.2,315.7,171.2,313.8]}},1).to({guide:{path:[171.2,313.9,177,312,182.7,309.1]}},1).to({guide:{path:[182.7,309.1,188.1,306.3,193.3,302.6]}},1).to({regX:0.1,regY:0.1,guide:{path:[193.3,302.5,197.3,299.7,201.2,296.3,202,295.5,202.7,294.6]}},1).to({guide:{path:[202.7,294.7,206.9,290,210.3,284.8]}},1).to({guide:{path:[210.4,284.8,213.8,279.6,216.5,274]}},1).to({guide:{path:[216.4,274,219,268.5,220.9,262.4]}},1).to({guide:{path:[220.9,262.4,222.7,256.6,223.9,250.3]}},1).to({guide:{path:[223.9,250.3,224.6,246.4,225.1,242.2,225.2,240.1,225.3,238]}},1).to({guide:{path:[225.4,238,225.8,231.8,226.3,225.7]}},1).to({guide:{path:[226.3,225.7,226.8,219.5,227.3,213.3]}},1).to({guide:{path:[227.3,213.3,227.4,212.2,227.4,211.1,227.9,206,228.3,200.9]}},1).to({guide:{path:[228.2,200.9,228.8,194.8,229.3,188.6]}},1).to({guide:{path:[229.4,188.6,229.9,182.4,230.5,176.2]}},1).to({guide:{path:[230.5,176.2,231.1,170,231.7,163.8]}},1).to({guide:{path:[231.7,163.9,231.7,163.3,231.8,162.6,232.4,157.1,232.9,151.6]}},1).to({guide:{path:[233,151.6,233.6,145.4,234.3,139.2]}},1).to({guide:{path:[234.3,139.2,234.5,137,234.8,134.9,235.3,138.8,235.7,142.7]}},1).to({guide:{path:[235.6,142.7,236.2,148.8,236.7,155]}},1).to({guide:{path:[236.8,155,237.1,158.8,237.4,162.6,237.5,165,237.7,167.3]}},1).to({guide:{path:[237.6,167.4,237.9,173.6,238.1,179.7]}},1).to({guide:{path:[238.2,179.6,238.4,185.8,238.5,192]}},1).to({guide:{path:[238.5,192.1,238.5,198.2,238.4,204.4]}},1).to({guide:{path:[238.3,204.5,238.3,207.8,238.2,211.1,238.1,214,238,216.9]}},1).to({guide:{path:[238.1,216.8,237.8,223,237.4,229.2]}},1).to({guide:{path:[237.5,229.2,237.1,235.4,236.5,241.5]}},1).to({guide:{path:[236.5,241.6,236.4,243.1,236.2,244.7,236.5,249.3,236.7,253.9]}},1).to({guide:{path:[236.6,253.8,236.9,260,237.1,266.2]}},1).to({guide:{path:[237.1,266.2,237.4,272.4,237.5,278.6]}},1).to({guide:{path:[237.5,278.5,237.6,284.7,237.7,290.8]}},1).to({guide:{path:[237.7,290.9,237.7,297.1,237.7,303.2]}},1).to({guide:{path:[237.7,303.2,237.7,309.4,237.6,315.6]}},1).to({regX:0,guide:{path:[237.5,315.6,237.4,321.8,237.3,328]}},1).wait(1));
 	this.timeline.addTween(cjs.Tween.get(instanceFilter_1).wait(60));
 
 	// Layer_3
 	this.point = new lib.Test();
 	this.point.name = "point";
-	this.point.setTransform(190.6,167.7,0.2876,0.2876);
+	this.point.setTransform(197,170.85,0.2876,0.2876);
 
-	this.timeline.addTween(cjs.Tween.get(this.point).to({guide:{path:[190.6,167.7,191.5,164.3,188.3,161.4,177.9,152,164.1,149.3,133.6,143.3,109,159.5,90.8,171.5,82.3,191.4,74.3,209.9,72.6,230.2,71.2,248.1,76.4,265,80.2,277.2,90,285.3,121.2,311.6,162.5,310.6,178.4,310.3,192.4,302.8,212.9,291.8,220.9,269.7,226.3,254.8,230.3,239.6,229.7,239.2,229.3,238.6,228.6,237.5,228.6,234.9,228.7,232.9,228.7,230.9,228.7,228.7,229.1,227.8,229.8,226.5,231.2,226.1,232.1,225.8,232.8,225.9,233.9,221.4,234.1,213.1,234.5,205.2,234.8,197.3,236,167.8,237.4,153.2,237.6,151.4,238.2,150.7,236.6,182.3,235,213.9,234.7,221.6,233.8,226.3,233.8,226.3,233.8,226.3,235.2,227.2,235.5,229.5,235.6,230.2,235.6,231.4,235.6,232.3,235.5,233.3,235.5,234.3,235.6,236.3,235.4,238.1,234.5,239.1,233.8,239.9,232.8,240.1,235.6,276.6,233.1,313.2]}},59).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.point).to({guide:{path:[197,170.8,192.3,166.3,187.5,162.7,164.2,144.7,140.7,148.2,121,153.5,107.1,162.7,90.9,173.2,82.4,189.1,80,197.4,78.3,205,70.4,241.4,79.2,262.9,93.6,304.8,118.4,310.5,163.6,328.8,201.3,296.3,221.4,274.9,225.1,242.2,226.2,226.8,227.5,211,229.4,187.1,231.9,162.7,233.2,148.9,234.8,134.9,236.4,148.8,237.4,162.7,238.9,186.9,238.3,211,237.8,227.9,236.2,244.7,238.5,287.2,237.3,328]}},59).wait(1));
 
 	// BitmapLayer
 	this.BitmapLayer = new lib.result();
@@ -269,10 +275,10 @@ if (reversed == null) { reversed = false; }
 		let currentPointIndex = 0;
 		
 		// 사용자가 획을 그을 때 허용 오차(픽셀 단위)
-		let tolerance = 40;
+		let tolerance = 45;
 		
 		// 다음으로 넘어가기 위한 범위
-		let nextTargetRange = 20;
+		let nextTargetRange = 40;
 		
 		// ===================== 캔버스
 		var drawImage = null;
@@ -293,7 +299,7 @@ if (reversed == null) { reversed = false; }
 		
 		var paletteColor = "#088fdd";
 		
-		const ORIGIN_BRUSH_SCALE = 2.3;
+		const ORIGIN_BRUSH_SCALE = 2.5;
 		const ENLARGED_BRUSH_SCALE = 3;
 		var brushScale = ORIGIN_BRUSH_SCALE;
 		
@@ -301,6 +307,8 @@ if (reversed == null) { reversed = false; }
 		
 		var brushConfig = {
 		    color: null,
+		    originBrushHSizeW: 16,
+		    originBrushHSizeH: 16,
 		    brushHSizeW: 16,
 		    brushHSizeH: 16,
 		    isRandom: false,
@@ -313,14 +321,21 @@ if (reversed == null) { reversed = false; }
 		var isDrawing = false;
 		
 		(function init() {
-		    setCanvasSetting();
+		    // setWordStroke가 먼저 호출되어 작업들을 해줘야 함
 		    setWordStroke();
+		
+		    setCanvasSetting();
 		}());
 		
 		function setCanvasSetting() {
-		    mcCanvas = root.word_a;
 		
-		    initializeBitmapLayer(mcCanvas);
+		    currentWords.forEach(ch => {
+		        console.log(`%ccurrent word : ${ch}`, "color:#fe6ca4");
+		
+		        initializeBitmapLayer(root[`word_${ch}`]);
+		    });
+		
+		    mcCanvas = root.word_a;
 		
 		    canvasOffsetX = mcCanvas.x;
 		    canvasOffsetY = mcCanvas.y;
@@ -355,9 +370,6 @@ if (reversed == null) { reversed = false; }
 		}
 		
 		function drawImageHandleMouseDown(drawImage, event) {
-		    console.log(drawImage.name);
-		    mcCanvas = drawImage;
-		
 		    canvasOffsetX = mcCanvas.x;
 		    canvasOffsetY = mcCanvas.y;
 		
@@ -377,8 +389,8 @@ if (reversed == null) { reversed = false; }
 		
 		    bmpBrush.cache(0, 0, 32, 32, brushScale);
 		
-		    brushConfig.brushHSizeW *= brushScale;
-		    brushConfig.brushHSizeH *= brushScale;
+		    brushConfig.brushHSizeW = brushConfig.originBrushHSizeW * brushScale;
+		    brushConfig.brushHSizeH = brushConfig.originBrushHSizeH * brushScale;
 		
 		    var _source = createjs.BitmapData.getBitmapData(bmpBrush);
 		
@@ -392,6 +404,9 @@ if (reversed == null) { reversed = false; }
 		        return;
 		
 		    brushScale = ORIGIN_BRUSH_SCALE;
+		
+		    brushConfig.brushHSizeW = brushConfig.originBrushHSizeW * brushScale;
+		    brushConfig.brushHSizeH = brushConfig.originBrushHSizeH * brushScale;
 		
 		    lastPoint = wordsStrokePoints[mcCanvas.ch][currentPointIndex];
 		
@@ -409,8 +424,8 @@ if (reversed == null) { reversed = false; }
 		    drawBrush(lastPoint.x, lastPoint.y);
 		    AddStroke(lastPoint.x, lastPoint.y);
 		
-		    stage.addEventListener("stagemousemove", OnDrawBrush);
-		    stage.addEventListener("stagemouseup", OnDrawEnd);
+		    //stage.addEventListener("stagemousemove", OnDrawBrush);
+		    //stage.addEventListener("stagemouseup", OnDrawEnd);
 		
 		    isDrawing = true;
 		}
@@ -418,6 +433,8 @@ if (reversed == null) { reversed = false; }
 		function OnDrawBrush(e) {
 		    if (!CheckPointerID(e))
 		        return;
+		
+		    console.log("OnDrawBrush");
 		
 		    var currentPoint = wordsStrokePoints[mcCanvas.ch][currentPointIndex + 1];;
 		
@@ -456,27 +473,27 @@ if (reversed == null) { reversed = false; }
 		
 		    isDrawing = false;
 		
-		    if (wordCompletionStatus[mcCanvas.ch]) {
-		        
-		        const canvasBound = mcCanvas.nominalBounds;
-		        const brushHSizeW = brushConfig.brushHSizeW;
-		        const brushHSizeH = brushConfig.brushHSizeH;
-		        
-		        const minMax = calculateMinMax(currentStroke, canvasBound.width, canvasBound.height);
-		        const cRect = calculateCanvasRect(minMax, brushHSizeW, brushHSizeH);
-		        
-		        // 현재 그린 그림을 복사
-		        var cvs = CreateCanvas(mcCanvas.BitmapData.canvas, -cRect.x, -cRect.y, cRect.width, cRect.height);
-		        
-		        // 그린거 추가
-		        var strokeBmp = new createjs.Bitmap(cvs);
-		        
-		        strokeBmp.set({
-		            x: cRect.x,
-		            y: cRect.y,
-		            name: "bitmap_" + mcCanvas.numChildren
-		        });
-		    }
+		    //if (wordCompletionStatus[mcCanvas.ch]) {
+		
+		    const canvasBound = mcCanvas.nominalBounds;
+		    const brushHSizeW = brushConfig.brushHSizeW;
+		    const brushHSizeH = brushConfig.brushHSizeH;
+		
+		    const minMax = calculateMinMax(currentStroke, canvasBound.width, canvasBound.height);
+		    const cRect = calculateCanvasRect(minMax, brushHSizeW, brushHSizeH);
+		
+		    // 현재 그린 그림을 복사
+		    var cvs = CreateCanvas(mcCanvas.BitmapData.canvas, -cRect.x, -cRect.y, cRect.width, cRect.height);
+		
+		    // 그린거 추가
+		    var strokeBmp = new createjs.Bitmap(cvs);
+		
+		    strokeBmp.set({
+		        x: cRect.x,
+		        y: cRect.y,
+		        name: "bitmap_" + mcCanvas.numChildren
+		    });
+		    //}
 		
 		    mcCanvas.BitmapLayer.addChild(strokeBmp);
 		
@@ -487,7 +504,7 @@ if (reversed == null) { reversed = false; }
 		 * Canvas 상태 초기화
 		 */
 		function resetCanvasState() {
-		    console.log("resetCanvasState");
+		    // console.log("resetCanvasState");
 		
 		    pointerID = -1;
 		    currentStroke = null;
@@ -554,18 +571,20 @@ if (reversed == null) { reversed = false; }
 		
 		function drawBrush(tx, ty) {
 		    var matrix = new createjs.Matrix2D();
-		
 		    var scaleFactor = brushScale / ORIGIN_BRUSH_SCALE;
-		    
-		    matrix.scale(scaleFactor, scaleFactor);
-		    
+		
+		    // 스케일 적용
+		    // matrix.scale(scaleFactor, scaleFactor);
+		
+		    // 스케일에 맞춰 위치 보정 (brush의 등록점이 중앙이라면 brushHSizeW, brushHSizeH에 스케일 적용)
 		    matrix.translate(
 		        tx - (brushConfig.brushHSizeW),
 		        ty - (brushConfig.brushHSizeH)
-		    );    
+		    );
+		
 		    mcCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
-		    
 		    mcCanvas.BitmapLayer.updateCache();
+		
 		}
 		
 		function GetPosition(e) {
@@ -615,16 +634,22 @@ if (reversed == null) { reversed = false; }
 		        const word = root[`word_${ch}`];
 		        word.ch = ch;
 		
+		        word.hasMultipleStrokes = word.labels.length != 0;
+		        word.currentLabelIndex = 0;
+		
 		        wordCompletionStatus[ch] = false;
 		
 		        word.on("mousedown", (event) => {
 		            let pt = { x: event.localX, y: event.localY };
 		
-		            currentPointIndex = 0;
+		            mcCanvas = word;
+		
+		            // currentPointIndex = 0;
+		            console.log(`%c여기요~`, "color:#510623")
 		
 		            // 시작 위치의 근처일 때
-		            if (checkIfNearPoint(ch, pt, currentPointIndex)) {
-		                handleNearPoint(ch, event);
+		            if (checkIfNearPoint(word.ch, pt, currentPointIndex)) {
+		                handleNearPoint(word.ch, event);
 		            } else {
 		                console.log("시작 위치가 잘못됨");
 		            }
@@ -647,15 +672,28 @@ if (reversed == null) { reversed = false; }
 		
 		        if (checkIfNearPoint(ch, pt, currentPointIndex)) {
 		
-		            if (currentPointIndex >= 10 && brushScale === ORIGIN_BRUSH_SCALE) {
-		                console.log("브러쉬 키우긴 함");
-		                brushScale = ENLARGED_BRUSH_SCALE;
+		            OnDrawBrush(event);
 		
-		                brushConfig.brushHSizeW *= brushScale / ORIGIN_BRUSH_SCALE;
-		                brushConfig.brushHSizeH *= brushScale / ORIGIN_BRUSH_SCALE;
-		                //brushConfig.brush.context.scale(brushScale / ORIGIN_BRUSH_SCALE);
+		            if (word.hasMultipleStrokes &&  word.currentLabelIndex < word.labels.length) {
+		                var lastPathIndex = word.currentLabelIndex < word.labels.length - 1 ?
+		                    word.labels[word.currentLabelIndex + 1].position : wordsStrokePoints[ch].length;
+		
+		                console.log("lastPathIndex : " + lastPathIndex);
+		
+		                if (currentPointIndex >= lastPathIndex - 2) {
+		                    word.currentLabelIndex++;
+		                    currentPointIndex = lastPathIndex;
+		                    
+		                    if (isDrawing) {
+		                        OnDrawEnd(event);
+		                    }
+		
+		                    word.removeAllEventListeners("pressmove");
+		                    word.removeAllEventListeners("pressup");
+		
+		                    return;
+		                }
 		            }
-		
 		
 		            // 획이 여러 개일 때의 처리 필요
 		            if (currentPointIndex >= wordsStrokePoints[ch].length - 2) {
@@ -669,12 +707,19 @@ if (reversed == null) { reversed = false; }
 		                return;
 		            }
 		        } else {
+		            if (isDrawing) {
+		                OnDrawEnd(event);
+		            }
+		
 		            resetCanvasState();
 		        }
 		    });
 		
 		    word.on("pressup", (event) => {
 		        console.log("pressup : " + word.name);
+		        if (isDrawing) {
+		            OnDrawEnd(event);
+		        }
 		
 		        word.removeAllEventListeners("pressmove");
 		    }, null, true);
@@ -713,8 +758,6 @@ if (reversed == null) { reversed = false; }
 		
 		    return wordsStrokePoints;
 		}
-		
-		
 		
 		/** 
 		 * 사용자의 좌표가 목표 좌표와 가까운지 확인하는 함수
@@ -760,8 +803,8 @@ if (reversed == null) { reversed = false; }
 		            console.log("이전 좌표로 이동");
 		            return false;
 		        } else if (curDistance >= tolerance) {
-		            console.log("%c허용 오차 범위 밖임", "color:red");
-		            console.log(`%c현재 좌표 : ${curDistance},\n%c다음 좌표 : ${nextDistance}`, "color:#8cb4f5", "color:#dc8cf5");
+		            //console.log("%c허용 오차 범위 밖임", "color:red");
+		            //console.log(`%c현재 좌표 : ${curDistance},\n%c다음 좌표 : ${nextDistance}`, "color:#8cb4f5", "color:#dc8cf5");
 		            return false;
 		        }
 		
@@ -875,7 +918,7 @@ lib.properties = {
 	color: "#CCCCCC",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Word_Draw_Module_atlas_1.png?1740650125854", id:"Word_Draw_Module_atlas_1"}
+		{src:"images/Word_Draw_Module_atlas_1.png?1740730283164", id:"Word_Draw_Module_atlas_1"}
 	],
 	preloads: []
 };

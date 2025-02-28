@@ -1,11 +1,11 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="1280" height="800" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" rulerVisible="true" bitmapSnap="false" objectsSnapTo="false" viewAngle3D="100.925968316201" vanishingPoint3DX="640" vanishingPoint3DY="400" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="60E10D79E35D2143B913EC6054E4F5BC">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="1280" height="800" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" rulerVisible="true" bitmapSnap="false" objectsSnapTo="false" viewAngle3D="100.925968316201" vanishingPoint3DX="640" vanishingPoint3DY="400" previewMode="anti alias" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="60E10D79E35D2143B913EC6054E4F5BC">
      <folders>
           <DOMFolderItem name="1_Act" itemID="66052a6f-00003f2a"/>
           <DOMFolderItem name="1_Act/Image" itemID="65fb8dc8-000036cc"/>
           <DOMFolderItem name="1_Act/Symbol" itemID="67bfd44b-000008c7"/>
-          <DOMFolderItem name="Image" itemID="67bfbd95-000001e8" isExpanded="true"/>
-          <DOMFolderItem name="Image/brush" itemID="67bfbd95-000001e9"/>
-          <DOMFolderItem name="Symbol" itemID="67bfbdb2-000001f8" isExpanded="true"/>
+          <DOMFolderItem name="Image" itemID="67bfbd95-000001e8"/>
+          <DOMFolderItem name="Image/brush" itemID="67bfbd95-000001e9" isExpanded="true"/>
+          <DOMFolderItem name="Symbol" itemID="67bfbdb2-000001f8"/>
      </folders>
      <media>
           <DOMBitmapItem name="Image/brush/brush" itemID="664568c2-000008a4" linkageExportForAS="true" linkageClassName="brush" sourceLastImported="1715824981" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Image/brush/brush.png" bitmapDataHRef="M 2 1740619157.dat" frameRight="640" frameBottom="640"/>
@@ -17,11 +17,11 @@
           <Include href="1_Act/Symbol/Image_0.xml" loadImmediate="false" itemID="66542713-0000533b" lastModified="1740623718"/>
           <Include href="1_Act/Symbol/image_0_graphic.xml" loadImmediate="false" itemID="665430f5-000058e9" lastModified="1740449295"/>
           <Include href="1_Act/Symbol/result.xml" loadImmediate="false" itemID="662f376e-00000e62" lastModified="1714370414"/>
-          <Include href="Canvas.xml" loadImmediate="false" itemID="67bfd473-000008e2" lastModified="1740650124"/>
+          <Include href="Canvas.xml" loadImmediate="false" itemID="67bfd473-000008e2" lastModified="1740730282"/>
           <Include href="Symbol/Test.xml" loadImmediate="false" itemID="67beaa7e-0000198b" lastModified="1740548988"/>
-          <Include href="Symbol/word_a.xml" loadImmediate="false" itemID="67bed48b-000019ff" lastModified="1740650124"/>
-          <Include href="Symbol/word_a_Image.xml" loadImmediate="false" itemID="67bfbe97-000001fe" lastModified="1740619415"/>
-          <Include href="Symbol/word_G.xml" loadImmediate="false" itemID="67bed63c-00001a05" lastModified="1740637527"/>
+          <Include href="Symbol/word_a.xml" loadImmediate="false" itemID="67bed48b-000019ff" lastModified="1740730282"/>
+          <Include href="Symbol/word_a_Image.xml" loadImmediate="false" itemID="67bfbe97-000001fe" lastModified="1740708017"/>
+          <Include href="Symbol/word_G.xml" loadImmediate="false" itemID="67bed63c-00001a05" lastModified="1740714692"/>
           <Include href="word_G_Image.xml" loadImmediate="false" itemID="67bff2e2-00000c48" lastModified="1740637402"/>
           <Include href="words.xml" loadImmediate="false" itemID="67bff27c-00000c19" lastModified="1740632700"/>
      </symbols>
