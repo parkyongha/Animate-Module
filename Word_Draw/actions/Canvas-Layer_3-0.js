@@ -21,7 +21,7 @@ let nextTargetRange = 40;
 
 // ===================== 캔버스
 var drawImage = null;
-var mcCanvas = null;
+var currentCanvas = null;
 
 var lastPoint;
 var strokes = [];
@@ -74,10 +74,10 @@ function setCanvasSetting() {
         initializeBitmapLayer(root[`word_${ch}`]);
     });
 
-    mcCanvas = root.word_a;
+    currentCanvas = root.word_a;
 
-    canvasOffsetX = mcCanvas.x;
-    canvasOffsetY = mcCanvas.y;
+    canvasOffsetX = currentCanvas.x;
+    canvasOffsetY = currentCanvas.y;
 
     UpdateBitmapLayerCache();
     clearCanvas();
@@ -109,17 +109,17 @@ function initializeBitmapLayer(drawImage) {
 }
 
 function drawImageHandleMouseDown(drawImage, event) {
-    canvasOffsetX = mcCanvas.x;
-    canvasOffsetY = mcCanvas.y;
+    canvasOffsetX = currentCanvas.x;
+    canvasOffsetY = currentCanvas.y;
 
     OnDrawStart(event);
 }
 
 function cacheAndClearBitmapLayers() {
-    const bound = mcCanvas.getBounds();
+    const bound = currentCanvas.getBounds();
 
-    mcCanvas.BitmapLayer.cache(0, 0, bound.width, bound.height);
-    mcCanvas.BitmapData.clearRect(0, 0, bound.width, bound.height);
+    currentCanvas.BitmapLayer.cache(0, 0, bound.width, bound.height);
+    currentCanvas.BitmapData.clearRect(0, 0, bound.width, bound.height);
 }
 
 function Initpalette() {
@@ -147,13 +147,13 @@ function OnDrawStart(e) {
     brushConfig.brushHSizeW = brushConfig.originBrushHSizeW * brushScale;
     brushConfig.brushHSizeH = brushConfig.originBrushHSizeH * brushScale;
 
-    lastPoint = wordsStrokePoints[mcCanvas.ch][currentPointIndex];
+    lastPoint = wordsStrokePoints[currentCanvas.ch][currentCanvas.currentPointIndex];
 
     pointerID = e.pointerID;
-    mcCanvas.Board.name = "Board";
+    currentCanvas.Board.name = "Board";
 
-    mcCanvas.BitmapLayer.updateCache();
-    mcCanvas.BitmapLayer.addChild(mcCanvas.Board);
+    currentCanvas.BitmapLayer.updateCache();
+    currentCanvas.BitmapLayer.addChild(currentCanvas.Board);
 
     currentStroke = {
         x: [],
@@ -163,9 +163,6 @@ function OnDrawStart(e) {
     drawBrush(lastPoint.x, lastPoint.y);
     AddStroke(lastPoint.x, lastPoint.y);
 
-    //stage.addEventListener("stagemousemove", OnDrawBrush);
-    //stage.addEventListener("stagemouseup", OnDrawEnd);
-
     isDrawing = true;
 }
 
@@ -173,9 +170,13 @@ function OnDrawBrush(e) {
     if (!CheckPointerID(e))
         return;
 
-    console.log("OnDrawBrush");
+    if (currentStroke == null) {
+        return;
+    }
 
-    var currentPoint = wordsStrokePoints[mcCanvas.ch][currentPointIndex + 1];;
+    // console.log("OnDrawBrush");
+
+    var currentPoint = wordsStrokePoints[currentCanvas.ch][currentCanvas.currentPointIndex + 1];;
 
     DrawLine(lastPoint, currentPoint);
     AddStroke(currentPoint.x, currentPoint.y);
@@ -200,8 +201,8 @@ function calculateMinMax(stroke, canvasWidth, canvasHeight) {
 function calculateCanvasRect(minMax, brushHSizeW, brushHSizeH) {
     const cx = Math.max(0, minMax.minX - brushHSizeW);
     const cy = Math.max(0, minMax.minY - brushHSizeH);
-    const cw = Math.min(mcCanvas.nominalBounds.width, minMax.maxX + brushHSizeW);
-    const ch = Math.min(mcCanvas.nominalBounds.height, minMax.maxY + brushHSizeH);
+    const cw = Math.min(currentCanvas.nominalBounds.width, minMax.maxX + brushHSizeW);
+    const ch = Math.min(currentCanvas.nominalBounds.height, minMax.maxY + brushHSizeH);
 
     return new createjs.Rectangle(cx, cy, cw - cx, ch - cy);
 }
@@ -212,9 +213,7 @@ function OnDrawEnd(e) {
 
     isDrawing = false;
 
-    //if (wordCompletionStatus[mcCanvas.ch]) {
-
-    const canvasBound = mcCanvas.nominalBounds;
+    const canvasBound = currentCanvas.nominalBounds;
     const brushHSizeW = brushConfig.brushHSizeW;
     const brushHSizeH = brushConfig.brushHSizeH;
 
@@ -222,7 +221,7 @@ function OnDrawEnd(e) {
     const cRect = calculateCanvasRect(minMax, brushHSizeW, brushHSizeH);
 
     // 현재 그린 그림을 복사
-    var cvs = CreateCanvas(mcCanvas.BitmapData.canvas, -cRect.x, -cRect.y, cRect.width, cRect.height);
+    var cvs = CreateCanvas(currentCanvas.BitmapData.canvas, -cRect.x, -cRect.y, cRect.width, cRect.height);
 
     // 그린거 추가
     var strokeBmp = new createjs.Bitmap(cvs);
@@ -230,11 +229,10 @@ function OnDrawEnd(e) {
     strokeBmp.set({
         x: cRect.x,
         y: cRect.y,
-        name: "bitmap_" + mcCanvas.numChildren
+        name: "bitmap_" + currentCanvas.numChildren
     });
-    //}
 
-    mcCanvas.BitmapLayer.addChild(strokeBmp);
+    currentCanvas.BitmapLayer.addChild(strokeBmp);
 
     resetCanvasState();
 }
@@ -250,9 +248,6 @@ function resetCanvasState() {
 
     clearCanvas();
     UpdateBitmapLayerCache();
-
-    stage.removeAllEventListeners("stagemousemove");
-    stage.removeAllEventListeners("stagemouseup");
 }
 
 function CreateCanvas(source, x, y, width, height) {
@@ -310,20 +305,14 @@ function DrawLine(fromPoint, toPoint) {
 
 function drawBrush(tx, ty) {
     var matrix = new createjs.Matrix2D();
-    var scaleFactor = brushScale / ORIGIN_BRUSH_SCALE;
 
-    // 스케일 적용
-    // matrix.scale(scaleFactor, scaleFactor);
-
-    // 스케일에 맞춰 위치 보정 (brush의 등록점이 중앙이라면 brushHSizeW, brushHSizeH에 스케일 적용)
     matrix.translate(
         tx - (brushConfig.brushHSizeW),
         ty - (brushConfig.brushHSizeH)
     );
 
-    mcCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
-    mcCanvas.BitmapLayer.updateCache();
-
+    currentCanvas.BitmapData.draw(brushConfig.brush, matrix, null, null, null, true);
+    currentCanvas.BitmapLayer.updateCache();
 }
 
 function GetPosition(e) {
@@ -338,11 +327,11 @@ function GetRandomMinMax(min, max) {
 }
 
 function clearCanvas() {
-    mcCanvas.BitmapData.clearRect(0, 0, mcCanvas.nominalBounds.width, mcCanvas.nominalBounds.height);
+    currentCanvas.BitmapData.clearRect(0, 0, currentCanvas.nominalBounds.width, currentCanvas.nominalBounds.height);
 }
 
 function UpdateBitmapLayerCache() {
-    mcCanvas.BitmapLayer.updateCache();
+    currentCanvas.BitmapLayer.updateCache();
 }
 
 function CheckPointerID(e) {
@@ -375,19 +364,22 @@ function setWordStroke() {
 
         word.hasMultipleStrokes = word.labels.length != 0;
         word.currentLabelIndex = 0;
+        word.currentPointIndex = 0;
 
         wordCompletionStatus[ch] = false;
 
         word.on("mousedown", (event) => {
             let pt = { x: event.localX, y: event.localY };
 
-            mcCanvas = word;
+            if (currentCanvas != word) {
+                currentCanvas = word;
+                currentCanvas.currentPointIndex = 0;
+            }
 
-            // currentPointIndex = 0;
-            console.log(`%c여기요~`, "color:#510623")
+            console.log(`%c여기요~`, "color:#ebbcce")
 
             // 시작 위치의 근처일 때
-            if (checkIfNearPoint(word.ch, pt, currentPointIndex)) {
+            if (checkIfNearPoint(word.ch, pt, currentCanvas.currentPointIndex)) {
                 handleNearPoint(word.ch, event);
             } else {
                 console.log("시작 위치가 잘못됨");
@@ -400,7 +392,7 @@ function setWordStroke() {
  * 시작 위치에서 제대로 시작했을 때
  */
 function handleNearPoint(ch, event) {
-    drawImageHandleMouseDown(mcCanvas, event);
+    drawImageHandleMouseDown(currentCanvas, event);
 
     const word = root[`word_${ch}`];
 
@@ -409,46 +401,40 @@ function handleNearPoint(ch, event) {
 
         // console.log(`%c stageX : ${event.stageX} stageY : ${event.stageY}`, "color:#9fdba9");
 
-        if (checkIfNearPoint(ch, pt, currentPointIndex)) {
+        if (checkIfNearPoint(ch, pt, currentCanvas.currentPointIndex)) {
 
             OnDrawBrush(event);
 
-            if (word.hasMultipleStrokes &&  word.currentLabelIndex < word.labels.length) {
-                var lastPathIndex = word.currentLabelIndex < word.labels.length - 1 ?
-                    word.labels[word.currentLabelIndex + 1].position : wordsStrokePoints[ch].length;
+            const threshold = getNextThreshold(word, wordsStrokePoints, ch);
 
-                console.log("lastPathIndex : " + lastPathIndex);
-
-                if (currentPointIndex >= lastPathIndex - 2) {
+            // 현재 포인트가 threshold 근처에 도달했는지 확인
+            if (currentCanvas.currentPointIndex >= threshold - 2) {
+                // word가 여러 획인 경우 && 아직 마지막 획이 아니라면
+                if (word.hasMultipleStrokes && word.currentLabelIndex < word.labels.length - 1) {
                     word.currentLabelIndex++;
-                    currentPointIndex = lastPathIndex;
-                    
+                    currentCanvas.currentPointIndex = threshold;
+
                     if (isDrawing) {
                         OnDrawEnd(event);
                     }
 
                     word.removeAllEventListeners("pressmove");
                     word.removeAllEventListeners("pressup");
-
-                    return;
+                } else {
+                    // 단일 획이거나, 여러 획인 경우 마지막 획인 경우
+                    console.log("성공");
+                    word.removeAllEventListeners("mousedown");
+                    word.removeAllEventListeners("pressmove");
+                    completeStrokeAnimation(ch, event);
                 }
-            }
-
-            // 획이 여러 개일 때의 처리 필요
-            if (currentPointIndex >= wordsStrokePoints[ch].length - 2) {
-                console.log("성공");
-
-                word.removeAllEventListeners("mousedown");
-                word.removeAllEventListeners("pressmove");
-
-                completeStrokeAnimation(ch, event);
-
-                return;
             }
         } else {
             if (isDrawing) {
                 OnDrawEnd(event);
             }
+
+            word.removeAllEventListeners("pressmove");
+            word.removeAllEventListeners("pressup");
 
             resetCanvasState();
         }
@@ -464,7 +450,24 @@ function handleNearPoint(ch, event) {
     }, null, true);
 }
 
-// 단어별 획의 좌표 배열 가져오는 함수
+/**
+ * 다음 경계(다음 label의 position 또는 전체 길이)를 반환하는 함수
+ */
+function getNextThreshold(word, wordsStrokePoints, ch) {
+    if (word.hasMultipleStrokes && word.labels.length > 0) {
+        // 마지막 label이 아니라면 다음 label의 position을 반환,
+        // 마지막 label이면 전체 stroke의 길이를 반환
+        return word.currentLabelIndex < word.labels.length - 1 ?
+            word.labels[word.currentLabelIndex + 1].position :
+            wordsStrokePoints[ch].length;
+    }
+
+    return wordsStrokePoints[ch].length;
+}
+
+/**
+ * 단어별 획의 좌표 배열 가져오는 함수
+ */
 function getWordsStrokePathPoints() {
     let wordsStrokePoints = [];
 
@@ -477,31 +480,35 @@ function getWordsStrokePathPoints() {
         wordsStrokePoints[ch] = framePositions;
     }
 
-    // 프레임별 포지션 가져오는 함수
-    function getObjectFramePositions(object) {
-        var freamPositions = [];
 
-        const frameCount = object.totalFrames;
-
-        for (var i = 0; i < frameCount; i++) {
-            object.gotoAndStop(i);
-
-            let pathPoints = { x: object.point.x, y: object.point.y };
-            freamPositions.push(pathPoints);
-        }
-
-        object.point.visible = false;
-
-        return freamPositions;
-    }
 
     return wordsStrokePoints;
 }
 
+/**
+ *프레임별 포지션 가져오는 함수
+*/
+function getObjectFramePositions(object) {
+    var freamPositions = [];
+
+    const frameCount = object.totalFrames;
+
+    for (var i = 0; i < frameCount; i++) {
+        object.gotoAndStop(i);
+
+        let pathPoints = { x: object.point.x, y: object.point.y };
+        freamPositions.push(pathPoints);
+    }
+
+    object.point.visible = false;
+
+    return freamPositions;
+}
+
 /** 
  * 사용자의 좌표가 목표 좌표와 가까운지 확인하는 함수
- * 
- * */
+ * @param {}
+ */
 function checkIfNearPoint(wordChar, userPoint, targetPointIndex) {
 
     let pathPoints = wordsStrokePoints[wordChar];
@@ -518,49 +525,55 @@ function checkIfNearPoint(wordChar, userPoint, targetPointIndex) {
     // 마지막이 아닐 때
     if (pathPoints[targetPointIndex + 1]) {
 
-        let curDistance = Math.sqrt(
-            Math.pow(userPoint.x - curTargetPoints.x, 2) +
-            Math.pow(userPoint.y - curTargetPoints.y, 2)
-        );
-
-        let nextDistance = Math.sqrt(
-            Math.pow(userPoint.x - nextTargetPoints.x, 2) +
-            Math.pow(userPoint.y - nextTargetPoints.y, 2)
-        );
+        const curDistance = getPointDistance(userPoint, curTargetPoints);
+        const nextDistance = getPointDistance(userPoint, nextTargetPoints);
 
         // console.log(`%c현재 좌표: ${curDistance},\n%c다음 좌표: ${nextDistance}`, "color:#8cb4f5", "color:#dc8cf5"); 
 
         // 다음 좌표가 더 가까우면
         if (curDistance > nextDistance && nextDistance <= nextTargetRange) {
-            // 다음 좌표로 이동
-            currentPointIndex++;
+
+            currentCanvas.currentPointIndex++;
+
             console.log("다음 좌표로 이동");
-            console.log("currentPointIndex : " + currentPointIndex);
+            console.log("currentPointIndex : " + currentCanvas.currentPointIndex);
         } else if (curDistance < nextDistance && curDistance >= tolerance) {
             // 이전 좌표가 가까워진 경우
             // 나중에 이전 좌표가 가까워졌을 때의 예외처리도 필요
             console.log("이전 좌표로 이동");
             return false;
         } else if (curDistance >= tolerance) {
+
             //console.log("%c허용 오차 범위 밖임", "color:red");
             //console.log(`%c현재 좌표 : ${curDistance},\n%c다음 좌표 : ${nextDistance}`, "color:#8cb4f5", "color:#dc8cf5");
             return false;
         }
 
     } else { // 마지막일 때
-        let curDistance = Math.sqrt(
-            Math.pow(userPoint.x - curTargetPoints.x, 2) +
-            Math.pow(userPoint.y - curTargetPoints.y, 2)
-        );
+        let curDistance = getPointDistance(userPoint, curTargetPoints);
 
         if (curDistance <= nextTargetRange) {
-            currentPointIndex++;
-            console.log("마지막임!!\ncurrentPointIndex : " + currentPointIndex);
+            currentCanvas.currentPointIndex++;
+            console.log("마지막임!!\ncurrentPointIndex : " + currentCanvas.currentPointIndex);
         }
     }
 
 
     return true;
+}
+
+/**
+ * Point간의 거리를 가져오는 함수
+ * @param {Point} curPoint 기준
+ * @param {*} destPoint 목표
+ * @returns 
+ */
+function getPointDistance(curPoint, destPoint) {
+
+    return Math.sqrt(
+        Math.pow(curPoint.x - destPoint.x, 2) +
+        Math.pow(curPoint.y - destPoint.y, 2)
+    );
 }
 
 /**
@@ -575,4 +588,23 @@ function completeStrokeAnimation(ch, event) {
     console.log("completeStrokeAnimation");
 
     OnDrawEnd(event);
+    createCompletionCanvas();
+}
+
+/**
+ * 획 완료했을 때 획의 색을 채워주는 함수
+ */
+function createCompletionCanvas() {
+    let rgb = hexToRgb(paletteColor);
+
+    console.log("여기임둥");
+
+    const bound = currentCanvas.nominalBounds;
+
+    currentCanvas.filters = [
+        new createjs.ColorFilter(0, 0, 0, 1, rgb.r, rgb.g, rgb.b, 0)
+    ];
+
+    currentCanvas.cache(0, 0, bound.width, bound.height);
+    console.log(new createjs.Bitmap(currentCanvas.cacheCanvas.toDataURL()));
 }

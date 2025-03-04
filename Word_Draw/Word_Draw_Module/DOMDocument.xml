@@ -17,9 +17,9 @@
           <Include href="1_Act/Symbol/Image_0.xml" loadImmediate="false" itemID="66542713-0000533b" lastModified="1740623718"/>
           <Include href="1_Act/Symbol/image_0_graphic.xml" loadImmediate="false" itemID="665430f5-000058e9" lastModified="1740449295"/>
           <Include href="1_Act/Symbol/result.xml" loadImmediate="false" itemID="662f376e-00000e62" lastModified="1714370414"/>
-          <Include href="Canvas.xml" loadImmediate="false" itemID="67bfd473-000008e2" lastModified="1740730282"/>
-          <Include href="Symbol/Test.xml" loadImmediate="false" itemID="67beaa7e-0000198b" lastModified="1740548988"/>
-          <Include href="Symbol/word_a.xml" loadImmediate="false" itemID="67bed48b-000019ff" lastModified="1740730282"/>
+          <Include href="Canvas.xml" loadImmediate="false" itemID="67bfd473-000008e2" lastModified="1741060439"/>
+          <Include href="Symbol/Test.xml" loadImmediate="false" itemID="67beaa7e-0000198b" lastModified="1741064679"/>
+          <Include href="Symbol/word_a.xml" loadImmediate="false" itemID="67bed48b-000019ff" lastModified="1741065223"/>
           <Include href="Symbol/word_a_Image.xml" loadImmediate="false" itemID="67bfbe97-000001fe" lastModified="1740708017"/>
           <Include href="Symbol/word_G.xml" loadImmediate="false" itemID="67bed63c-00001a05" lastModified="1740714692"/>
           <Include href="word_G_Image.xml" loadImmediate="false" itemID="67bff2e2-00000c48" lastModified="1740637402"/>

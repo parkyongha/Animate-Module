@@ -59,7 +59,7 @@
     <Property name="exportLibsToFolder">true</Property>
     <Property name="exportSounds">true</Property>
     <Property name="exportSoundsToFolder">true</Property>
-    <Property name="filename">bin/Word_Draw_Module.js</Property>
+    <Property name="filename">bin/index.js</Property>
     <Property name="frameBounds">false</Property>
     <Property name="hostedLibs">true</Property>
     <Property name="imageFormat">0</Property>

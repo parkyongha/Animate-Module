@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Symbol/Test" itemID="67beaa7e-0000198b" lastModified="1740548988">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Symbol/Test" itemID="67beaa7e-0000198b" lastModified="1741064679">
   <timeline>
     <DOMTimeline name="Test" layerDepthEnabled="true">
       <layers>
@@ -8,7 +8,7 @@
               <elements>
                 <DOMShape isDrawingObject="true">
                   <matrix>
-                    <Matrix a="0.434066772460938" d="0.434066772460938"/>
+                    <Matrix a="0.415374755859375" d="0.415374755859375" tx="-0.9" ty="-0.9"/>
                   </matrix>
                   <fills>
                     <FillStyle index="1">
