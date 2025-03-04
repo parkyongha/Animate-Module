@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+
+
+	//11
+-->
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="authoring-tool" content="$VERSION">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>$TITLE</title>
+	<!-- write your code here -->
+	$CENTER_STYLE
+	<link rel="stylesheet" href="./css/Bingo_3/bingo-loading-3.css">
+	<script type='text/javascript' src='createjs.min.js'></script>
+	<script type='text/javascript' src='BW_5775451/libs/asyncLoader.js'></script>
+	<script>
+		function onResizeWindow() {
+			let scale = 1;
+			let w = screen.width;
+			let h = screen.height;
+
+			let stageSize = { width: 1280, height: 800 };
+
+			let scaleX = w / stageSize.width;
+			let scaleY = h / stageSize.height;
+			scale = (scaleX > scaleY) ? scaleX : scaleY;
+
+			var xx = (w - stageSize.width * scale) / 2;
+			var yy = (h - stageSize.height * scale) / 2;
+
+			let element = document.body;
+			if (!element) return;
+			element.style.transform = "translate(" + xx + "px," + yy + "px) scale(" + scale + ")";
+			element.style.transformOrigin = "0px 0px 0px";
+			element.style.width = stageSize.width + "px";
+			element.style.height = stageSize.height + "px";
+			element.style.display = "block";
+			element.style.overflow = "hidden";
+
+			console.log(scaleX, scaleY, scale, xx, yy);
+		}
+		function loadFont(fontName, fileName) {
+			const font = new FontFace(fontName, "url(./$TITLE/fonts/" + fileName + ".woff2)");
+
+			font.load().then(function (font) {
+				console.log('Font loading complete:', font);
+				document.fonts.add(font);
+			}).catch(function (error) {
+				console.error('Font loading failed:', error);
+			});
+		}
+
+		loadFont("NanumSquareRound ExtraBold", "NanumSquareRound_ExtraBold");
+	</script>
+	<!-- $CREATEJS_LIBRARY_SCRIPTS -->
+	$ANIMATE_CC_SCRIPTS
+	$SCRIPT_START
+	var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+	function init() {
+	onResizeWindow();
+	var pace = document.getElementsByClassName('pace pace-active')[0];
+	pace.style.display = 'block';
+
+	canvas = document.getElementById("$CANVAS_ID");
+	anim_container = document.getElementById("$ANIM_CONTAINER_ID");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+
+	// AsyncLoader 생성 (최대 5개 동시 로드)
+	$CREATE_LOADER
+
+	// AsyncLoader 생성 (최대 5개 동시 로드)
+	loader = new AsyncLoader(5);
+
+	$PRELOAD_ASSETS
+
+	// fileload 이벤트: 각 파일이 로드될 때 comp.getImages()에 이미지 결과를 저장하고, 진행률 업데이트
+	loader.on('fileload', function(evt) {
+	  var images = comp.getImages();
+	  if (evt && evt.result) {
+		images[evt.id] = evt.result;
+	  }
+	  var progressElem = document.getElementsByClassName('pace-progress')[0];
+	  if (progressElem) {
+		var value = Math.min(100, Math.round(evt.progress * 100)) - 1;
+		progressElem.setAttribute('data-progress-text', value + '%');
+		progressElem.setAttribute('data-progress', value);
+		progressElem.style.transform = "translate3d(" + value + "%, 0px, 0px)";
+	  }
+	});
+	
+	// progress 이벤트: 진행률 업데이트
+	loader.on('progress', function(evt) {
+	  var progressElem = document.getElementsByClassName('pace-progress')[0];
+	  if (progressElem) {
+		var value = Math.min(100, Math.round(evt.progress * 100)) - 1;
+		progressElem.setAttribute('data-progress-text', value + '%');
+		progressElem.setAttribute('data-progress', value);
+		progressElem.style.transform = "translate3d(" + value + "%, 0px, 0px)";
+	  }
+	});
+	
+	// complete 이벤트: 모든 파일 로드 완료 후, 스프라이트시트 생성 및 애니메이션 초기화
+	loader.on('complete', function(evt) {
+	$CREATE_STAGE
+	  fnStartAnimation = function() {
+		stage.enableMouseOver();
+		stage.mouseMoveOutside = true;
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+		createjs.Touch.enable(stage, true);
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
+		var targetDiv = document.getElementsByClassName("pace")[0];
+		var targetDiv2 = document.getElementsByClassName("progress_text")[0];
+		if(targetDiv) targetDiv.remove();
+		if(targetDiv2) targetDiv2.remove();
+		document.body.classList.remove('bg');
+	  }
+	  AdobeAn.makeResponsive(false, 'both', false, 1, [canvas, anim_container, dom_overlay_container]);
+	  AdobeAn.compositionLoaded(lib.properties.id);
+	  fnStartAnimation();
+	});
+	
+	// Adobe Animate에서 빌드된 manifest를 그대로 사용
+	var manifest = lib.properties.manifest;
+	loader.loadManifest(manifest).catch(function(err) {
+	  console.error("파일 로드 중 오류 발생:", err);
+	});	
+}
+
+	$PLAYSOUND
+	$SCRIPT_END
+	<!-- write your code here -->
+</head>
+
+<body onload="init();" style="margin:0px;" class="bg">
+	<div class="pace pace-active" style="display: none;">
+		<div class="pace-progress" data-progress-text="0%" data-progress="0"
+			style="transform: translate3d(0%, 0px, 0px);">
+			<div class="pace-progress-inner"></div>
+		</div>
+		<div class="pace-activity"></div>
+	</div>
+	<div class="progress_text"></div>
+	<div id="$ANIM_CONTAINER_ID" style="background-color:$BG; width:$WTpx; height:$HTpx">
+		<canvas id="$CANVAS_ID" width="$WT" height="$HT"
+			style="position: absolute; display: $CANVAS_DISP; background-color:$BG;"></canvas>
+		<div id="dom_overlay_container"
+			style="pointer-events:none; overflow:hidden; width:$WTpx; height:$HTpx; position: absolute; left: 0px; top: 0px; display: $CANVAS_DISP;">
+		</div>
+	</div>
+	$PRELOADER_DIV
+</body>
+
+</html>
