@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Symbol/word_a" itemID="67bed48b-000019ff" lastModified="1741065223" lastUniqueIdentifier="4">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Symbol/word_a" itemID="67bed48b-000019ff" lastModified="1741600828" lastUniqueIdentifier="4">
   <timeline>
-    <DOMTimeline name="word_a" currentFrame="43" layerDepthEnabled="true">
+    <DOMTimeline name="word_a" layerDepthEnabled="true">
       <layers>
         <DOMLayer name="script" color="#FF4FFF" autoNamed="false">
           <frames>
@@ -9,7 +9,8 @@
             </DOMFrame>
             <DOMFrame index="59" keyMode="9728">
               <Framescript language="JavaScript">
-                <script><![CDATA[this.stop();]]></script>
+                <script><![CDATA[this.stop();
+// 히히]]></script>
               </Framescript>
               <elements/>
             </DOMFrame>
@@ -88,7 +89,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer_3" color="#FF800A" parentLayerIndex="2" autoNamed="false">
+        <DOMLayer name="Layer_3" color="#FF800A" parentLayerIndex="2" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="59" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
@@ -129,7 +130,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Image" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="Image" color="#00FFFF" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="60" keyMode="9728" rigPropagationMatrix='{"a":65535,"b":0,"c":0,"d":65535,"tx":0,"ty":0}'>
               <elements>

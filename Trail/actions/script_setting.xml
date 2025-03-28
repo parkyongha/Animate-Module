@@ -1,0 +1,8 @@
+<scripts>
+  <symbol path="Main" name="Main" layerName="Layer_1">
+    <frame id="0" dirty="false">Main-Layer_1-0.js</frame>
+  </symbol>
+  <symbol path="canvas" name="canvas" layerName="script">
+    <frame id="0" dirty="false">canvas-script-0.js</frame>
+  </symbol>
+</scripts>

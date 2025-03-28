@@ -1,0 +1,71 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="1280" height="800" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" bitmapSnap="false" objectsSnapTo="false" viewAngle3D="100.925968316201" vanishingPoint3DX="640" vanishingPoint3DY="400" previewMode="anti alias" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="784D03A6AFC86B4EB7641285A1D4A60B">
+     <symbols>
+          <Include href="canvas.xml" loadImmediate="false" itemID="67e66d2c-0000019c" lastModified="1743155989"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1" layerDepthEnabled="true">
+               <layers>
+                    <DOMLayer name="Layer_1" color="#00FFFF">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[let root = this;
+
+root.stop();
+
+(function init() {
+    console.log(`init`);
+
+    root.on('mousedown',
+        /** @param {createjs.MouseEvent} event */
+        (event) => {
+            var shape = new createjs.Shape();
+            root.addChild(shape);
+
+            var g = shape.graphics;
+
+            g.setStrokeStyle(1).beginStroke('#000000').moveTo(event.localX, event.localY);
+
+            console.log(`mouse down`);
+            
+            root.on('mousemove', function (e) {
+                console.log(`mouse move`);
+                g.lineTo(e.localX, e.localY);
+            });
+
+            root.on('mouseup', function (e) {
+                root.removeAllEventListeners('mousemove');
+            }, null, true);
+        });
+})();
+]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Layer_2" color="#9933CC" current="true" isSelected="true">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="canvas" selected="true">
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <scripts>
+          <GlobalScripts language="Javascript"/>
+     </scripts>
+     <persistentData>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+     </persistentData>
+     <PrinterSettings/>
+     <publishHistory/>
+</DOMDocument>

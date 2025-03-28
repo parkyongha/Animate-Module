@@ -14,10 +14,10 @@ let wordCompletionStatus = [];
 let currentPointIndex = 0;
 
 // 사용자가 획을 그을 때 허용 오차(픽셀 단위)
-let tolerance = 45;
+let tolerance = 45; 
 
 // 다음으로 넘어가기 위한 범위
-let nextTargetRange = 40;
+let nextTargetRange = 40; 
 
 // ===================== 캔버스
 var drawImage = null;

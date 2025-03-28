@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "checkJs": false
+  },
+  "include": [
+    "./**/*.js",
+    "easeljs/index.d.ts",
+    "createjs-lib/index.d.ts",
+    "tweenjs/index.d.ts",
+    "globals.d.ts",
+    "../base/js/*.js"
+  ]
+}
