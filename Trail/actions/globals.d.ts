@@ -5,8 +5,6 @@ declare global {
   var javascript_object: any;
   var lib: any;
 
-  var myThis: createjs.MovieClip;
-
   // 글로벌 함수 정의한거 여기에 추가하면 자동완성 추천으로 띄워줌
   // function FuncTest(): void;
 

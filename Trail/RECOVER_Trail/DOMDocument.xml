@@ -1,6 +1,6 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="1280" height="800" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" bitmapSnap="false" objectsSnapTo="false" viewAngle3D="100.925968316201" vanishingPoint3DX="640" vanishingPoint3DY="400" previewMode="anti alias" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="784D03A6AFC86B4EB7641285A1D4A60B">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="1280" height="800" frameRate="60" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" bitmapSnap="false" objectsSnapTo="false" viewAngle3D="100.925968316201" vanishingPoint3DX="640" vanishingPoint3DY="400" previewMode="anti alias" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="784D03A6AFC86B4EB7641285A1D4A60B">
      <symbols>
-          <Include href="canvas.xml" loadImmediate="false" itemID="67e66d2c-0000019c" lastModified="1743155989"/>
+          <Include href="canvas.xml" loadImmediate="false" itemID="67e66d2c-0000019c" lastModified="1743401924"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1" layerDepthEnabled="true">
@@ -9,35 +9,89 @@
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <Framescript language="JavaScript">
-                                        <script><![CDATA[let root = this;
+                                        <script><![CDATA[/** @type {createjs.MovieClip} */
+let root = this;
 
 root.stop();
 
+/**
+ * @typedef {Object} Point
+ * @property {number} x
+ * @property {number} y
+ */
+
+/**
+ * @type {Point[]}
+ */
+let points = [];
+
+/** @type {createjs.Graphics | null} */
+let graphics = null;
+
+let strokeGraphics = new createjs.Graphics().setStrokeStyle(1).beginStroke("#000000");
+
+let isDrawing = false;
+
 (function init() {
-    console.log(`init`);
+    console.log("init");
 
-    root.on('mousedown',
-        /** @param {createjs.MouseEvent} event */
-        (event) => {
-            var shape = new createjs.Shape();
-            root.addChild(shape);
+    var strokeContainer = new createjs.Container();
+    stage.addChild(strokeContainer);
 
-            var g = shape.graphics;
+    const shape = new createjs.Shape();
+    strokeContainer.addChild(shape);
 
-            g.setStrokeStyle(1).beginStroke('#000000').moveTo(event.localX, event.localY);
+    graphics = strokeGraphics.clone();
+    points = [];
 
-            console.log(`mouse down`);
-            
-            root.on('mousemove', function (e) {
-                console.log(`mouse move`);
-                g.lineTo(e.localX, e.localY);
-            });
-
-            root.on('mouseup', function (e) {
-                root.removeAllEventListeners('mousemove');
-            }, null, true);
-        });
+    stage.addEventListener("stagemousedown", startTrail);
+    stage.addEventListener("stagemousemove", updateTrail);
+    stage.addEventListener("stagemouseup", stopTrail);
 })();
+
+/** @param {createjs.MouseEvent} event */
+function startTrail(event) {
+    isDrawing = true;
+
+    console.log("mouse down");
+
+    drawStrokeOnTick();
+}
+
+/** @param {createjs.MouseEvent} event */
+function updateTrail(event) {
+    points.push({ x: event.stageX, y: event.stageY });
+}
+
+/** @param {createjs.MouseEvent} event */
+function stopTrail(event) {
+    isDrawing = false;
+
+    console.log("mouse up");
+}
+
+function drawStrokeOnTick() {
+    // 매 프레임마다 호출
+    createjs.Ticker.on("tick", function () {
+        if (!graphics || !isDrawing) return;
+
+        if (points.length > 20) {
+            points.shift();
+        }
+
+        graphics.clear();
+
+        graphics = strokeGraphics.clone();
+
+        if (points.length > 0) {
+            graphics.moveTo(points[0].x, points[0].y);
+
+            for (let i = 1; i < points.length; i++) {
+                graphics.lineTo(points[i].x, points[i].y);
+            }
+        }
+    });
+}
 ]]></script>
                                    </Framescript>
                                    <elements/>
@@ -48,7 +102,7 @@ root.stop();
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="canvas" selected="true">
+                                        <DOMSymbolInstance libraryItemName="canvas">
                                              <transformationPoint>
                                                   <Point/>
                                              </transformationPoint>

@@ -69,9 +69,16 @@ if (reversed == null) { reversed = false; }
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
+	// Layer_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#999999").s().p("Ehj/A+gMAAAh8/MDH/AAAMAAAB8/g");
+	this.shape.setTransform(640,400);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.canvas, new cjs.Rectangle(0,0,0,0), null);
+}).prototype = getMCSymbolPrototype(lib.canvas, new cjs.Rectangle(0,0,1280,800), null);
 
 
 // stage content:
@@ -96,35 +103,89 @@ if (reversed == null) { reversed = false; }
 		if(this.totalFrames == 1) {
 			this.isSingleFrame = true;
 		}
+		/** @type {createjs.MovieClip} */
 		let root = this;
 		
 		root.stop();
 		
+		/**
+		 * @typedef {Object} Point
+		 * @property {number} x
+		 * @property {number} y
+		 */
+		
+		/**
+		 * @type {Point[]}
+		 */
+		let points = [];
+		
+		/** @type {createjs.Graphics | null} */
+		let graphics = null;
+		
+		let strokeGraphics = new createjs.Graphics().setStrokeStyle(1).beginStroke("#000000");
+		
+		let isDrawing = false;
+		
 		(function init() {
-		    console.log(`init`);
+		    console.log("init");
 		
-		    root.on('mousedown',
-		        /** @param {createjs.MouseEvent} event */
-		        (event) => {
-		            var shape = new createjs.Shape();
-		            root.addChild(shape);
+		    var strokeContainer = new createjs.Container();
+		    stage.addChild(strokeContainer);
 		
-		            var g = shape.graphics;
+		    const shape = new createjs.Shape();
+		    strokeContainer.addChild(shape);
 		
-		            g.setStrokeStyle(1).beginStroke('#000000').moveTo(event.localX, event.localY);
+		    graphics = strokeGraphics.clone();
+		    points = [];
 		
-		            console.log(`mouse down`);
-		            
-		            root.on('mousemove', function (e) {
-		                console.log(`mouse move`);
-		                g.lineTo(e.localX, e.localY);
-		            });
-		
-		            root.on('mouseup', function (e) {
-		                root.removeAllEventListeners('mousemove');
-		            }, null, true);
-		        });
+		    stage.addEventListener("stagemousedown", startTrail);
+		    stage.addEventListener("stagemousemove", updateTrail);
+		    stage.addEventListener("stagemouseup", stopTrail);
 		})();
+		
+		/** @param {createjs.MouseEvent} event */
+		function startTrail(event) {
+		    isDrawing = true;
+		
+		    console.log("mouse down");
+		
+		    drawStrokeOnTick();
+		}
+		
+		/** @param {createjs.MouseEvent} event */
+		function updateTrail(event) {
+		    points.push({ x: event.stageX, y: event.stageY });
+		}
+		
+		/** @param {createjs.MouseEvent} event */
+		function stopTrail(event) {
+		    isDrawing = false;
+		
+		    console.log("mouse up");
+		}
+		
+		function drawStrokeOnTick() {
+		    // 매 프레임마다 호출
+		    createjs.Ticker.on("tick", function () {
+		        if (!graphics || !isDrawing) return;
+		
+		        if (points.length > 20) {
+		            points.shift();
+		        }
+		
+		        graphics.clear();
+		
+		        graphics = strokeGraphics.clone();
+		
+		        if (points.length > 0) {
+		            graphics.moveTo(points[0].x, points[0].y);
+		
+		            for (let i = 1; i < points.length; i++) {
+		                graphics.lineTo(points[i].x, points[i].y);
+		            }
+		        }
+		    });
+		}
 	}
 
 	// actions tween:
@@ -138,13 +199,13 @@ if (reversed == null) { reversed = false; }
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,0,0);
+p.nominalBounds = new cjs.Rectangle(640,400,640,400);
 // library properties:
 lib.properties = {
 	id: '784D03A6AFC86B4EB7641285A1D4A60B',
 	width: 1280,
 	height: 800,
-	fps: 30,
+	fps: 60,
 	color: "#CCCCCC",
 	opacity: 1.00,
 	manifest: [],
