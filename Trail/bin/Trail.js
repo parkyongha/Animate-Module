@@ -122,8 +122,6 @@ if (reversed == null) { reversed = false; }
 		/** @type {createjs.Graphics | null} */
 		let graphics = null;
 		
-		let strokeGraphics = new createjs.Graphics().setStrokeStyle(1).beginStroke("#000000");
-		
 		let isDrawing = false;
 		
 		(function init() {
@@ -135,7 +133,7 @@ if (reversed == null) { reversed = false; }
 		    const shape = new createjs.Shape();
 		    strokeContainer.addChild(shape);
 		
-		    graphics = strokeGraphics.clone();
+		    graphics = shape.graphics;
 		    points = [];
 		
 		    stage.addEventListener("stagemousedown", startTrail);
@@ -148,13 +146,40 @@ if (reversed == null) { reversed = false; }
 		    isDrawing = true;
 		
 		    console.log("mouse down");
+		    points.push({ x: event.stageX, y: event.stageY });
 		
-		    drawStrokeOnTick();
+		    // drawStrokeOnTick();
 		}
+		
+		let hue = 0;
 		
 		/** @param {createjs.MouseEvent} event */
 		function updateTrail(event) {
-		    points.push({ x: event.stageX, y: event.stageY });
+		    hue = (hue + 1) % 360;
+		
+		    points.push({
+		        x: event.stageX,
+		        y: event.stageY,
+		        color: hsvToRgb(hue, 1, 1)
+		    });
+		
+		    if (points.length > 40) {
+		        points.shift();
+		    }
+		
+		
+		    graphics.clear();
+		
+		    for (let i = 1; i < points.length; i++) {
+		        var rgb = points[i].color;
+		
+		        graphics
+		            .setStrokeStyle(10, 0, 0)
+		            .beginStroke(`rgba(${rgb.r}, ${rgb.g}, ${rgb.b})`)
+		            .moveTo(points[i - 1].x, points[i - 1].y)
+		            .lineTo(points[i].x, points[i].y)
+		            .endStroke();
+		    }
 		}
 		
 		/** @param {createjs.MouseEvent} event */
@@ -175,7 +200,8 @@ if (reversed == null) { reversed = false; }
 		
 		        graphics.clear();
 		
-		        graphics = strokeGraphics.clone();
+		        graphics.setStrokeStyle(1)
+		            .beginStroke("#000000");
 		
 		        if (points.length > 0) {
 		            graphics.moveTo(points[0].x, points[0].y);
@@ -185,6 +211,19 @@ if (reversed == null) { reversed = false; }
 		            }
 		        }
 		    });
+		}
+		
+		
+		function hsvToRgb(h, s, v) {
+		    const c = v * s, x = c * (1 - Math.abs((h / 60) % 2 - 1)), m = v - c;
+		    let r, g, b;
+		    if (h < 60) { r = c; g = x; b = 0; }
+		    else if (h < 120) { r = x; g = c; b = 0; }
+		    else if (h < 180) { r = 0; g = c; b = x; }
+		    else if (h < 240) { r = 0; g = x; b = c; }
+		    else if (h < 300) { r = x; g = 0; b = c; }
+		    else { r = c; g = 0; b = x; }
+		    return { r: Math.round((r + m) * 255), g: Math.round((g + m) * 255), b: Math.round((b + m) * 255) };
 		}
 	}
 
