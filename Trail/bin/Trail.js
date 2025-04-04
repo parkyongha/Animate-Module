@@ -41,6 +41,33 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	}
 
 
+(lib.followObject = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// Layer_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f().s("rgba(51,153,51,0)").ss(1,1,1).p("AK8AAQAAEijNDNQjMDNkjAAQkhAAjNjNQjNjNAAkiQAAkiDNjNQDNjMEhAAQEjAADMDMQDNDNAAEig");
+	this.shape.setTransform(0,0,0.6139,0.614);
+
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f("#CC9933").s().p("AnuHuQjNjMAAkiQAAkhDNjOQDNjMEhAAQEjAADMDMQDNDOAAEhQAAEijNDMQjMDOkjAAQkhAAjNjOg");
+	this.shape_1.setTransform(0,0,0.6139,0.614);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.shape}]}).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.followObject, new cjs.Rectangle(-44,-44,88,88), null);
+
+
 (lib.canvas = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
@@ -71,7 +98,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#999999").s().p("Ehj/A+gMAAAh8/MDH/AAAMAAAB8/g");
+	this.shape.graphics.f("#D2D2D2").s().p("Ehj/A+gMAAAh8/MDH/AAAMAAAB8/g");
 	this.shape.setTransform(640,400);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
@@ -108,10 +135,18 @@ if (reversed == null) { reversed = false; }
 		
 		root.stop();
 		
+		stage.enableMouseOver();
+		
 		/**
+		 * @typedef {Object} Color
+		 * @property {number} r
+		 * @property {number} g
+		 * @property {number} b
+		 * 
 		 * @typedef {Object} Point
 		 * @property {number} x
 		 * @property {number} y
+		 * @property {Color} color
 		 */
 		
 		/**
@@ -124,11 +159,35 @@ if (reversed == null) { reversed = false; }
 		
 		let isDrawing = false;
 		
+		let hue = 0;
+		
+		/** @type {createjs.MovieClip} */
+		let strokeContainer = null;
+		
+		let trailLength = 100;
+		
+		// 0.05면 5%만큼 떨어져서 따라감
+		let followObjectDistancePercent = 0.15;
+		
+		// N만큼 거리두고 따라감
+		let followObjectDistance = 70;
+		
+		// 0.5면 50% 위치부터 시작
+		let followObjectStartPosPercent = 0.2;
+		
+		// 현재 마우스 위치에서 N만큼 거리두고 따라감
+		let followObjectStartDistance = 100;
+		
+		let followObjects = root.GetChildsByName("followObject_");
+		
+		/** @type {createjs.MovieClip[]} */
+		let trailFollowObjects = [];
+		
 		(function init() {
 		    console.log("init");
 		
-		    var strokeContainer = new createjs.Container();
-		    stage.addChild(strokeContainer);
+		    strokeContainer = new createjs.Container();
+		    root.addChild(strokeContainer);
 		
 		    const shape = new createjs.Shape();
 		    strokeContainer.addChild(shape);
@@ -136,37 +195,152 @@ if (reversed == null) { reversed = false; }
 		    graphics = shape.graphics;
 		    points = [];
 		
+		    initFollowObject();
+		
 		    stage.addEventListener("stagemousedown", startTrail);
 		    stage.addEventListener("stagemousemove", updateTrail);
 		    stage.addEventListener("stagemouseup", stopTrail);
 		})();
+		
+		function initFollowObject() {
+		    followObjects.forEach((followObject) => {
+		        followObject.on('mouseover', () => {
+		
+		            console.log(`mouseover: ${followObject.name} layer: ${trailFollowObjects.length}`);
+		
+		            const point = points[points.length - 1];
+		
+		            strokeContainer.addChildAt(followObject, strokeContainer.children.length - trailFollowObjects.length);
+		            trailFollowObjects.push(followObject);
+		
+		            followObject.isTweening = true;
+		            followObject.point = point;
+		
+		            followObject.Tween({
+		                x: point.x,
+		                y: point.y,
+		            }, 300, createjs.Ease.quartOut).call(() => {
+		                let idx = points.indexOf(point);
+		
+		                if (idx == -1)
+		                    idx = points.length - 1;
+		
+		                followObject.followIdx = idx;
+		                followObject.isTweening = false;
+		            });
+		
+		
+		        }, null, true);
+		    });
+		}
+		
+		function getFollowObjectPointIndex(index) {
+		    // 앞에 있는 오브젝트와 비교해서 followObjectDistance보다 떨어져있는 pos를 선택해서 반환
+		    // 마지막 오브젝트의 index는 tail로 저장해놓고 tail보다 많은 만큼만 points에서 제거
+		
+		
+		    // index가 0이면 points의 top이랑 비교
+		    // 0이 아니면 trailFollowObject[index - 1] 해서 앞에 있는 오브젝트의 위치를 가져온 후
+		    // points에서 followObjectDistance보다 떨어져있는 pos를 선택해서 index로 반환
+		    // 끄읏?
+		    const prevPosIdx =  (index == 0) ? points.length - 1 : trailFollowObjects[index - 1].followIdx;
+		
+		    const prevPos = points[prevPosIdx];
+		
+		
+		    if (index == 1)
+		        console.log(`prevPosIdx: ${prevPosIdx}`);
+		
+		    if (prevPosIdx == -1) {
+		        return -1;
+		    }
+		
+		    let idx = prevPosIdx;
+		
+		    const objectDistance = (index == 0) ? followObjectStartDistance : followObjectDistance;
+		
+		    while (idx > 0) {
+		
+		        if (getPointDistance(prevPos, points[idx]) > objectDistance) {
+		            break;
+		        }
+		
+		        idx--;
+		    }
+		
+		    if (idx <= trailFollowObjects[index].followIdx) idx = -1;
+		
+		    console.log(`idx: ${idx}`);
+		
+		    return idx;
+		}
+		
+		/**
+		 * Point간의 거리를 가져오는 함수
+		 * @param {{x: number, y: number}} curPoint 기준
+		 * @param {{x: number, y: number}} destPoint 목표
+		 * @returns 
+		 */
+		function getPointDistance(curPoint, destPoint) {
+		
+		    return Math.sqrt(
+		        Math.pow(curPoint.x - destPoint.x, 2) +
+		        Math.pow(curPoint.y - destPoint.y, 2)
+		    );
+		}
+		
+		function updateFollowObjectsPos() {
+		    for (let i = 0; i < trailFollowObjects.length; i++) {
+		        let idx = getFollowObjectPointIndex(i);
+		
+		        if (idx == -1)
+		            continue;
+		
+		        const followObject = trailFollowObjects[i];
+		
+		        if (followObject.isFollowing) {
+		
+		            followObject.followIdx = idx;
+		
+		            followObject.x = points[idx].x;
+		            followObject.y = points[idx].y;
+		
+		        } else if (followObject.isTweening == false) {
+		            followObject.x = points[followObject.followIdx].x;
+		            followObject.y = points[followObject.followIdx].y;
+		
+		            followObject.followIdx--;
+		
+		            if (followObject.followIdx < idx || followObject.followIdx == idx) {
+		                followObject.isFollowing = true;
+		            }
+		        }
+		    }
+		}
 		
 		/** @param {createjs.MouseEvent} event */
 		function startTrail(event) {
 		    isDrawing = true;
 		
 		    console.log("mouse down");
-		    points.push({ x: event.stageX, y: event.stageY });
-		
-		    // drawStrokeOnTick();
 		}
-		
-		let hue = 0;
 		
 		/** @param {createjs.MouseEvent} event */
 		function updateTrail(event) {
 		    hue = (hue + 1) % 360;
 		
 		    points.push({
-		        x: event.stageX,
-		        y: event.stageY,
+		        x: event.stageX / stage.scaleX,
+		        y: event.stageY / stage.scaleY,
 		        color: hsvToRgb(hue, 1, 1)
 		    });
 		
-		    if (points.length > 40) {
-		        points.shift();
-		    }
+		    updateFollowObjectsPos();
 		
+		    if (points.length > trailLength) {
+		        // 빼는 조건을 살짝 손봐야 할듯
+		        // points.shift();
+		    }
 		
 		    graphics.clear();
 		
@@ -174,7 +348,7 @@ if (reversed == null) { reversed = false; }
 		        var rgb = points[i].color;
 		
 		        graphics
-		            .setStrokeStyle(10, 0, 0)
+		            .setStrokeStyle(10, 1, 1)
 		            .beginStroke(`rgba(${rgb.r}, ${rgb.g}, ${rgb.b})`)
 		            .moveTo(points[i - 1].x, points[i - 1].y)
 		            .lineTo(points[i].x, points[i].y)
@@ -188,31 +362,6 @@ if (reversed == null) { reversed = false; }
 		
 		    console.log("mouse up");
 		}
-		
-		function drawStrokeOnTick() {
-		    // 매 프레임마다 호출
-		    createjs.Ticker.on("tick", function () {
-		        if (!graphics || !isDrawing) return;
-		
-		        if (points.length > 20) {
-		            points.shift();
-		        }
-		
-		        graphics.clear();
-		
-		        graphics.setStrokeStyle(1)
-		            .beginStroke("#000000");
-		
-		        if (points.length > 0) {
-		            graphics.moveTo(points[0].x, points[0].y);
-		
-		            for (let i = 1; i < points.length; i++) {
-		                graphics.lineTo(points[i].x, points[i].y);
-		            }
-		        }
-		    });
-		}
-		
 		
 		function hsvToRgb(h, s, v) {
 		    const c = v * s, x = c * (1 - Math.abs((h / 60) % 2 - 1)), m = v - c;
@@ -230,7 +379,46 @@ if (reversed == null) { reversed = false; }
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
-	// Layer_2
+	// followObjects
+	this.followObject_2 = new lib.followObject();
+	this.followObject_2.name = "followObject_2";
+	this.followObject_2.setTransform(972.35,260.3);
+	var followObject_2Filter_1 = new cjs.ColorFilter(0.33,0.33,0.33,1,121.94,96.48,114.57,0);
+	this.followObject_2.filters = [followObject_2Filter_1];
+	this.followObject_2.cache(-46,-46,92,92);
+
+	this.followObject_3 = new lib.followObject();
+	this.followObject_3.name = "followObject_3";
+	this.followObject_3.setTransform(325.5,582.35);
+	var followObject_3Filter_2 = new cjs.ColorFilter(0.33,0.33,0.33,1,18.09,28.81,114.57,0);
+	this.followObject_3.filters = [followObject_3Filter_2];
+	this.followObject_3.cache(-46,-46,92,92);
+
+	this.followObject_4 = new lib.followObject();
+	this.followObject_4.name = "followObject_4";
+	this.followObject_4.setTransform(837.95,632.4);
+	var followObject_4Filter_3 = new cjs.ColorFilter(0.33,0.33,0.33,1,49.58,96.48,114.57,0);
+	this.followObject_4.filters = [followObject_4Filter_3];
+	this.followObject_4.cache(-46,-46,92,92);
+
+	this.followObject_0 = new lib.followObject();
+	this.followObject_0.name = "followObject_0";
+	this.followObject_0.setTransform(629.75,150.75);
+	var followObject_0Filter_4 = new cjs.ColorFilter(0.17,0.17,0.17,1,211.65,57.27,52.29,0);
+	this.followObject_0.filters = [followObject_0Filter_4];
+	this.followObject_0.cache(-46,-46,92,92);
+
+	this.followObject_1 = new lib.followObject();
+	this.followObject_1.name = "followObject_1";
+	this.followObject_1.setTransform(234.5,333);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.followObject_1},{t:this.followObject_0},{t:this.followObject_4},{t:this.followObject_3},{t:this.followObject_2}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get(followObject_2Filter_1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(followObject_3Filter_2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(followObject_4Filter_3).wait(1));
+	this.timeline.addTween(cjs.Tween.get(followObject_0Filter_4).wait(1));
+
+	// bg
 	this.instance = new lib.canvas();
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -244,7 +432,7 @@ lib.properties = {
 	id: '784D03A6AFC86B4EB7641285A1D4A60B',
 	width: 1280,
 	height: 800,
-	fps: 60,
+	fps: 30,
 	color: "#CCCCCC",
 	opacity: 1.00,
 	manifest: [],

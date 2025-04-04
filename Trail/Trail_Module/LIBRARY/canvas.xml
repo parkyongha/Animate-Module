@@ -1,8 +1,8 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="canvas" itemID="67e66d2c-0000019c" lastModified="1743414664">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="canvas" itemID="67e66d2c-0000019c" lastModified="1743736193">
   <timeline>
     <DOMTimeline name="canvas" layerDepthEnabled="true">
       <layers>
-        <DOMLayer name="script" color="#9933CC" autoNamed="false">
+        <DOMLayer name="script" color="#9933CC" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Framescript language="JavaScript">
@@ -14,18 +14,18 @@ root.stop();]]></script>
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer_1" color="#00FFFF" current="true" isSelected="true">
+        <DOMLayer name="Layer_1" color="#00FFFF">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMShape selected="true" isDrawingObject="true">
+                <DOMShape isDrawingObject="true">
                   <fills>
                     <FillStyle index="1">
-                      <SolidColor color="#999999"/>
+                      <SolidColor color="#D2D2D2"/>
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!0 0S2|25600 0!25600 0|25600 16000!25600 16000|0 16000!0 16000|0 0"/>
+                    <Edge fillStyle1="1" edges="!0 0|25600 0!25600 0|25600 16000!25600 16000|0 16000!0 16000|0 0"/>
                   </edges>
                 </DOMShape>
               </elements>

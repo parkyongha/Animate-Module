@@ -3,10 +3,18 @@ let root = this;
 
 root.stop();
 
+stage.enableMouseOver();
+
 /**
+ * @typedef {Object} Color
+ * @property {number} r
+ * @property {number} g
+ * @property {number} b
+ * 
  * @typedef {Object} Point
  * @property {number} x
  * @property {number} y
+ * @property {Color} color
  */
 
 /**
@@ -19,11 +27,35 @@ let graphics = null;
 
 let isDrawing = false;
 
+let hue = 0;
+
+/** @type {createjs.MovieClip} */
+let strokeContainer = null;
+
+let trailLength = 100;
+
+// 0.05면 5%만큼 떨어져서 따라감
+let followObjectDistancePercent = 0.15;
+
+// N만큼 거리두고 따라감
+let followObjectDistance = 70;
+
+// 0.5면 50% 위치부터 시작
+let followObjectStartPosPercent = 0.2;
+
+// 현재 마우스 위치에서 N만큼 거리두고 따라감
+let followObjectStartDistance = 100;
+
+let followObjects = root.GetChildsByName("followObject_");
+
+/** @type {createjs.MovieClip[]} */
+let trailFollowObjects = [];
+
 (function init() {
     console.log("init");
 
-    var strokeContainer = new createjs.Container();
-    stage.addChild(strokeContainer);
+    strokeContainer = new createjs.Container();
+    root.addChild(strokeContainer);
 
     const shape = new createjs.Shape();
     strokeContainer.addChild(shape);
@@ -31,10 +63,128 @@ let isDrawing = false;
     graphics = shape.graphics;
     points = [];
 
+    initFollowObject();
+
     stage.addEventListener("stagemousedown", startTrail);
     stage.addEventListener("stagemousemove", updateTrail);
     stage.addEventListener("stagemouseup", stopTrail);
 })();
+
+function initFollowObject() {
+    followObjects.forEach((followObject) => {
+        followObject.on('mouseover', () => {
+
+            console.log(`mouseover: ${followObject.name} layer: ${trailFollowObjects.length}`);
+
+            const point = points[points.length - 1];
+
+            strokeContainer.addChildAt(followObject, strokeContainer.children.length - trailFollowObjects.length);
+            trailFollowObjects.push(followObject);
+
+            followObject.isTweening = true;
+            followObject.point = point;
+
+            followObject.Tween({
+                x: point.x,
+                y: point.y,
+            }, 300, createjs.Ease.quartOut).call(() => {
+                let idx = points.indexOf(point);
+
+                if (idx == -1)
+                    idx = points.length - 1;
+
+                followObject.followIdx = idx;
+                followObject.isTweening = false;
+            });
+
+
+        }, null, true);
+    });
+}
+
+function getFollowObjectPointIndex(index) {
+    // 앞에 있는 오브젝트와 비교해서 followObjectDistance보다 떨어져있는 pos를 선택해서 반환
+    // 마지막 오브젝트의 index는 tail로 저장해놓고 tail보다 많은 만큼만 points에서 제거
+
+
+    // index가 0이면 points의 top이랑 비교
+    // 0이 아니면 trailFollowObject[index - 1] 해서 앞에 있는 오브젝트의 위치를 가져온 후
+    // points에서 followObjectDistance보다 떨어져있는 pos를 선택해서 index로 반환
+    // 끄읏?
+    const prevPosIdx =  (index == 0) ? points.length - 1 : trailFollowObjects[index - 1].followIdx;
+
+    const prevPos = points[prevPosIdx];
+
+
+    if (index == 1)
+        console.log(`prevPosIdx: ${prevPosIdx}`);
+
+    if (prevPosIdx == -1) {
+        return -1;
+    }
+
+    let idx = prevPosIdx;
+
+    const objectDistance = (index == 0) ? followObjectStartDistance : followObjectDistance;
+
+    while (idx > 0) {
+
+        if (getPointDistance(prevPos, points[idx]) > objectDistance) {
+            break;
+        }
+
+        idx--;
+    }
+
+    if (idx <= trailFollowObjects[index].followIdx) idx = -1;
+
+    console.log(`idx: ${idx}`);
+
+    return idx;
+}
+
+/**
+ * Point간의 거리를 가져오는 함수
+ * @param {{x: number, y: number}} curPoint 기준
+ * @param {{x: number, y: number}} destPoint 목표
+ * @returns 
+ */
+function getPointDistance(curPoint, destPoint) {
+
+    return Math.sqrt(
+        Math.pow(curPoint.x - destPoint.x, 2) +
+        Math.pow(curPoint.y - destPoint.y, 2)
+    );
+}
+
+function updateFollowObjectsPos() {
+    for (let i = 0; i < trailFollowObjects.length; i++) {
+        let idx = getFollowObjectPointIndex(i);
+
+        if (idx == -1)
+            continue;
+
+        const followObject = trailFollowObjects[i];
+
+        if (followObject.isFollowing) {
+
+            followObject.followIdx = idx;
+
+            followObject.x = points[idx].x;
+            followObject.y = points[idx].y;
+
+        } else if (followObject.isTweening == false) {
+            followObject.x = points[followObject.followIdx].x;
+            followObject.y = points[followObject.followIdx].y;
+
+            followObject.followIdx--;
+
+            if (followObject.followIdx < idx || followObject.followIdx == idx) {
+                followObject.isFollowing = true;
+            }
+        }
+    }
+}
 
 /** @param {createjs.MouseEvent} event */
 function startTrail(event) {
@@ -43,22 +193,22 @@ function startTrail(event) {
     console.log("mouse down");
 }
 
-let hue = 0;
-
 /** @param {createjs.MouseEvent} event */
 function updateTrail(event) {
     hue = (hue + 1) % 360;
 
     points.push({
-        x: event.stageX,
-        y: event.stageY,
+        x: event.stageX / stage.scaleX,
+        y: event.stageY / stage.scaleY,
         color: hsvToRgb(hue, 1, 1)
     });
 
-    if (points.length > 40) {
-        points.shift();
-    }
+    updateFollowObjectsPos();
 
+    if (points.length > trailLength) {
+        // 빼는 조건을 살짝 손봐야 할듯
+        // points.shift();
+    }
 
     graphics.clear();
 
@@ -66,7 +216,7 @@ function updateTrail(event) {
         var rgb = points[i].color;
 
         graphics
-            .setStrokeStyle(10, 0, 0)
+            .setStrokeStyle(10, 1, 1)
             .beginStroke(`rgba(${rgb.r}, ${rgb.g}, ${rgb.b})`)
             .moveTo(points[i - 1].x, points[i - 1].y)
             .lineTo(points[i].x, points[i].y)
@@ -80,31 +230,6 @@ function stopTrail(event) {
 
     console.log("mouse up");
 }
-
-function drawStrokeOnTick() {
-    // 매 프레임마다 호출
-    createjs.Ticker.on("tick", function () {
-        if (!graphics || !isDrawing) return;
-
-        if (points.length > 20) {
-            points.shift();
-        }
-
-        graphics.clear();
-
-        graphics.setStrokeStyle(1)
-            .beginStroke("#000000");
-
-        if (points.length > 0) {
-            graphics.moveTo(points[0].x, points[0].y);
-
-            for (let i = 1; i < points.length; i++) {
-                graphics.lineTo(points[i].x, points[i].y);
-            }
-        }
-    });
-}
-
 
 function hsvToRgb(h, s, v) {
     const c = v * s, x = c * (1 - Math.abs((h / 60) % 2 - 1)), m = v - c;

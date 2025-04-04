@@ -14,7 +14,7 @@ declare global {
       // MouseEnable: (value: boolean) => void;
       SetObjectAction: (nameFormat: string, action: Function) => void;
       SetObjectActionFor2D: (nameFormat: string, action: Function) => void;
-      GetChildsByName: (nameFormat: any) => any[];
+      GetChildsByName: (nameFormat: string) => createjs.MovieClip  [];
       GetWorldPos: () => Point;
       GetWorldScale: () => { x: number; y: number; };
       Tween: (prop: any, duration: any, ease?: any) => Tween;
