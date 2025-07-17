@@ -1,0 +1,11 @@
+{
+	"32_1_arcticfox_idle": {
+		"version": 1,
+		"id": "32_1_arcticfox_idle",
+		"name": "1",
+		"kind": "Puppeteer",
+		"mood": null,
+		"postPlaybackMood": null,
+		"duration": 3.133333333
+	}
+}

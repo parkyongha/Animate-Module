@@ -1,0 +1,11 @@
+{
+	"32_2_arcticfox_run": {
+		"version": 1,
+		"id": "32_2_arcticfox_run",
+		"name": "1",
+		"kind": "Puppeteer",
+		"mood": null,
+		"postPlaybackMood": null,
+		"duration": 0.4
+	}
+}

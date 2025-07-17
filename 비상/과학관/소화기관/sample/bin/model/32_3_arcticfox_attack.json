@@ -1,0 +1,11 @@
+{
+	"32_3_arcticfox_attack": {
+		"version": 1,
+		"id": "32_3_arcticfox_attack",
+		"name": "1",
+		"kind": "Puppeteer",
+		"mood": null,
+		"postPlaybackMood": null,
+		"duration": 3.333333333
+	}
+}

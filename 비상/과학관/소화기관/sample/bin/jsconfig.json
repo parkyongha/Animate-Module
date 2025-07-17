@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    "baseUrl": ".",
+    "paths": {
+      "three": [
+        "libs/three.module.js"
+      ],
+      "three/jsm/*": [
+        "libs/jsm/*"
+      ]
+    }
+  },
+  "include": [
+    "types/*.ts",
+    "libs/*",
+    "libs/**/*",
+    "*.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>FirstCaseSample</title>
+<!-- write your code here -->
+<script>
+	function onResizeWindow() {
+		let scale = 1;
+		let w = screen.width;
+		let h = screen.height;
+		let stageSize = { width: 1920, height: 1080 };
+		let scaleX = w / stageSize.width;
+		let scaleY = h / stageSize.height;
+		scale = (scaleX > scaleY) ? scaleX : scaleY;
+		var xx = (w - stageSize.width * scale) / 2;
+		var yy = (h - stageSize.height * scale) / 2;
+		let element = document.body;
+		if (!element) return;
+		element.style.transform = "translate(" + xx + "px," + yy + "px) scale(" + scale + ")";
+		element.style.transformOrigin = "0px 0px 0px";
+		element.style.width = stageSize.width + "px";
+		element.style.height = stageSize.height + "px";
+		element.style.display = "block";
+		element.style.overflow = "hidden";
+		console.log(scaleX, scaleY, scale, xx, yy);
+	}
+</script> 
+<script src="libs/es-module-shims.js"></script>
+<script type="importmap">
+	{
+		"imports": {
+			"three": "./libs/three.module.js",
+			"three/jsm/": "./libs/jsm/"
+		}
+	}
+</script>	
+<script type="module" src="libs/threejsManager.js"></script>
+<script src="libs/createjs.min.js"></script>
+<script src="FirstCaseSample.js"></script>
+<script>
+// Global Scripts
+	var cache = {}
+createjs.Text.prototype._drawTextLine = function (ctx, text, y) {
+    this.textBaseline = ctx.textBaseline = "alphabetic";
+    if (!(this.font in cache)) {
+        var metrics = this.getMetrics();
+        cache[this.font] = metrics.vOffset;
+    }
+    var offset = cache[this.font];
+    if (this.outline) {
+        ctx.strokeText(text, 0, y - offset, this.maxWidth || 0xFFFF);
+    } else {
+        ctx.fillText(text, 0, y - offset, this.maxWidth || 0xFFFF);
+    }
+};
+	function loadFont(fontName, fileName) {
+		const font = new FontFace(fontName, `url(./fonts/${fileName}.ttf)`);
+		font.load().then(function (font) {
+			console.log('Font loading complete:', font);
+			document.fonts.add(font);
+		}).catch(function (error) {
+			console.error('Font loading failed:', error);
+		});
+	}
+loadFont("SBAggroM", "SBAggroM");
+{
+	//Template
+	{
+		//Template Version = v1.1 - 2024.02.15;
+		//마지막 수정 = 정구현
+		//수정 내용: 장면1 프레임 1에서 common 영역 초기화 로직 html 탬플릿 내부로 이관
+	}
+	//ETC
+	{
+		//이벤트 등록용 함수
+		function SetObjectAction(container, nameFormat, action) {
+			var mIdx = 0;
+			while (container[nameFormat + mIdx] != undefined) {
+				action(container[nameFormat + mIdx], mIdx);
+				mIdx++;
+			}
+		}
+		//어포던스 시간
+		var TimeDelays = [15000];
+		//어포던스용 함수
+		function SetHintObj(target, clearFunc) {
+			//어포던스 실행
+			target.StartHint = function (idx) {
+				target.TimeOutObj = setTimeout(function () {
+					console.log("##### StartHint");
+					target["OnHint"]();
+				}, TimeDelays[idx]);
+			}
+			//어포던스 정지
+			target.ClearHintTime = function () {
+				if (clearFunc) clearFunc();
+				if (target.TimeOutObj) clearTimeout(target.TimeOutObj);
+			}
+			//어포던스 초기화
+			target.ResetHintTime = function () {
+				target.ClearHintTime();
+				target.StartHint(0);
+			}
+		}
+		//Drag And Drop 기능
+		function SetDragDrop(obj, parent, dragStartFunc, dragEndFunc) {
+			obj.canDragging = true;
+			obj.mouseDownHandler = function (e) {
+			if(!obj.canDragging)	return;
+				if (dragStartFunc) dragStartFunc();
+				if (!obj.startPosition) {
+					obj.startPosition = {
+						x: obj.x,
+						y: obj.y
+					};
+				}
+				e.stopImmediatePropagation();
+				obj.offsetX = (e.stageX / stage.scaleX) - obj.x;
+				obj.offsetY = (e.stageY / stage.scaleY) - obj.y;
+				obj.stageMouseMove = stage.on("stagemousemove", obj.stageMouseMoveHandler);
+				obj.stageMouseUp = stage.on("stagemouseup", obj.stageMouseUpHandler);
+			};
+			//드래그 이벤트, 위치 이동
+			obj.stageMouseMoveHandler = function (e) {
+				if (!obj.canDragging) {
+					obj.x = obj.startPosition.x;
+					obj.y = obj.startPosition.y;
+				}
+				var tx = (e.stageX / stage.scaleX) - obj.offsetX;
+				var ty = (e.stageY / stage.scaleY) - obj.offsetY;
+				obj.x = tx;
+				obj.y = ty;
+			};
+			//드래그 이벤트, 마우스 업
+			obj.stageMouseUpHandler = function (e) {
+				if(!obj.canDragging)	return;
+				stage.off("stagemousemove", obj.stageMouseMove);
+				stage.off("stagemouseup", obj.stageMouseUp);
+				if (dragEndFunc) dragEndFunc(e);
+			}
+			obj.on("mousedown", obj.mouseDownHandler);
+		}
+		// 마우스 사용여부 지정
+		function MouseEnable(obj, value) {
+			obj.mouseChildren = value;
+			obj.mouseEnabled = value;
+		}
+		// 랜덤 번호 출력
+		function RandomNumber(min, max) {
+			return Math.floor(Math.random() * (max - min)) + min;
+		}
+		//마우스 업 했을 때 특정 위치로 이동
+		function CheckUnderPoint(obj, container, checkFunc) {
+			var tPos = obj.localToGlobal(container.x, container.y);
+			var spots = container.getObjectsUnderPoint(obj.x, obj.y);
+			for (var max = spots.length, i = 0; i < max; ++i) {
+				if (checkFunc(spots[i])) return true;
+			}
+			return false;
+		}
+		//마우스 업 했을 때 특정 목록의 인덱스 값 반환
+		function GetUnderIndex(obj, container, checkFunc) {
+			var spots = container.getObjectsUnderPoint(obj.x, obj.y);
+			for (var max = spots.length, i = 0; i < max; ++i) {
+				var value = checkFunc(spots[i]);
+				if (value >= 0)
+					return value;
+			}
+			return -1;
+		}
+		function SetDragable(obj, bool) {
+			obj.isClikable = bool;
+		}
+		function SetDragObjectAction(container, nameFormat, action) {
+			var mIdx = 0;
+			var eIdx = 0;
+			while (container[nameFormat + mIdx + "_" + eIdx] != undefined) {
+				while (container[nameFormat + mIdx + "_" + eIdx] != undefined) {
+					action(container[nameFormat + mIdx + "_" + eIdx], mIdx, eIdx);
+					eIdx++;
+				}
+				eIdx = 0;
+				mIdx++;
+			}
+		}
+	}
+	//Debug
+	{
+		// 키보드 좌우로 이동할 Main Root
+		var MainRoot = null;
+		// 키보드 [] 로 이동할 SubRoot
+		var CurrentRoot = null;
+		function GetDebugChild() {
+			if (MainRoot != null) {
+				CurrentRoot = MainRoot.getChildAt(0);
+				CurrentRoot.gotoAndStop(CurrentRoot.currentFrame);
+			}
+		}
+		function StartDebugAction(num) {
+			switch (num) {
+				case 0:
+					if (MainRoot != null) {
+						MainRoot.gotoAndStop(MainRoot.currentFrame - 1);
+						GetDebugChild();
+					}
+					break;
+				case 1:
+					if (MainRoot != null) {
+						MainRoot.gotoAndStop(MainRoot.currentFrame + 1);
+						GetDebugChild();
+					}
+					break;
+				case 2:
+					if (CurrentRoot != null) {
+						CurrentRoot.gotoAndStop(CurrentRoot.currentFrame - 1);
+					}
+					break;
+				case 3:
+					if (CurrentRoot != null) {
+						CurrentRoot.gotoAndStop(CurrentRoot.currentFrame + 1);
+					}
+					break;
+			}
+		}
+		function StartDebugScript() {
+			// 키보드 이벤트 핸들러 함수
+			{
+				function handleKeyPress(event) {
+					if (event.key === "ArrowRight") {
+						StartDebugAction(1);
+					} else if (event.key === "ArrowLeft") {
+						StartDebugAction(0);
+					} else if (event.key === "[") {
+						StartDebugAction(2);
+					} else if (event.key === "]") {
+						StartDebugAction(3);
+					}
+				}
+				// 이벤트 리스너 등록
+				document.addEventListener("keydown", handleKeyPress);
+			}
+			//Debug Button 관리
+			{
+				SetObjectAction(MainRoot, "DebugButton_",
+					function (obj, Idx) {
+						obj.addEventListener("click", function () {
+							StartDebugAction(Idx);
+						});
+						obj.visible = true;
+					});
+			}
+		}
+	}
+}
+function SetMCElems(elems, func) {
+	for (var i = 0; i < elems.length; ++i) {
+		func(elems[i], i);
+	}
+}
+var PopupParentTarget = null;
+var MCLibrary = null;
+var EVENT_CLOSE = "eventClose";
+var EVENT_START = "eventStart";
+function CloseEvent(target) {
+	OnEvent(target, EVENT_CLOSE);
+}
+function OnEvent(target, eventName) {
+	target.dispatchEvent(eventName);
+}
+function OnEventObj(target, eventName, data) {
+	var event = new createjs.Event(eventName);
+	target.dispatchEvent(event);
+}
+function SetPopupCloseEvent(libName, func) {
+	var popup = OnOpenPopup(libName);
+	popup.addEventListener(EVENT_CLOSE, function (e) {
+		if (func) func();
+		popup = null;
+	});
+	return popup;
+}
+function OnOpenPopup(libName) {
+	var popup = new MCLibrary[libName]();
+	popup.gotoAndStop(0);
+	PopupParentTarget.addChild(popup);
+	popup.addEventListener(EVENT_CLOSE, function (e) {
+		PopupParentTarget.removeChild(popup);
+		popup = null;
+	});
+	return popup;
+}
+function clampNumber(num, a, b) {
+	return Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
+}
+function GetImageBGContainer() {
+	return document.getElementById("bg-container");
+}
+function GetOrbitControl() {
+	return document.getElementById("control-container");
+}
+function SetOrbitControlEvent(type, func) {
+	var controller = GetOrbitControl();
+	controller.addEventListener(type, func);
+}
+function SetOrbitControlVisible(value) {
+	var styleValue = value ? "block" : "none";
+	GetOrbitControl().style.display = styleValue;
+}
+function RemoveOrbitControlEvent(type, func) {
+	var controller = GetOrbitControl();
+	controller.removeEventListener(type, func);
+}
+function SetFPS(value) {
+	createjs.Ticker.setFPS(value);
+}
+var sfxAudioPool = {};
+function SFXCommonButton() {
+	SFXAudioPlay("vs_cmn_btn01");
+}
+function SFXAudioPlay(value){
+	var path = "audio/sfx/"+value+".mp3";
+	var audio = null;	
+	if(sfxAudioPool[value]){
+		audio = sfxAudioPool[value];
+		audio.stop();
+	}else{
+		audio = new Howl({
+			src: [path]
+		});	
+		sfxAudioPool[value] = audio;
+	}
+	audio.play();
+}
+/*
+var AudioCache = {};
+var PlayAudioChache = {};
+function StopSfx(value){
+	var path = "audio/sfx/"+value+".mp3";
+	var source = PlayAudioChache[path];
+	if(source){
+		source.stop();
+	}
+	PlayAudioChache[path] = null;
+}
+function StopSfxAll(){
+	for(key in PlayAudioChache){
+		var source = PlayAudioChache[key];
+		if(!source)continue;
+		source.stop();
+	}
+	PlayAudioChache = {};
+}
+function PlayAudioBuffer(audioBuffer){
+	var context = new AudioContext();
+	var source = context.createBufferSource();
+	source.buffer = audioBuffer;
+	var gainNode  = context.createGain();	
+	gainNode.gain.value = 1;
+	source.connect(gainNode).connect(context.destination);
+	source.start();
+	return {
+		source:source,
+		gain:gainNode
+	};
+}
+function PlayAudioBufferURL(URL) {
+	var path = "audio/sfx/"+URL+".mp3";
+    if (AudioCache[URL]) {
+       PlayAudioChache[path] =  PlayAudioBuffer(AudioCache[URL]).source;
+    } else {
+		GetAudioBuffer(path,function(audioBuffer){
+			AudioCache[URL] = audioBuffer;
+			PlayAudioChache[path] = PlayAudioBuffer(audioBuffer).source;
+		});
+    }
+}
+function GetAudioBuffer(URL,func){
+	var AudioContext = window.AudioContext || window.webkitAudioContext;
+	var context = new AudioContext();
+	 window.fetch(URL)
+            .then(response => response.arrayBuffer())
+            .then(arrayBuffer => context.decodeAudioData(arrayBuffer,
+                audioBuffer => {
+					func(audioBuffer);
+                },
+                error =>
+                    func(null)
+            ));
+}
+*/
+function SetButton(btn, oFunc, pFunc) {
+	btn.addEventListener("mousedown", pFunc);
+	btn.addEventListener("rollover", oFunc);
+	btn.addEventListener("rollout", oFunc);
+	btn.addEventListener("pressup", oFunc);
+}
+function SetStageUpdateButton(btn, pFunc) {
+	SetButton(btn, function () {
+		btn.gotoAndStop(0);
+		stage.update();
+	}, function () {
+		pFunc();
+		btn.gotoAndStop(2);
+		stage.update();
+	});
+}
+function GetPositionX(e) {
+	return e.stageX / stage.scaleX;
+}
+function GetPositionY(e) {
+	return e.stageY / stage.scaleY;
+}
+function clamp(num, min, max) {
+	return Math.min(Math.max(num, min), max);
+}
+function GetURLBitmap(url, func) {
+	var img = new Image();
+	img.src = url;
+	var bmp = new createjs.Bitmap(img);
+	if (func) {
+		img.onload = function (event) {
+			func(bmp);
+		}
+	}
+	return bmp;
+}
+/*document.addEventListener('DOMContentLoaded', function (ev) {
+	var TargetCanvas = document.getElementById("container");
+	TargetCanvas.addEventListener("mousewheel", MouseWheelHandler);
+	function MouseWheelHandler(ev) {
+		if (!WheelObjTarget) return;
+		WheelObjTarget.dispatchEvent(ev);
+	}
+});
+var WheelObjTarget = null;
+function SetWheelEvent(target) {
+	WheelObjTarget = target;
+}
+function ClearWheelEvent() {
+	WheelObjTarget = null;
+}*/
+function GetRandomNumArr(num) {
+	var arr = [];
+	for (var i = 0; i < num; ++i) {
+		arr.push(i);
+	}
+	ShuffleArrray(arr);
+	return arr;
+}
+function ShuffleArrray(array) {
+	array.sort(function () {
+		return Math.random() - 0.5
+	});
+}
+var NarrObj = null;
+var NarrCancelFunc = null;
+var NarrRootPath = null;
+function PlayNarrAudio(src, eFunc) {
+	var path = NarrRootPath + src + ".mp3";
+	var  audio  =  new Audio(path);	
+	audio.currentTime = 0;
+	if(CrntBgm){
+		CrntBgm.volume  = 0;
+		audio.onended = function(){
+			CrntBgm.volume  = 1;
+			if(eFunc)eFunc();
+		};
+	}else{
+		audio.onended = eFunc;
+	}
+	NarrObj = audio;
+	audio.play();
+}
+function PlayNarr(src, cfunc, eFunc) {
+	StopNarr();
+	NarrCancelFunc = cfunc;
+	PlayNarrAudio(src, eFunc);
+}
+function PlayNarrGroup(paths, cfunc, endFunc) {
+	NarrCancelFunc = cfunc;
+	var idx = 0;
+	function playEndFunc() {
+		var cIdx = idx + 1;
+		if (cIdx >= paths.length) {
+			endFunc();
+			return;
+		}
+		idx = cIdx;
+		PlayNarrAudio(paths[cIdx], playEndFunc);
+	}
+	PlayNarrAudio(paths[0], playEndFunc);
+}
+function StopNarr() {
+	if (!NarrObj) return;
+	NarrObj.pause();
+	NarrObj = null;
+	if (NarrCancelFunc) NarrCancelFunc();
+	NarrCancelFunc = null;
+	if(CrntBgm){
+		CrntBgm.volume = 1;
+	}
+}
+var IsBGMPlay = true;
+var CrntBgm = null;
+function SetBgm(path){
+	if(CrntBgm){
+		CrntBgm.currentTime = 0;
+		CrntBgm.pause();		
+	}
+	var audio  =  new Audio(path);
+	audio.loop = true;
+	audio.currentTime = 0;
+	if(IsBGMPlay){
+		audio.play();		
+	}else{
+		audio.pause();
+	}
+	CrntBgm = audio;
+	return audio;
+}
+function SetBgmOn(value){
+	IsBGMPlay = value;
+	if(!CrntBgm)return;
+	if(value){
+		CrntBgm.play();
+	}else{
+		CrntBgm.pause();
+	}
+}
+function PauseBGM(){
+	if(!IsBGMPlay || !CrntBgm)return;
+	CrntBgm.pause();
+}
+function ResumeBGM(){
+	if(!IsBGMPlay || !CrntBgm)return;
+	CrntBgm.play();
+}
+function download(canvas, filename) {
+	const data = canvas.toDataURL("image/png;base64");
+	const donwloadLink = document.querySelector("#ar_download");
+	donwloadLink.download = filename;
+	donwloadLink.href = data;
+}
+function downloadData(data, filename) {
+	const donwloadLink = document.querySelector("#ar_download");
+	donwloadLink.download = filename;
+	donwloadLink.href = data;
+	donwloadLink.click();
+}
+function getCurrentDateTime() {
+	const now = new Date();
+	const year = now.getFullYear();
+	const month = (now.getMonth() + 1).toString().padStart(2, '0');
+	const day = now.getDate().toString().padStart(2, '0');
+	const hours = now.getHours().toString().padStart(2, '0');
+	const minutes = now.getMinutes().toString().padStart(2, '0');
+	const seconds = now.getSeconds().toString().padStart(2, '0');
+	return year + month + day + hours + minutes + seconds;
+}
+function getRandomInt(max) {
+	return Math.floor(Math.random() * max);
+}
+function GetFontType(value){
+	return  fontType = "normal "+value+"px 'Jalnan'";
+}
+function ResetModelContainerPosition(){
+	var modelContainer = document.getElementById('webgl-container');
+	modelContainer.style.top = "0px";
+	modelContainer.style.left = "0px";
+}
+function SetCursor(obj){
+	if(!obj)return;
+	obj.cursor = "pointer";
+}</script>
+<script type='text/javascript' src='libs/howler.core.min.js'></script>
+<script type='text/javascript' src='libs/MorphUtil.1.0.0.js'></script>
+<script type='text/javascript' src='libs/bitmapdata-1.1.1.min.js'></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	onResizeWindow();
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("AA11FD825C0A2E4BAC066410052BF950");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.Sample();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="position: absolute; background-color: rgba(102, 102, 102, 0.00); width: 1920px; height: 1020px;">
+		<canvas id="canvas" width="1920" height="1020" style="position: absolute; display: block; background-color:rgba(102, 102, 102, 0.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1920px; height:1020px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+		<canvas id="webgl-container" width="1920" height="1020" style="position: absolute; display: block; background-color:rgba(102, 102, 102, 0.00);"/>
+	</div>
+</body>
+</html>

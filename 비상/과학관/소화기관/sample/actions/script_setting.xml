@@ -1,0 +1,20 @@
+<scripts>
+  <symbol path="Main" name="Main" layerName="레이어_1">
+    <frame id="0" dirty="false">Main-레이어_1-0.js</frame>
+  </symbol>
+  <symbol path="Main" name="Main" layerName="레이어_2">
+    <frame id="0" dirty="false">Main-레이어_2-0.js</frame>
+  </symbol>
+  <symbol path="000_ar/005_learn/mc_learn" name="mc_learn" layerName="script">
+    <frame id="0" dirty="false">000_ar_#SS_005_learn_#SS_mc_learn-script-0.js</frame>
+  </symbol>
+  <symbol path="000_ar/005_learn/_symbols/draw/canvas" name="canvas" layerName="canvas_script">
+    <frame id="0" dirty="false">000_ar_#SS_005_learn_#SS__symbols_#SS_draw_#SS_canvas-canvas_script-0.js</frame>
+  </symbol>
+  <symbol path="000_ar/005_learn/_symbols/right_menu/right_menu" name="right_menu" layerName="script">
+    <frame id="0" dirty="false">000_ar_#SS_005_learn_#SS__symbols_#SS_right_menu_#SS_right_menu-script-0.js</frame>
+  </symbol>
+  <symbol path="000_ar/005_learn/_symbols/right_menu/digestive_system" name="digestive_system" layerName="script">
+    <frame id="0" dirty="false">000_ar_#SS_005_learn_#SS__symbols_#SS_right_menu_#SS_digestive_system-script-0.js</frame>
+  </symbol>
+</scripts>

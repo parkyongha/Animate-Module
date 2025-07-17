@@ -1,0 +1,50 @@
+[
+  {
+    "sceneKey": 0,
+    "skytextureURL": "images/R0011510.jpg",
+    "buttonList": [
+      {
+        "position": {
+          "x": -25.290545077120797,
+          "y": -11.604404059826443,
+          "z": -8.168611000759205
+        },
+        "textureURL": "images/_preloader.png",
+        "targetSceneKey": 2
+      },
+      {
+        "position": {
+          "x": 13.411177430801747,
+          "y": -11.759673449067988,
+          "z": 22.86592376997175
+        },
+        "textureURL": "images/test.webp",
+        "targetSceneKey": 1
+      }
+    ]
+  },
+  {
+    "sceneKey": 1,
+    "skytextureURL": "images/R0011520.jpg",
+    "buttonList": [
+      {
+        "position": {
+          "x": -6.166244315777062,
+          "y": -5.3563601020463185,
+          "z": -27.82601133936866
+        },
+        "textureURL": "images/_preloader.png",
+        "targetSceneKey": 2
+      },
+      {
+        "position": {
+          "x": -25.765921026194167,
+          "y": -13.30575166357296,
+          "z": 0.272682787448317
+        },
+        "textureURL": "images/TestGround.jpg",
+        "targetSceneKey": 0
+      }
+    ]
+  }
+]
