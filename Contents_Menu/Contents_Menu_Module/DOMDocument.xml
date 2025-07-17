@@ -1,0 +1,154 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" width="2000" height="1200" frameRate="30" currentTimeline="1" xflVersion="23.0" creatorInfo="Adobe Animate" platform="Windows" versionInfo="Saved by Animate Windows 24.0 build 40" majorVersion="24" buildNumber="40" bitmapSnap="false" objectsSnapTo="false" viewAngle3D="124.307690650777" vanishingPoint3DX="1000" vanishingPoint3DY="600" previewMode="anti alias" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C" fileGUID="5867E87E04CF9B43931051AD344FED3A">
+     <media/>
+     <symbols>
+          <Include href="Contents.xml" loadImmediate="false" itemID="67f33d76-000001c4" lastModified="1743994230"/>
+          <Include href="Contents_Menu_Item.xml" itemID="67f3415e-000001cb" lastModified="1743997015"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1" layerDepthEnabled="true">
+               <layers>
+                    <DOMLayer name="script" color="#00FFFF" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[/** @type {createjs.MovieClip} */
+const root = this;
+
+const JsonType = {
+    Feature: "feature",
+    Module: "module"
+};
+
+/**
+ * @typedef {Object} JsonData 
+ * @property {string} name
+ * @property {string} type
+ * @property {string} link
+*/
+
+
+(function init() {
+    fetch('./Data/data.json') // JSON이 있는 URL
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('네트워크 응답에 문제가 있습니다.');
+            }
+            return response.json(); // JSON으로 파싱
+        })
+        .then(data => {
+            InitResources(data); // JSON 데이터 처리
+            console.log('불러온 데이터:', data); // 데이터 처리
+        })
+        .catch(error => {
+            console.error('에러 발생:', error); // 에러 처리
+        });
+
+})();
+
+// json 로딩이 끝났을 때
+function requestLoaded(data) {
+    var response = req.responseText;
+
+    /** @type {JsonData[]} */
+    var datas = JSON.parse(response);
+
+    if (datas != null) {
+        InitResources(datas);
+    }
+}
+
+/**
+ * @param {JsonData[]} datas 
+ * json 데이터로부터 리소스를 초기화합니다.
+ */
+function InitResources(datas) {
+    if (datas == null) return;
+
+    let features = [];
+    let modules = [];
+
+    for (var i = 0; i < datas.length; i++) {
+        const data = datas[i];
+
+        if (data == null) continue;
+
+        const type = data.type.toLowerCase();
+
+        if (type == JsonType.Feature.toLowerCase()) {
+            // Feature일 경우
+            console.log("Feature: " + data.name);
+
+            features.push(data);
+        }
+        else if (type == JsonType.Module.toLowerCase()) {
+            // Module일 경우
+            console.log("Module: " + data.name);
+
+            modules.push(data);
+        }
+        else {
+            console.log("Unknown type: " + data.name);
+        }
+    }
+
+    initFeauture(features);
+    initModule(modules);
+}
+
+/**
+ * @param {JsonData[]} datas                                                                                                                       
+ */
+function initFeauture(datas) {
+    for (var i = 0; i < datas.length; i++) {
+        const data = datas[i];
+
+        var featureItem = new lib.FeatureItem();
+
+        featureItem.on('click', event => {
+            console.log("click: " + data.link);
+            window.open(data.link, '_blank');
+
+        });
+
+        root.contents.addChild(featureItem);
+    }
+}
+
+/**
+ * @param {JsonData} data
+ */
+function initModule(data) {
+
+}]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Contents" color="#9933CC" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Contents" name="contents">
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <scripts>
+          <GlobalScripts language="Javascript">
+               <Script type="local" src="./js/MorphUtil.1.0.0.js"/>
+          </GlobalScripts>
+     </scripts>
+     <persistentData>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+     </persistentData>
+     <PrinterSettings/>
+     <publishHistory/>
+</DOMDocument>

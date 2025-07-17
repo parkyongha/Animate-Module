@@ -48,7 +48,18 @@ let followObjectStartDistance = 100;
 
 let followObjects = root.GetChildsByName("followObject_");
 
-/** @type {createjs.MovieClip[]} */
+/**
+ * @typedef {createjs.MovieClip & {
+ *   isTweening: boolean,
+ *   isFollowing: boolean,
+ *   isWithinObjectDistance: boolean,
+ *   prevIndexGap: number,
+ *   followIdx: number,
+ *   point: Point
+ * }} FollowObject
+ */
+
+/** @type {FollowObject[]} */
 let trailFollowObjects = [];
 
 (function init() {
@@ -84,63 +95,20 @@ function initFollowObject() {
             followObject.isTweening = true;
             followObject.point = point;
 
+            followObject.isWithinObjectDistance = false;
+
             followObject.Tween({
                 x: point.x,
                 y: point.y,
             }, 300, createjs.Ease.quartOut).call(() => {
                 let idx = points.indexOf(point);
 
-                if (idx == -1)
-                    idx = points.length - 1;
-
                 followObject.followIdx = idx;
                 followObject.isTweening = false;
             });
 
-
         }, null, true);
     });
-}
-
-function getFollowObjectPointIndex(index) {
-    // 앞에 있는 오브젝트와 비교해서 followObjectDistance보다 떨어져있는 pos를 선택해서 반환
-    // 마지막 오브젝트의 index는 tail로 저장해놓고 tail보다 많은 만큼만 points에서 제거
-
-
-    // index가 0이면 points의 top이랑 비교
-    // 0이 아니면 trailFollowObject[index - 1] 해서 앞에 있는 오브젝트의 위치를 가져온 후
-    // points에서 followObjectDistance보다 떨어져있는 pos를 선택해서 index로 반환
-    // 끄읏?
-    const prevPosIdx =  (index == 0) ? points.length - 1 : trailFollowObjects[index - 1].followIdx;
-
-    const prevPos = points[prevPosIdx];
-
-
-    if (index == 1)
-        console.log(`prevPosIdx: ${prevPosIdx}`);
-
-    if (prevPosIdx == -1) {
-        return -1;
-    }
-
-    let idx = prevPosIdx;
-
-    const objectDistance = (index == 0) ? followObjectStartDistance : followObjectDistance;
-
-    while (idx > 0) {
-
-        if (getPointDistance(prevPos, points[idx]) > objectDistance) {
-            break;
-        }
-
-        idx--;
-    }
-
-    if (idx <= trailFollowObjects[index].followIdx) idx = -1;
-
-    console.log(`idx: ${idx}`);
-
-    return idx;
 }
 
 /**
@@ -157,29 +125,64 @@ function getPointDistance(curPoint, destPoint) {
     );
 }
 
+function getFollowObjectPointIndex(index) {
+    // index가 0이면 points의 top이랑 비교
+    // 0이 아니면 trailFollowObject[index - 1] 해서 앞에 있는 오브젝트의 위치를 가져온 후
+    // points에서 followObjectDistance보다 떨어져있는 pos를 선택해서 index로 반환
+    // 끄읏?
+    const objectDistance = (index == 0) ? followObjectStartDistance : followObjectDistance;
+    const prevPosIdx = (index == 0) ? points.length - 1 : trailFollowObjects[index - 1].followIdx;
+
+    const curObject = trailFollowObjects[index];
+
+    const prevPos = points[prevPosIdx];
+
+    if (prevPosIdx == -1)
+        return -1;
+
+    let idx = prevPosIdx;
+
+    // 최~~~~~~~대한 followObjectDistance보다 떨어져있는 pos를 선택
+    while (getPointDistance(prevPos, points[idx]) <= objectDistance && idx-- > 0);
+
+    if (idx < curObject.followIdx) {
+        idx = curObject.followIdx + 1;
+    }
+
+    if (idx < 0) idx = 0;
+
+    //console.log(`idx: ${idx}`);
+
+    return idx;
+}
+
 function updateFollowObjectsPos() {
     for (let i = 0; i < trailFollowObjects.length; i++) {
         let idx = getFollowObjectPointIndex(i);
 
+        const followObject = trailFollowObjects[i];
+        
+        console.log(`followObject: ${followObject.name}\n idx: ${idx}`);
+
         if (idx == -1)
             continue;
 
-        const followObject = trailFollowObjects[i];
-
         if (followObject.isFollowing) {
-
             followObject.followIdx = idx;
 
             followObject.x = points[idx].x;
             followObject.y = points[idx].y;
-
         } else if (followObject.isTweening == false) {
             followObject.x = points[followObject.followIdx].x;
             followObject.y = points[followObject.followIdx].y;
 
             followObject.followIdx--;
 
-            if (followObject.followIdx < idx || followObject.followIdx == idx) {
+            const pointIdxinTrail = points.indexOf(followObject.point);
+
+            if (followObject.followIdx <= idx) {
+                console.log(`followObject: ${followObject.name}\n followIdx: ${followObject.followIdx}\n idx: ${idx}`);
+
                 followObject.isFollowing = true;
             }
         }
